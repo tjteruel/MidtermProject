@@ -1,12 +1,12 @@
 ## Quarantine Escape
-###Mid-term Team Project for Skill Distillery
+### Mid-term Team Project for Skill Distillery
 
 #### Rancid Slaughter Team Members and Roles:
 
 - Ankit Shah (Developer, DBA) https://github.com/Ankitshah89
 - Christina Rowland (Developer, Scrum Master) https://github.com/rowland1318
 - David Yoachum (Developer) https://github.com/dyoachum
-- [Tim Teruel] (https://github.com/tjteruel) (Developer, Repo Owner)
+- Tim Teruel (Developer, Repo Owner) (https://github.com/tjteruel)
 
 ### Overview
 We chose to create this specific application because the world is going through an unprecedented health crisis that has forced many of us to be self quarantined at home. This quarantine does not mean that socialization should end, there should be a virtual escape. Quarantine Escape will allow users to get out virtually and connect with other users while also doing their part to slow the spread of the Coronavirus.
@@ -47,7 +47,7 @@ How to login, username/password, etc.
 
 
 ### Stretch Goals
-- Direct Messaging -Image Uploads -Post data without page refresh -Friends list -Moderator User Functionality -Notifications -Privacy Settings -JS Escape Character- Text Inputs
+
 
 ### How to Download and Run
 
