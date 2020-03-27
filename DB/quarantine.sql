@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(100) NOT NULL,
   `username` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `user_image_url` VARCHAR(300) NULL,
-  `create_date` DATE NULL,
-  `user_description` VARCHAR(1000) NULL,
+  `user_image_url` VARCHAR(5000) NULL,
+  `create_date` DATETIME NULL,
+  `user_description` TEXT NULL,
   `enabled` TINYINT(1) NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `state` VARCHAR(200) NULL,
   `city` VARCHAR(200) NULL,
   `address` VARCHAR(200) NULL,
+  `postal_code` VARCHAR(10) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -59,10 +60,10 @@ CREATE TABLE IF NOT EXISTS `host` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `host_name` VARCHAR(500) NOT NULL,
   `email` VARCHAR(500) NULL,
-  `phone_number` VARCHAR(20) NULL,
   `location_id` INT NULL,
-  `url` VARCHAR(500) NOT NULL,
-  `url_logo` VARCHAR(500) NULL,
+  `phone_number` VARCHAR(20) NULL,
+  `url` VARCHAR(5000) NULL,
+  `url_logo` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`),
   INDEX `location_id_idx` (`location_id` ASC),
   CONSTRAINT `location_id`
@@ -80,19 +81,18 @@ DROP TABLE IF EXISTS `event` ;
 
 CREATE TABLE IF NOT EXISTS `event` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `description` VARCHAR(1000) NULL,
+  `description` TEXT NULL,
   `title` VARCHAR(500) NOT NULL,
   `event_date` DATE NOT NULL,
-  `event_time` VARCHAR(100) NOT NULL,
-  `link_to_event` VARCHAR(500) NOT NULL,
+  `event_time` TIME NOT NULL,
+  `link_to_event` VARCHAR(5000) NOT NULL,
   `host_id` INT NULL,
   `location_id` INT NULL,
   `public` TINYINT(1) NULL,
-  `event_image_url` VARCHAR(500) NULL,
-  `status` VARCHAR(200) NULL,
+  `event_image_url` VARCHAR(5000) NULL,
+  `status` ENUM('Delayed', 'Canceled') NULL,
   `prereqs` VARCHAR(500) NULL,
-  `create_date` DATE NULL,
-  `rating` DOUBLE NULL,
+  `create_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `location_id_idx` (`location_id` ASC),
   INDEX `host_id_idx` (`host_id` ASC),
@@ -110,28 +110,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `group`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `group` ;
-
-CREATE TABLE IF NOT EXISTS `group` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(450) NOT NULL,
-  `description` VARCHAR(1000) NULL,
-  `user_id` INT NULL,
-  `create_date` DATE NULL,
-  `status` VARCHAR(500) NULL,
-  PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC),
-  CONSTRAINT `fk_group_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `category`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `category` ;
@@ -139,32 +117,34 @@ DROP TABLE IF EXISTS `category` ;
 CREATE TABLE IF NOT EXISTS `category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(500) NOT NULL,
+  `description` VARCHAR(5000) NULL,
+  `category_image_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `group_comment`
+-- Table `category_comment`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `group_comment` ;
+DROP TABLE IF EXISTS `category_comment` ;
 
-CREATE TABLE IF NOT EXISTS `group_comment` (
+CREATE TABLE IF NOT EXISTS `category_comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `category_id` INT NOT NULL,
   `content` VARCHAR(1000) NULL,
-  `create_date` DATE NULL,
-  `group_id` INT NULL,
-  `user_id` INT NULL,
+  `create_date` DATETIME NULL,
   PRIMARY KEY (`id`),
-  INDEX `group_id_idx` (`group_id` ASC),
   INDEX `user_id_idx` (`user_id` ASC),
-  CONSTRAINT `group_id`
-    FOREIGN KEY (`group_id`)
-    REFERENCES `group` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_categorycomment_category_idx` (`category_id` ASC),
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_categorycomment_category`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -177,10 +157,10 @@ DROP TABLE IF EXISTS `event_comment` ;
 
 CREATE TABLE IF NOT EXISTS `event_comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `event_id` INT NOT NULL,
   `content` VARCHAR(1000) NULL,
-  `create_date` DATE NULL,
-  `event_id` INT NULL,
-  `user_id` INT NULL,
+  `create_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `event_id_idx` (`event_id` ASC),
   INDEX `user_id_idx` (`user_id` ASC),
@@ -198,11 +178,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `category_event`
+-- Table `event_category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `category_event` ;
+DROP TABLE IF EXISTS `event_category` ;
 
-CREATE TABLE IF NOT EXISTS `category_event` (
+CREATE TABLE IF NOT EXISTS `event_category` (
   `category_id` INT NOT NULL,
   `event_id` INT NOT NULL,
   PRIMARY KEY (`category_id`, `event_id`),
@@ -229,6 +209,9 @@ DROP TABLE IF EXISTS `user_event` ;
 CREATE TABLE IF NOT EXISTS `user_event` (
   `user_id` INT NOT NULL,
   `event_id` INT NOT NULL,
+  `attended` TINYINT NULL,
+  `rating` INT NULL,
+  `rating_comment` VARCHAR(5000) NULL,
   PRIMARY KEY (`user_id`, `event_id`),
   INDEX `fk_user_has_event_event1_idx` (`event_id` ASC),
   INDEX `fk_user_has_event_user1_idx` (`user_id` ASC),
@@ -238,6 +221,50 @@ CREATE TABLE IF NOT EXISTS `user_event` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_event_event1`
+    FOREIGN KEY (`event_id`)
+    REFERENCES `event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tag` ;
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `tag_name` VARCHAR(100) NOT NULL,
+  `create_date` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_tag_user_idx` (`user_id` ASC),
+  CONSTRAINT `fk_tag_user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `event_tag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `event_tag` ;
+
+CREATE TABLE IF NOT EXISTS `event_tag` (
+  `tag_id` INT NOT NULL,
+  `event_id` INT NOT NULL,
+  PRIMARY KEY (`tag_id`, `event_id`),
+  INDEX `fk_tag_has_event_event1_idx` (`event_id` ASC),
+  INDEX `fk_tag_has_event_tag1_idx` (`tag_id` ASC),
+  CONSTRAINT `fk_tag_has_event_tag1`
+    FOREIGN KEY (`tag_id`)
+    REFERENCES `tag` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tag_has_event_event1`
     FOREIGN KEY (`event_id`)
     REFERENCES `event` (`id`)
     ON DELETE NO ACTION
