@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class event {
+public class Event {
 // F I E L D S
 
 	@Id
@@ -51,7 +51,7 @@ public class event {
 	
 	
 
-	public event() {
+	public Event() {
 		super();
 	}
 
@@ -217,7 +217,7 @@ public class event {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		event other = (event) obj;
+		Event other = (Event) obj;
 		if (createdAt == null) {
 			if (other.createdAt != null)
 				return false;
@@ -272,7 +272,7 @@ public class event {
 
 
 
-	public event(int id, String description, String title, String eventDate, String eventTime, String eventLink,
+	public Event(int id, String description, String title, String eventDate, String eventTime, String eventLink,
 			Boolean publicOrPrivate, String eventImageUrl, Status status, String prereqs, LocalDate createdAt) {
 		super();
 		this.id = id;

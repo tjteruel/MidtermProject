@@ -1,49 +1,78 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	
-	
+
 	// F I E L D S
-	
+
 	// Might need an email?????
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String username;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String password;
-	
-	@Column(name="user_image_url")
+
+	@Column(name = "user_image_url")
 	private String userImageUrl;
-	
+
 	@Column(name = "create_date")
 	private String createDate;
-	
+
 	@Column(name = "user_description")
 	private String userDescription;
-	
+
 	private Boolean enabled;
-	
+
 	private String role;
+
+	@OneToMany(mappedBy = "user")
+	private List<CategoryComment> categoryComments;
 	
 	
-	
-	
+
 	////////////////////////////////////////////
+
+	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
+			String createDate, String userDescription, Boolean enabled, String role,
+			List<CategoryComment> categoryComments) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.userImageUrl = userImageUrl;
+		this.createDate = createDate;
+		this.userDescription = userDescription;
+		this.enabled = enabled;
+		this.role = role;
+		this.categoryComments = categoryComments;
+	}
+
+	public List<CategoryComment> getCategoryComments() {
+		return categoryComments;
+	}
+
+	public void setCategoryComments(List<CategoryComment> categoryComments) {
+		this.categoryComments = categoryComments;
+	}
 
 	public int getId() {
 		return id;
@@ -122,21 +151,6 @@ public class User {
 	}
 
 	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
-			String createDate, String userDescription, Boolean enabled, String role) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.password = password;
-		this.userImageUrl = userImageUrl;
-		this.createDate = createDate;
-		this.userDescription = userDescription;
-		this.enabled = enabled;
 		this.role = role;
 	}
 
@@ -224,18 +238,12 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createDate=" + createDate
-				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role + "]";
+				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role
+				+ ", categoryComments=" + categoryComments + "]";
 	}
-	
-	
+
 /////////////////////////////////////////
-	
 
 ///////////////////////////
-	
-	
-	
-	
+
 }
-	
-	
