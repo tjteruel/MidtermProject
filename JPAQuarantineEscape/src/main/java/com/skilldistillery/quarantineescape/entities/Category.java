@@ -1,10 +1,17 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Category {
@@ -20,11 +27,21 @@ public class Category {
 
 	@Column(name = "category_image_url")
 	private String categoryImageUrl;
-	
-	
-	
-	
+
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "event_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+
+	private List<Event> events;
+
 	//////////////////////////
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 
 	public int getId() {
 		return id;
@@ -98,6 +115,30 @@ public class Category {
 		return true;
 	}
 
+	////////////////////////////////////////////////
+
+	//// A D D - R E M O V E
+
+	public void addEvent(Event event) {
+		if (events == null) {
+			events = new ArrayList<>();
+		}
+		if (!events.contains(event)) {
+			events.add(event);
+			event.addCategory(this);
+		}
+
+	}
+
+	public void removeEvent(Event event) {
+
+		if (events != null && events.contains(event)) {
+			events.remove(event);
+			event.removeActor(this);
+		}
+
+	}
+
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", categoryName=" + categoryName + ", description=" + description
@@ -115,14 +156,7 @@ public class Category {
 	public Category() {
 		super();
 	}
-	
-	
-	
-	
+
 	//////////////////////////////
-	
-	
-	
-	
 
 }

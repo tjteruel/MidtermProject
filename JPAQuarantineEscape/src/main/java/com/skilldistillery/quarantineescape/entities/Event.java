@@ -1,6 +1,8 @@
 package com.skilldistillery.quarantineescape.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Event {
@@ -36,158 +39,119 @@ public class Event {
 
 	@Column(name = "event_image_url")
 	private String eventImageUrl;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
+
 	private String prereqs;
 
 	@Column(name = "create_date")
 	private LocalDate createdAt;
 
-	
-	
+	@ManyToMany(mappedBy = "events")
+	private List<Category> categories;
+
 	/////////////////////////////////////////
-	
-	
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 
 	public Event() {
 		super();
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
-
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
-
 	public String getTitle() {
 		return title;
 	}
-
-
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-
-
 	public String getEventDate() {
 		return eventDate;
 	}
-
-
 
 	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
 	}
 
-
-
 	public String getEventTime() {
 		return eventTime;
 	}
-
-
 
 	public void setEventTime(String eventTime) {
 		this.eventTime = eventTime;
 	}
 
-
-
 	public String getEventLink() {
 		return eventLink;
 	}
-
-
 
 	public void setEventLink(String eventLink) {
 		this.eventLink = eventLink;
 	}
 
-
-
 	public Boolean getPublicOrPrivate() {
 		return publicOrPrivate;
 	}
-
-
 
 	public void setPublicOrPrivate(Boolean publicOrPrivate) {
 		this.publicOrPrivate = publicOrPrivate;
 	}
 
-
-
 	public String getEventImageUrl() {
 		return eventImageUrl;
 	}
-
-
 
 	public void setEventImageUrl(String eventImageUrl) {
 		this.eventImageUrl = eventImageUrl;
 	}
 
-
-
 	public Status getStatus() {
 		return status;
 	}
-
-
 
 	public void setStatus(Status status) {
 		this.status = status;
 	}
 
-
-
 	public String getPrereqs() {
 		return prereqs;
 	}
-
-
 
 	public void setPrereqs(String prereqs) {
 		this.prereqs = prereqs;
 	}
 
-
-
 	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
 
-
-
 	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -206,8 +170,6 @@ public class Event {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -270,8 +232,6 @@ public class Event {
 		return true;
 	}
 
-
-
 	public Event(int id, String description, String title, String eventDate, String eventTime, String eventLink,
 			Boolean publicOrPrivate, String eventImageUrl, Status status, String prereqs, LocalDate createdAt) {
 		super();
@@ -288,18 +248,34 @@ public class Event {
 		this.createdAt = createdAt;
 	}
 
+	////////////////////////////////////////////////////
+	// A D D - R E M O V E
 
+	public void addCategory(Category category) {
+		if (categories == null) {
+			categories = new ArrayList<>();
+		}
+		if (!categories.contains(category)) {
+			categories.add(category);
+			category.addEvent(this);
+
+		}
+
+	}
+
+	public void removeActor(Category category) {
+		if (categories != null && categories.contains(category)) {
+			categories.remove(category);
+			category.removeEvent(this);
+		}
+	}
 
 	@Override
 	public String toString() {
-		return "event [id=" + id + ", description=" + description + ", title=" + title + ", eventDate=" + eventDate
+		return "Event [id=" + id + ", description=" + description + ", title=" + title + ", eventDate=" + eventDate
 				+ ", eventTime=" + eventTime + ", eventLink=" + eventLink + ", publicOrPrivate=" + publicOrPrivate
 				+ ", eventImageUrl=" + eventImageUrl + ", status=" + status + ", prereqs=" + prereqs + ", createdAt="
-				+ createdAt + "]";
+				+ createdAt + ", categories=" + categories + "]";
 	}
-	
-	
-	
-	
 
 }
