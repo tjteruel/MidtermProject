@@ -31,6 +31,8 @@ public class CategoryComment {
 	@JoinColumn(name="category_id")
 	private Category category;
 	
+
+	
 	
 	
 	////////////////////////////////////////////
@@ -97,6 +99,18 @@ public class CategoryComment {
 	
 	
 	/////////////////////////////
+	
+	/// ADD and REMOVE
+	
+	
+
+	public void addCategory(Category category) {
+		
+	}
+	
+	public void removeCategory(Category category) {
+		
+	}
 	
 	
 

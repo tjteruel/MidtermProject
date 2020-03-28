@@ -263,7 +263,7 @@ public class Event {
 
 	}
 
-	public void removeActor(Category category) {
+	public void removeCategory(Category category) {
 		if (categories != null && categories.contains(category)) {
 			categories.remove(category);
 			category.removeEvent(this);

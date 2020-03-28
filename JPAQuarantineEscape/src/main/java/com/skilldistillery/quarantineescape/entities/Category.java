@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -33,7 +34,18 @@ public class Category {
 
 	private List<Event> events;
 
+	@OneToMany(mappedBy = "category")
+	private List<CategoryComment> categoryComments;
+
 	//////////////////////////
+
+	public List<CategoryComment> getCategoryComments() {
+		return categoryComments;
+	}
+
+	public void setCategoryComments(List<CategoryComment> categoryComments) {
+		this.categoryComments = categoryComments;
+	}
 
 	public List<Event> getEvents() {
 		return events;
@@ -134,10 +146,32 @@ public class Category {
 
 		if (events != null && events.contains(event)) {
 			events.remove(event);
-			event.removeActor(this);
+			event.removeCategory(this);
 		}
 
 	}
+
+	public void addCategoryComments(CategoryComment cc) {
+		if (categoryComments == null)
+			categoryComments = new ArrayList<>();
+
+		if (!categoryComments.contains(cc)) {
+			categoryComments.add(cc);	
+			cc.addCategory(this);
+		}
+
+	}
+
+	public void removeCategoryComments(CategoryComment cc) {
+		
+		if (categoryComments != null && categoryComments.contains(cc)) {
+			categoryComments.remove(cc);
+			cc.removeCategory(this);
+		}
+
+	}
+
+	/////////////////////////////////////////////
 
 	@Override
 	public String toString() {
