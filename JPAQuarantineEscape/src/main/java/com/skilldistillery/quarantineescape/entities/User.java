@@ -1,5 +1,6 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,39 +9,158 @@ import javax.persistence.Id;
 @Entity
 public class User {
 	
+	
+	// F I E L D S
+	
+	// Might need an email?????
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String username;
 	
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	private String password;
+	
+	@Column(name="user_image_url")
+	private String userImageUrl;
+	
+	@Column(name = "create_date")
+	private String createDate;
+	
+	@Column(name = "user_description")
+	private String userDescription;
+	
+	private Boolean enabled;
+	
+	private String role;
 	
 	
 	
 	
-	///
+	////////////////////////////////////////////
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getUserImageUrl() {
+		return userImageUrl;
+	}
+
+	public void setUserImageUrl(String userImageUrl) {
+		this.userImageUrl = userImageUrl;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getUserDescription() {
+		return userDescription;
+	}
+
+	public void setUserDescription(String userDescription) {
+		this.userDescription = userDescription;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
+			String createDate, String userDescription, Boolean enabled, String role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.userImageUrl = userImageUrl;
+		this.createDate = createDate;
+		this.userDescription = userDescription;
+		this.enabled = enabled;
+		this.role = role;
+	}
+
 	public User() {
 		super();
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
+		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + ((userDescription == null) ? 0 : userDescription.hashCode());
+		result = prime * result + ((userImageUrl == null) ? 0 : userImageUrl.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -50,7 +170,47 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (createDate == null) {
+			if (other.createDate != null)
+				return false;
+		} else if (!createDate.equals(other.createDate))
+			return false;
+		if (enabled == null) {
+			if (other.enabled != null)
+				return false;
+		} else if (!enabled.equals(other.enabled))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
 		if (id != other.id)
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		if (userDescription == null) {
+			if (other.userDescription != null)
+				return false;
+		} else if (!userDescription.equals(other.userDescription))
+			return false;
+		if (userImageUrl == null) {
+			if (other.userImageUrl != null)
+				return false;
+		} else if (!userImageUrl.equals(other.userImageUrl))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -59,14 +219,23 @@ public class User {
 			return false;
 		return true;
 	}
-	public User(int id, String username) {
-		super();
-		this.id = id;
-		this.username = username;
-	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + "]";
+		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createDate=" + createDate
+				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role + "]";
 	}
+	
+	
+/////////////////////////////////////////
+	
 
+///////////////////////////
+	
+	
+	
+	
 }
+	
+	
