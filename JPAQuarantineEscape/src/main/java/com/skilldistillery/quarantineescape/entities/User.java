@@ -1,5 +1,6 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,9 +32,9 @@ public class User {
 
 	@Column(name = "user_image_url")
 	private String userImageUrl;
-
+	
 	@Column(name = "create_date")
-	private String createDate;
+	private LocalDate createdAt;
 
 	@Column(name = "user_description")
 	private String userDescription;
@@ -45,13 +46,36 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<CategoryComment> categoryComments;
 	
+	@OneToMany(mappedBy="user")
+	private List<UserEvent> userEvents;
+	
+	@OneToMany(mappedBy="user")
+	private List<EventComment> eventComments;	
+	
 	
 
 	////////////////////////////////////////////
+	
+
+	public List<EventComment> getEventComments() {
+		return eventComments;
+	}
+
+	public void setEventComments(List<EventComment> eventComments) {
+		this.eventComments = eventComments;
+	}
+
+	public List<UserEvent> getUserEvents() {
+		return userEvents;
+	}
+
+	public User() {
+		super();
+	}
 
 	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
-			String createDate, String userDescription, Boolean enabled, String role,
-			List<CategoryComment> categoryComments) {
+			LocalDate createdAt, String userDescription, Boolean enabled, String role,
+			List<CategoryComment> categoryComments, List<UserEvent> userEvents) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -59,12 +83,123 @@ public class User {
 		this.lastName = lastName;
 		this.password = password;
 		this.userImageUrl = userImageUrl;
-		this.createDate = createDate;
+		this.createdAt = createdAt;
 		this.userDescription = userDescription;
 		this.enabled = enabled;
 		this.role = role;
 		this.categoryComments = categoryComments;
+		this.userEvents = userEvents;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createdAt=" + createdAt
+				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role
+				+ ", categoryComments=" + categoryComments + ", userEvents=" + userEvents + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoryComments == null) ? 0 : categoryComments.hashCode());
+		result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
+		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + ((userDescription == null) ? 0 : userDescription.hashCode());
+		result = prime * result + ((userEvents == null) ? 0 : userEvents.hashCode());
+		result = prime * result + ((userImageUrl == null) ? 0 : userImageUrl.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (categoryComments == null) {
+			if (other.categoryComments != null)
+				return false;
+		} else if (!categoryComments.equals(other.categoryComments))
+			return false;
+		if (createdAt == null) {
+			if (other.createdAt != null)
+				return false;
+		} else if (!createdAt.equals(other.createdAt))
+			return false;
+		if (enabled == null) {
+			if (other.enabled != null)
+				return false;
+		} else if (!enabled.equals(other.enabled))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (id != other.id)
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		if (userDescription == null) {
+			if (other.userDescription != null)
+				return false;
+		} else if (!userDescription.equals(other.userDescription))
+			return false;
+		if (userEvents == null) {
+			if (other.userEvents != null)
+				return false;
+		} else if (!userEvents.equals(other.userEvents))
+			return false;
+		if (userImageUrl == null) {
+			if (other.userImageUrl != null)
+				return false;
+		} else if (!userImageUrl.equals(other.userImageUrl))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	public LocalDate getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDate createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public void setUserEvents(List<UserEvent> userEvents) {
+		this.userEvents = userEvents;
+	}
+
+	
 
 	public List<CategoryComment> getCategoryComments() {
 		return categoryComments;
@@ -122,13 +257,7 @@ public class User {
 		this.userImageUrl = userImageUrl;
 	}
 
-	public String getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
+	
 
 	public String getUserDescription() {
 		return userDescription;
@@ -154,93 +283,11 @@ public class User {
 		this.role = role;
 	}
 
-	public User() {
-		super();
-	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		result = prime * result + ((userDescription == null) ? 0 : userDescription.hashCode());
-		result = prime * result + ((userImageUrl == null) ? 0 : userImageUrl.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
-	}
+	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (createDate == null) {
-			if (other.createDate != null)
-				return false;
-		} else if (!createDate.equals(other.createDate))
-			return false;
-		if (enabled == null) {
-			if (other.enabled != null)
-				return false;
-		} else if (!enabled.equals(other.enabled))
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (id != other.id)
-			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
-			return false;
-		if (userDescription == null) {
-			if (other.userDescription != null)
-				return false;
-		} else if (!userDescription.equals(other.userDescription))
-			return false;
-		if (userImageUrl == null) {
-			if (other.userImageUrl != null)
-				return false;
-		} else if (!userImageUrl.equals(other.userImageUrl))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createDate=" + createDate
-				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role
-				+ ", categoryComments=" + categoryComments + "]";
-	}
+	
+	
 
 /////////////////////////////////////////
 

@@ -151,25 +151,25 @@ public class Category {
 
 	}
 
-	public void addCategoryComments(CategoryComment cc) {
-		if (categoryComments == null)
-			categoryComments = new ArrayList<>();
+//	public void addCategoryComments(CategoryComment cc) {
+//		if (categoryComments == null)
+//			categoryComments = new ArrayList<>();
+//
+//		if (!categoryComments.contains(cc)) {
+//			categoryComments.add(cc);	
+//			cc.addCategory(this);
+//		}
+//
+//	}
 
-		if (!categoryComments.contains(cc)) {
-			categoryComments.add(cc);	
-			cc.addCategory(this);
-		}
-
-	}
-
-	public void removeCategoryComments(CategoryComment cc) {
-		
-		if (categoryComments != null && categoryComments.contains(cc)) {
-			categoryComments.remove(cc);
-			cc.removeCategory(this);
-		}
-
-	}
+//	public void removeCategoryComments(CategoryComment cc) {
+//		
+//		if (categoryComments != null && categoryComments.contains(cc)) {
+//			categoryComments.remove(cc);
+//			cc.removeCategory(this);
+//		}
+//
+//	}
 
 	/////////////////////////////////////////////
 

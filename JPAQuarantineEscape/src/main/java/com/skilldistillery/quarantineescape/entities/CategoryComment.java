@@ -1,6 +1,7 @@
 package com.skilldistillery.quarantineescape.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="category_comment")
 public class CategoryComment {
 	
 	@Id
@@ -92,24 +95,6 @@ public class CategoryComment {
 
 	public CategoryComment() {
 		super();
-	}
-	
-	
-	
-	
-	
-	/////////////////////////////
-	
-	/// ADD and REMOVE
-	
-	
-
-	public void addCategory(Category category) {
-		
-	}
-	
-	public void removeCategory(Category category) {
-		
 	}
 	
 	
