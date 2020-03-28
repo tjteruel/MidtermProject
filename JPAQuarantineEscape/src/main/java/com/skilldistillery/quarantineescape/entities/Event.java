@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Event {
@@ -51,10 +52,23 @@ public class Event {
 	@ManyToMany(mappedBy = "events")
 	private List<Category> categories;
 
+	@OneToMany(mappedBy = "event")
+	private List<UserEvent> userEvents;
+
 	/////////////////////////////////////////
 
+	
+	
 	public List<Category> getCategories() {
 		return categories;
+	}
+
+	public List<UserEvent> getUserEvents() {
+		return userEvents;
+	}
+
+	public void setUserEvents(List<UserEvent> userEvents) {
+		this.userEvents = userEvents;
 	}
 
 	public void setCategories(List<Category> categories) {
@@ -263,7 +277,7 @@ public class Event {
 
 	}
 
-	public void removeActor(Category category) {
+	public void removeCategory(Category category) {
 		if (categories != null && categories.contains(category)) {
 			categories.remove(category);
 			category.removeEvent(this);
