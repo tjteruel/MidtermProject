@@ -5,6 +5,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -23,10 +24,12 @@ public class UserEvent {
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
+	@MapsId(value="userId")
 	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="event_id")
+	@MapsId(value="eventId")
 	private Event event;
 	
 	
