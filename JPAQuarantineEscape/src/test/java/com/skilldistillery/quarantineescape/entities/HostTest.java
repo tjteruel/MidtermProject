@@ -1,8 +1,6 @@
 package com.skilldistillery.quarantineescape.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,11 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
-
+class HostTest {
 	static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Host host;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,22 +30,21 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user= em.find(User.class, 1);
+		host = em.find(Host.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		host = null;
 	}
 
 	@Test
 	void test() {
-		assertEquals("frog",user.getUsername());
-		assertNotNull(user.getEventComments());
-		assertEquals("Hooker Rank",user.getUserEvents().get(0).getEvent().getTitle());
-	
-	
+
+		assertNotNull(host.getEvents());
+		
+
 	}
 
 }
