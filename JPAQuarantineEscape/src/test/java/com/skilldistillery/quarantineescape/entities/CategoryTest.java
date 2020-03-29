@@ -44,6 +44,7 @@ class CategoryTest {
 	void test() {
 
 		assertNotNull(category.getEvents());
+		assertEquals("Animal Cams", category.getCategoryName());
 		
 
 	}

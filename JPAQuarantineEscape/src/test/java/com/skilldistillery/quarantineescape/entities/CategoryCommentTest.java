@@ -44,6 +44,7 @@ class CategoryCommentTest {
 	void test() {
 
 		assertNotNull(categoryComment);
+		assertEquals(1,categoryComment.getId());
 
 	}
 }
