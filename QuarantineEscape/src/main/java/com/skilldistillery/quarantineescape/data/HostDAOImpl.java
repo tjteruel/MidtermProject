@@ -29,7 +29,7 @@ public class HostDAOImpl implements HostDAO {
 		Host updatedHost = em.find(Host.class, hostId);
 		updatedHost.setHostName(host.getHostName());
 		updatedHost.setEmail(host.getEmail());
-		updatedHost.setLocationId(host.getLocationId());
+		updatedHost.setLocation(host.getLocation());
 		updatedHost.setPhoneNumber(host.getPhoneNumber());
 		updatedHost.setUrl(host.getUrl());
 		updatedHost.setUrlLogo(host.getUrlLogo());
