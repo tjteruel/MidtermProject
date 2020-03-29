@@ -22,8 +22,8 @@ public class Tag {
 
 	private int id;
 
-	@Column(name = "user_id")
-	private String userId;
+//	@Column(name = "user_id")
+//	private String userId;
 
 	@Column(name = "tag_name")
 	private String tagName;
@@ -41,22 +41,31 @@ public class Tag {
 	@JoinColumn(name="user_id")
 	private User user;
 
-	//////////////////////////////////////////////////
 
-	public User getUser() {
-		return user;
+
+
+
+public Tag() {
+		super();
 	}
 
-	public void setUser(User user) {
+public Tag(int id, String tagName, LocalDate createDate, List<Event> events, User user) {
+		super();
+		this.id = id;
+		this.tagName = tagName;
+		this.createDate = createDate;
+		this.events = events;
 		this.user = user;
 	}
 
-	public List<Event> getEvents() {
-		return events;
-	}
+/////////////////////////////////////
 
-	public void setEvents(List<Event> events) {
-		this.events = events;
+	////// ADD REMOVE
+
+	@Override
+	public String toString() {
+		return "Tag [id=" + id + ", tagName=" + tagName + ", createDate=" + createDate + ", events=" + events
+				+ ", user=" + user + "]";
 	}
 
 	@Override
@@ -64,9 +73,10 @@ public class Tag {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
+		result = prime * result + ((events == null) ? 0 : events.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((tagName == null) ? 0 : tagName.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -84,6 +94,11 @@ public class Tag {
 				return false;
 		} else if (!createDate.equals(other.createDate))
 			return false;
+		if (events == null) {
+			if (other.events != null)
+				return false;
+		} else if (!events.equals(other.events))
+			return false;
 		if (id != other.id)
 			return false;
 		if (tagName == null) {
@@ -91,30 +106,25 @@ public class Tag {
 				return false;
 		} else if (!tagName.equals(other.tagName))
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (user == null) {
+			if (other.user != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
 
-	public Tag() {
-		super();
-	}
+	public void addEvent(Event event) {
 
-	public Tag(int id, String userId, String tagName, LocalDate createDate) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.tagName = tagName;
-		this.createDate = createDate;
-	}
+		if (events == null) {
+			events = new ArrayList<>();
+		}
+		if (!events.contains(event)) {
+			events.add(event);
+			event.addTag(this);
 
-	@Override
-	public String toString() {
-		return "Tag [id=" + id + ", userId=" + userId + ", tagName=" + tagName + ", createDate=" + createDate
-				+ ", events=" + events + ", user=" + user + "]";
+		}
+
 	}
 
 	public int getId() {
@@ -123,14 +133,6 @@ public class Tag {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 
 	public String getTagName() {
@@ -149,21 +151,20 @@ public class Tag {
 		this.createDate = createDate;
 	}
 
-/////////////////////////////////////
+	public List<Event> getEvents() {
+		return events;
+	}
 
-	////// ADD REMOVE
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 
-	public void addEvent(Event event) {
+	public User getUser() {
+		return user;
+	}
 
-		if (events == null) {
-			events = new ArrayList<>();
-		}
-		if (!events.contains(event)) {
-			events.add(event);
-			event.addTag(this);
-
-		}
-
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public void removeEvent(Event event) {
