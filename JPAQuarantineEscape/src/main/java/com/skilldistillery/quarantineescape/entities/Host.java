@@ -23,8 +23,8 @@ public class Host {
 	
 	private String email;
 	
-	@Column(name="location_id")
-	private int locationId;
+//	@Column(name="location_id")
+//	private int locationId;
 	
 	@Column(name="phone_number")
 	private String phoneNumber;
@@ -44,41 +44,104 @@ public class Host {
 	private List<Event> events;
 	
 	
-	
-	
-	
-	
-	////////////////////////////////
+	///////////////////////////////////
 
-	public List<Event> getEvents() {
-		return events;
+
+	public int getId() {
+		return id;
 	}
 
-	public void setEvents(List<Event> events) {
-		this.events = events;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+
+	public String getHostName() {
+		return hostName;
+	}
+
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+	public String getUrlLogo() {
+		return urlLogo;
+	}
+
+
+	public void setUrlLogo(String urlLogo) {
+		this.urlLogo = urlLogo;
+	}
+
 
 	public Location getLocation() {
 		return location;
 	}
 
+
 	public void setLocation(Location location) {
 		this.location = location;
 	}
+
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((events == null) ? 0 : events.hashCode());
 		result = prime * result + ((hostName == null) ? 0 : hostName.hashCode());
 		result = prime * result + id;
-		result = prime * result + locationId;
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		result = prime * result + ((urlLogo == null) ? 0 : urlLogo.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -94,6 +157,11 @@ public class Host {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (events == null) {
+			if (other.events != null)
+				return false;
+		} else if (!events.equals(other.events))
+			return false;
 		if (hostName == null) {
 			if (other.hostName != null)
 				return false;
@@ -101,7 +169,10 @@ public class Host {
 			return false;
 		if (id != other.id)
 			return false;
-		if (locationId != other.locationId)
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
 			return false;
 		if (phoneNumber == null) {
 			if (other.phoneNumber != null)
@@ -121,81 +192,37 @@ public class Host {
 		return true;
 	}
 
-	public Host() {
-		super();
-	}
-
-	public Host(int id, String hostName, String email, int locationId, String phoneNumber, String url, String urlLogo) {
-		super();
-		this.id = id;
-		this.hostName = hostName;
-		this.email = email;
-		this.locationId = locationId;
-		this.phoneNumber = phoneNumber;
-		this.url = url;
-		this.urlLogo = urlLogo;
-	}
 
 	@Override
 	public String toString() {
-		return "Host [id=" + id + ", hostName=" + hostName + ", email=" + email + ", locationId=" + locationId
-				+ ", phoneNumber=" + phoneNumber + ", url=" + url + ", urlLogo=" + urlLogo + ", location=" + location
-				+ "]";
+		return "Host [id=" + id + ", hostName=" + hostName + ", email=" + email + ", phoneNumber=" + phoneNumber
+				+ ", url=" + url + ", urlLogo=" + urlLogo + ", location=" + location + ", events=" + events + "]";
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
+	public Host(int id, String hostName, String email, String phoneNumber, String url, String urlLogo,
+			Location location, List<Event> events) {
+		super();
 		this.id = id;
-	}
-
-	public String getHostName() {
-		return hostName;
-	}
-
-	public void setHostName(String hostName) {
 		this.hostName = hostName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
 		this.url = url;
-	}
-
-	public String getUrlLogo() {
-		return urlLogo;
-	}
-
-	public void setUrlLogo(String urlLogo) {
 		this.urlLogo = urlLogo;
+		this.location = location;
+		this.events = events;
 	}
+
+
+	public Host() {
+		super();
+	}
+	
+	
+	
+	
+	
+	
+	////////////////////////////////
+
 }
