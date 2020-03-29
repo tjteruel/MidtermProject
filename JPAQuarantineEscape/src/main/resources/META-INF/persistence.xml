@@ -10,6 +10,17 @@
     
     <!-- entities -->
     <class>com.skilldistillery.quarantineescape.entities.User</class>
+    <class>com.skilldistillery.quarantineescape.entities.Category</class>
+    <class>com.skilldistillery.quarantineescape.entities.CategoryComment</class>
+    <class>com.skilldistillery.quarantineescape.entities.Event</class>
+    <class>com.skilldistillery.quarantineescape.entities.EventComment</class>
+    <class>com.skilldistillery.quarantineescape.entities.Host</class>
+    <class>com.skilldistillery.quarantineescape.entities.Location</class>
+    <class>com.skilldistillery.quarantineescape.entities.Status</class>
+    <class>com.skilldistillery.quarantineescape.entities.Tag</class>
+    <class>com.skilldistillery.quarantineescape.entities.UserEvent</class>
+   
+
  
     <!-- end entities -->
 
