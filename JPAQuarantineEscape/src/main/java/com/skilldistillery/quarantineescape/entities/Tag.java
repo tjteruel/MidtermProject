@@ -1,28 +1,63 @@
 package com.skilldistillery.quarantineescape.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Tag {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+
 	private int id;
-	
-	@Column(name="user_id")
+
+	@Column(name = "user_id")
 	private String userId;
-	
-	@Column(name="tag_name")
+
+	@Column(name = "tag_name")
 	private String tagName;
-	
-	@Column(name="create_date")
+
+	@Column(name = "create_date")
 	private LocalDate createDate;
+
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "event_tag", joinColumns = @JoinColumn(name = "tag_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+
+	private List<Event> events;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+
+	//////////////////////////////////////////////////
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 
 	@Override
 	public int hashCode() {
@@ -78,7 +113,8 @@ public class Tag {
 
 	@Override
 	public String toString() {
-		return "Tag [id=" + id + ", userId=" + userId + ", tagName=" + tagName + ", createDate=" + createDate + "]";
+		return "Tag [id=" + id + ", userId=" + userId + ", tagName=" + tagName + ", createDate=" + createDate
+				+ ", events=" + events + ", user=" + user + "]";
 	}
 
 	public int getId() {
@@ -112,4 +148,31 @@ public class Tag {
 	public void setCreateDate(LocalDate createDate) {
 		this.createDate = createDate;
 	}
+
+/////////////////////////////////////
+
+	////// ADD REMOVE
+
+	public void addEvent(Event event) {
+
+		if (events == null) {
+			events = new ArrayList<>();
+		}
+		if (!events.contains(event)) {
+			events.add(event);
+			event.addTag(this);
+
+		}
+
+	}
+
+	public void removeEvent(Event event) {
+
+		if (events != null && events.contains(event)) {
+			events.remove(event);
+			event.removeTag(this);
+		}
+
+	}
+
 }

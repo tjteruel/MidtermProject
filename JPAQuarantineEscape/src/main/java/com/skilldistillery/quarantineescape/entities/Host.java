@@ -1,10 +1,15 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Host {
@@ -28,6 +33,38 @@ public class Host {
 	
 	@Column(name="url_logo")
 	private String urlLogo;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="location_id")
+	private Location location;
+	
+	
+	@OneToMany(mappedBy="host")
+	private List<Event> events;
+	
+	
+	
+	
+	
+	
+	////////////////////////////////
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
 	@Override
 	public int hashCode() {
@@ -102,7 +139,8 @@ public class Host {
 	@Override
 	public String toString() {
 		return "Host [id=" + id + ", hostName=" + hostName + ", email=" + email + ", locationId=" + locationId
-				+ ", phoneNumber=" + phoneNumber + ", url=" + url + ", urlLogo=" + urlLogo + "]";
+				+ ", phoneNumber=" + phoneNumber + ", url=" + url + ", urlLogo=" + urlLogo + ", location=" + location
+				+ "]";
 	}
 
 	public int getId() {

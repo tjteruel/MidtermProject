@@ -1,10 +1,13 @@
 package com.skilldistillery.quarantineescape.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Location {
@@ -22,6 +25,25 @@ public class Location {
 	
 	@Column (name="postal_code")
 	private String postalCode;
+	
+
+	@OneToMany(mappedBy="location")
+	private List<Host> hosts;
+	
+	@OneToMany(mappedBy="location")
+	private List<Event> events;
+	
+	
+	///////////////////////
+
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 
 	@Override
 	public int hashCode() {
@@ -34,6 +56,14 @@ public class Location {
 		result = prime * result + ((postalCode == null) ? 0 : postalCode.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		return result;
+	}
+
+	public List<Host> getHosts() {
+		return hosts;
+	}
+
+	public void setHosts(List<Host> hosts) {
+		this.hosts = hosts;
 	}
 
 	@Override

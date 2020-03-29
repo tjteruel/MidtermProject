@@ -11,8 +11,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.ws.soap.MTOM;
 
 @Entity
 public class Event {
@@ -52,13 +55,56 @@ public class Event {
 	@ManyToMany(mappedBy = "events")
 	private List<Category> categories;
 
+	@ManyToMany(mappedBy = "events")
+	private List<Tag> tags;
+
 	@OneToMany(mappedBy = "event")
 	private List<UserEvent> userEvents;
+	
+	@OneToMany(mappedBy="event")
+	private List<EventComment> eventComments;
 
+	@ManyToOne
+	@JoinColumn(name = "host_id")
+	private Host host;
+
+	public List<EventComment> getEventComments() {
+		return eventComments;
+	}
+
+	public void setEventComments(List<EventComment> eventComments) {
+		this.eventComments = eventComments;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
 	/////////////////////////////////////////
 
-	
-	
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Host getHost() {
+		return host;
+	}
+
+	public void setHost(Host host) {
+		this.host = host;
+	}
+
 	public List<Category> getCategories() {
 		return categories;
 	}
@@ -284,12 +330,34 @@ public class Event {
 		}
 	}
 
-	@Override
+	public void addTag(Tag tag) {
+
+		if (tags == null) {
+			tags = new ArrayList<>();
+		}
+		if (!tags.contains(tag)) {
+			tags.add(tag);
+			tag.addEvent(this);
+
+		}
+
+	}
+
+	public void removeTag(Tag tag) {
+		if (tags != null && tags.contains(tag)) {
+			tags.remove(tag);
+			tag.removeEvent(this);
+		}
+
+	}
+
+@Override
 	public String toString() {
 		return "Event [id=" + id + ", description=" + description + ", title=" + title + ", eventDate=" + eventDate
 				+ ", eventTime=" + eventTime + ", eventLink=" + eventLink + ", publicOrPrivate=" + publicOrPrivate
 				+ ", eventImageUrl=" + eventImageUrl + ", status=" + status + ", prereqs=" + prereqs + ", createdAt="
-				+ createdAt + ", categories=" + categories + "]";
+				+ createdAt + ", categories=" + categories + ", tags=" + tags + ", userEvents=" + userEvents + ", host="
+				+ host + ", location=" + location + "]";
 	}
 
 }

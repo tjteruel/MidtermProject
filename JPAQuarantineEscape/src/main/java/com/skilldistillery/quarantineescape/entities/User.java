@@ -51,8 +51,20 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<EventComment> eventComments;
+	
+	
+	@OneToMany(mappedBy="user")
+	private List<Tag> tags;
 
 	////////////////////////////////////////////
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
 
 	public List<EventComment> getEventComments() {
 		return eventComments;
@@ -185,7 +197,8 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createdAt=" + createdAt
 				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role
-				+ ", categoryComments=" + categoryComments + ", userEvents=" + userEvents + "]";
+				+ ", categoryComments=" + categoryComments + ", userEvents=" + userEvents + ", eventComments="
+				+ eventComments + ", tags=" + tags + "]";
 	}
 
 	@Override
