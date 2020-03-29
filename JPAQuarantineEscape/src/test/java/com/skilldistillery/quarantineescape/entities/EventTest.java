@@ -43,6 +43,7 @@ class EventTest {
 	void test() {
 
 		assertNotNull(event.getCategories());
-
+		assertEquals("Animal Cams", event.getCategories().get(0).getCategoryName());
+		assertEquals("Captain Planet", event.getHost().getHostName());
 	}
 }

@@ -1,6 +1,8 @@
 package com.skilldistillery.quarantineescape.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -44,7 +46,8 @@ class UserTest {
 	void test() {
 		assertEquals("frog",user.getUsername());
 		assertNotNull(user.getEventComments());
-//		assertTrue(user.getCategoryComments().size()>0);
+		assertEquals("Hooker Rank",user.getUserEvents().get(0).getEvent().getTitle());
+	
 	
 	}
 
