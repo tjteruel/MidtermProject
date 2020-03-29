@@ -4,9 +4,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.User;
 
+@Service
+@Transactional
 public class UserDAOImpl implements UserDAO{
 	
 	@PersistenceContext
@@ -51,7 +56,7 @@ public class UserDAOImpl implements UserDAO{
 		return updatedUser;
 	}
 
-	//
+	//USER LOGIN
 	@Override
 	public User login(String userName, String password) {
 		String query = "SELECT user FROM User user where user.firstName = :uFirstName AND"
@@ -60,7 +65,8 @@ public class UserDAOImpl implements UserDAO{
 				.setParameter("pWord", password).getResultList();
 		return users.size() >0 ? users.get(0) : null;
 	}
-
+	
+	//FIND USER BY ID
 	@Override
 	public User findUserById(int userId) {
 		User user = em.find(User.class, userId);
