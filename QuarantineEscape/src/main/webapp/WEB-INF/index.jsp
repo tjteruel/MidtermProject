@@ -399,6 +399,7 @@
 							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="listTags.do">List Tags</a></li>
 						</ul>
 					</div>
 
