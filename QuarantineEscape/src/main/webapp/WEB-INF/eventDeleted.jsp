@@ -16,6 +16,7 @@
 <h2>Delete Event</h2>
   		<table class="table table-striped">
 		<thead class="thead thead-dark">
+		
 <c:choose>
 		<c:when test="${delete == true}">
 			Event DELETED ${eventId}
