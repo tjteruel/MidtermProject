@@ -23,13 +23,13 @@
 								<h3 class="login-heading mb-4">Welcome back!</h3>
 								<form action="signIn.do">
 									<div class="form-label-group">
-										<input type="text" id="username" class="form-control"
+										<input type="text" id="username" name="username" class="form-control"
 											placeholder="Enter Username" required autofocus> <label
 											for="username">Username</label>
 									</div>
 
 									<div class="form-label-group">
-										<input type="password" id="password" class="form-control"
+										<input type="password" id="password" name="password" class="form-control"
 											placeholder="Enter Password" required> <label
 											for="password">Password</label>
 									</div>

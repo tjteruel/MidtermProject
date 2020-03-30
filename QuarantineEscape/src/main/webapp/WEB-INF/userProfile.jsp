@@ -13,11 +13,10 @@
 </head>
 <body>
 	<div class ="container-fluid">
-		<h3>First Name: ${user.firstName} Last Name${user.lastName}(ID: ${user.id})</h3>
-		<p>Email: ${user.email}</p>
-		<p>Username: ${user.username}</p>
-		<p>Description: ${user.description}</p>
-		<p>Image: ${user.userImageUrl}</p>
+		<h3>First Name: ${loggedInUser.firstName} Last Name${loggedInUser.lastName}(ID: ${loggedInUser.id})</h3>
+		<p>Username: ${loggedInUser.username}</p>
+		<p>Description: ${loggedInUser.userDescription}</p>
+		<p>Image: ${loggedInUser.userImageUrl}</p>
 	</div> 
 	
        
