@@ -59,7 +59,7 @@
           <div class="md-form">
             <i class="fas fa-envelope prefix grey-text"></i>
             <input type="text" id="Address" class="form-control" placeholder="Enter the Address" name ="address">
-            <label for="state">State</label>
+            <label for="state">Address</label>
           </div>
           
          <div class="md-form">
