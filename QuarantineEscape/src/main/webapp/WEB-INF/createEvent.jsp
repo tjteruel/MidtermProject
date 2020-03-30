@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="updateEvent.do" method="POST" modelAttribute="event">
+	<form:form action="createEvent.do" method="POST" modelAttribute="event">
 		<input type="hidden" name="id" value="${event.id}">
 		<form:label path="title">Title:</form:label>
 		<form:input path="title" />
