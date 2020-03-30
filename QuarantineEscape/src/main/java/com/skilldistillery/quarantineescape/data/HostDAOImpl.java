@@ -47,7 +47,7 @@ public class HostDAOImpl implements HostDAO {
 	@Override
 	public Host findHostById(int hostId) {
 		Host host = em.find(Host.class, hostId);
-		return null;
+		return host;
 	}
 	@Override
 	public List<Host> findAll() {
