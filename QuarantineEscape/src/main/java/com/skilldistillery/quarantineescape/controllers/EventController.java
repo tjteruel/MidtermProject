@@ -18,6 +18,14 @@ public class EventController {
 	@Autowired
 	private EventDAO dao;
 	
+	@RequestMapping(path= {"allEvents.do"})
+	public String index(Model model) {
+		
+		model.addAttribute("event", dao.findAll());
+		return "index";
+	}
+		
+	
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
 	public String findEventById(@RequestParam int id, Model model) {
 		String view = "Event";
@@ -31,6 +39,17 @@ public class EventController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index");
 		return mv;
+	}
+	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
+	public String deleteEvent(@RequestParam("eventId") int id) {
+		Event event = dao.findEventById(id);
+		dao.deleteEvent(id);
+		return "eventDeleted";
+	}
+	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
+	public String updateEvent(@RequestParam("id")int id, Event event) {
+		dao.updateEvent(event, id);
+		return "eventUpdated";
 	}
 	
 	

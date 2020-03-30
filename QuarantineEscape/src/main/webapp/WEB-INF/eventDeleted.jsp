@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Quarantine Escape - User Added</title>
+<title>Insert title here</title>
 </head>
 <body>
 

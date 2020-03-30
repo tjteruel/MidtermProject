@@ -7,8 +7,17 @@
 <meta charset="UTF-8">
 <title>Event</title>
 </head>
-<body>
-	<a class="btn btn-lg btn-primary" href="home.do" role="button">Home</a>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/myStyles.css">
+</head>
+<body class="h-100">
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+	<div class="container-fluid">
 	<c:choose>
 		<c:when test="${! empty event}">
 			<ul>
@@ -33,6 +42,6 @@
 			</p>
 		</c:otherwise>
 	</c:choose>
-
+</div>
 </body>
 </html>
