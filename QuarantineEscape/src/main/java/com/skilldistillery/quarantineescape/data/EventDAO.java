@@ -31,5 +31,5 @@ public interface EventDAO {
 	
 	public List<EventComment> getEventCommentByEventId(int eventId);
 	
-
+	List<Event> findAll();
 }
