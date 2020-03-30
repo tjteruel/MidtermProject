@@ -135,6 +135,12 @@ public class EventDAOImpl implements EventDAO{
 		List <EventComment> eComments = em.createQuery(query, EventComment.class).setParameter("eId", eventId).getResultList();
 		return eComments;
 	}
+
+	@Override
+	public Event findEventById(int id) {
+		Event eventFound = em.find(Event.class, id);
+		return null;
+	}
 	
 
 }

@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.xml.ws.soap.MTOM;
+
 
 @Entity
 public class Event {
