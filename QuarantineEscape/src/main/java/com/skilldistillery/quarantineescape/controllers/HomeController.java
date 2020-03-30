@@ -53,7 +53,7 @@ public class HomeController {
 		public String eventPage() {
 			return "createEvent";
 		}
-		
+	
 		
 
 		
