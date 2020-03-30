@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Event;
+import com.skilldistillery.quarantineescape.entities.Host;
 import com.skilldistillery.quarantineescape.entities.Tag;
 
 @Service
@@ -40,7 +41,7 @@ public class TagDAOImpl implements TagDAO{
 	public Tag updateTag(Tag tag, int tagId) {
 		Tag updateTag = em.find(Tag.class, tagId);
 		updateTag.setTagName(tag.getTagName());
-		return null;
+		return tag;
 	}
 
 	@Override
@@ -53,6 +54,12 @@ public class TagDAOImpl implements TagDAO{
 		String query = "SELECT t FROM Tag t WHERE t.event.id = :eventId";
 		List <Tag> tags = em.createQuery(query, Tag.class).setParameter("eventId", eventId).getResultList();
 		return tags;
+	}
+	
+	@Override
+	public List<Tag> findAll() {
+		String jpql = "SELECT t FROM Tag t";
+		return em.createQuery(jpql, Tag.class).getResultList();
 	}
 
 }
