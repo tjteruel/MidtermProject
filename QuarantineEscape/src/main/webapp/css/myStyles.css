@@ -181,7 +181,7 @@ header.masthead .bg-circle-4 {
   padding: 10px 20px;
   font-size: 12px;
   line-height: 20px;
-  color: #666666;
+  color: #ff6a00; 
   border-radius: 4px;
   text-transform: uppercase;
   background: #fff;
@@ -190,7 +190,7 @@ header.masthead .bg-circle-4 {
 }
 
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
-  background: #18d26e;
+  background: #ee0979;
   color: #fff;
 }
 
@@ -333,7 +333,7 @@ header.masthead .bg-circle-4 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
-  border-left: 4px solid #18d26e;
+  border-left: 4px solid #ee0979;
 }
 
 #footer .footer-top .footer-info p {
@@ -360,7 +360,7 @@ header.masthead .bg-circle-4 {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #18d26e;
+  background: #ee0979;
   color: #fff;
 }
 
@@ -387,7 +387,7 @@ header.masthead .bg-circle-4 {
 }
 
 #footer .footer-top h4::after {
-  background: #18d26e;
+  background: #ee0979;
   width: 60px;
 }
 
@@ -442,7 +442,7 @@ header.masthead .bg-circle-4 {
 }
 
 #footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #18d26e;
+  background: #ee0979;
   border: 0;
   width: 35%;
   padding: 6px 0;
@@ -453,7 +453,7 @@ header.masthead .bg-circle-4 {
 }
 
 #footer .footer-top .footer-newsletter input[type="submit"]:hover {
-  background: #13a456;
+  background: #ff6a00;
 }
 
 #footer .copyright {

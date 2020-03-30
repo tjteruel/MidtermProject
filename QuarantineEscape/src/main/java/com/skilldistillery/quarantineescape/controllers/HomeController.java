@@ -10,4 +10,21 @@ public class HomeController {
 		public String home() {
 			return "index";
 		}
+		
+		@RequestMapping(path = "createUserPage.do")
+		public String signUpPage() {
+			return "signUp";
+		}
+		
+		@RequestMapping(path = "signInPage.do")
+		public String signInPage() {
+			return "signIn";
+		}
+		
+		@RequestMapping(path = "meetTheTeam.do")
+		public String meetTeam() {
+			return "meetTeam";
+		}
+		
+		
 }
