@@ -41,6 +41,11 @@ public class HomeController {
 			return "locationForm";
 		}
 		
+		@RequestMapping(path = "createEventPage.do")
+		public String eventPage() {
+			return "createEvent";
+		}
+		
 		
 		
 }
