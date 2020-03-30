@@ -431,7 +431,7 @@
 			<div class="credits">
 
 				Designed by: Ankit Shah, Christina Rowland, David Yoachum, Tim
-				Tereul
+				Teruel
 			</div>
 		</div>
 	</footer>
