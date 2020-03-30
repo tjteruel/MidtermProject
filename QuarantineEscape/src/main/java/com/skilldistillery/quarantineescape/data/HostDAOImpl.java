@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -43,4 +45,13 @@ public class HostDAOImpl implements HostDAO {
 		return null;
 	}
 
+//	//USER LOGIN
+//	@Override
+//	public Host login(String userName, String password) {
+//		String query = "SELECT host FROM Host host where host.userName = :uName AND"
+//				+ "	host.password = :pWord AND host.enabled = 1";
+//		List<Host> hosts = em.createQuery(query, Host.class).setParameter("uName", userName)
+//				.setParameter("pWord", password).getResultList();
+//		return hosts.size() >0 ? hosts.get(0) : null;
+//	}
 }

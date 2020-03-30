@@ -8,4 +8,5 @@ public interface HostDAO {
 	public boolean deleteHost(int hostId);
 	public Host updateHost(Host host, int hostId);
 	public Host findHostById (int hostId);
+//	public Host login(String userName, String password);
 }
