@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,13 @@
 		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Quarantine Escape</a>
+			<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="categoryForm.do">Add Categories</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="locationForm.do">Add Locations</a>
+					</li>
+					</ul>
+			
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +49,7 @@
 					<li class="nav-item"><a class="nav-link" href="createUserPage.do">Sign Up</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log In</a></li>
+					
 					<li> 	<form action="findUser.do" method="GET" class="form">		
 		<input type="text" value="Input UserID" name="id" class="form-group" />
 		<input type="submit" value="Search" class="form-group; btn btn-info" />
@@ -77,15 +86,20 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
-						<li data-filter="*" class="filter-active">All</li>
+					 <%-- <c:set var="category" value="${categories}"/> --%> 
+					<%--  <c:if test= "${ not empty categoryName}">  --%>
+					<%-- <c:forEach items="${categories}" var ="category"> --%>
+				  <!-- </form> -->
+					 <li data-filter="*" class="filter-active">All</li> 
 						<li data-filter=".filter-app">Animal Cams</li>
 						<li data-filter=".filter-card">Music</li>
 						<li data-filter=".filter-web">Games</li>
-						<li data-filter=".filter-web"><form action ="getCategory.do" method="GET">${category.categoryName }</form></li>
 						
-						<li data-filter=".filter-web"><a href="categoryForm.do">Add Categories</a></li>
-						<li data-filter=".filter-web"><a href="locationForm.do">Add Location</a></li>
+						<li data-filter=".filter-web"> <form action="getCategory.do" method="GET">${category.categoryName }	</form> </li>
+		 		
+					<%-- </c:forEach> --%>
 						
+				<%-- </c:if> --%>
 					</ul>
 				</div>
 			</div>

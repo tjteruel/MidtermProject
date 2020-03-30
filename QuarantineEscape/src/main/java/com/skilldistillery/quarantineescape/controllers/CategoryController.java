@@ -2,6 +2,7 @@ package com.skilldistillery.quarantineescape.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +28,7 @@ public class CategoryController {
 	public ModelAndView getCategory(Category category) {
 		categoryDao.createCategory(category);
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("categories", category);
 		mv.setViewName("index");
 		return mv;
 	}
@@ -48,6 +50,14 @@ public class CategoryController {
 		mv.addObject("category", category);
 		mv.setViewName("updateCategory");
 		return mv;
+	
+	}
+	
+	
+	@RequestMapping(path = "listCategories.do")
+	public String showCategories(Model model) {
+		model.addAttribute("categories",categoryDao.findAll()) ;
+		return "index";
 	}
 
 }

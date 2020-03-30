@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -7,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Category;
+import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
 @Transactional
@@ -48,5 +51,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 		Category category = em.find(Category.class,categoryId);
 		return category;
 	}
+
+	@Override
+	public List<Category> findAll() {
+		String jpql = "SELECT c FROM Category c";
+		return em.createQuery(jpql, Category.class).getResultList();	}
 
 }
