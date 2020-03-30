@@ -26,8 +26,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		return view;
 	}
-	
-	//need to change signUp JSP to match what is required
+
 	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user) {
 		dao.createUser(user);
