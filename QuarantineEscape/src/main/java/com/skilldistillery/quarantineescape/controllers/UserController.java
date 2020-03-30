@@ -38,12 +38,13 @@ public class UserController {
 	//Need to fix this to sign in
 	@RequestMapping(path = "signIn.do")
 	public String signIn(HttpSession session, User user, Model model) {
-		user = dao.login(user.getUsername(), user.getPassword());
-		if (user == null) {
+		System.out.println(user.getUsername() + user.getPassword());
+		User userLoggedIn = dao.login(user.getUsername(), user.getPassword());
+		if (userLoggedIn == null) {
 			return "index";
 		} else {
-			session.setAttribute("user", user);
-			return "redirect:userLandingPage";
+			session.setAttribute("loggedInUser", userLoggedIn);
+			return "userLandingPage";
 		}
 	}
 	

@@ -63,12 +63,13 @@ public class UserDAOImpl implements UserDAO{
 				+ "	user.password = :password";
 		User user;
 		try {
+			
 			user = em.createQuery(query, User.class).setParameter("username", username)
 					.setParameter("password", password).getResultList().get(0);
+			System.out.println(user);
 		} catch (IndexOutOfBoundsException e) {
 			user = null;
 		}
-
 		return user;
 	}
 	
