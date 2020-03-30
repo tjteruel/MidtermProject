@@ -41,4 +41,11 @@ public class HomeController {
 			return "locationForm";
 		}
 		
+//		@RequestMapping(path="listUsers.do")
+//		public String userCreate() {
+//			return "listAllUsers";
+//		}
+//		
+	
+		
 }
