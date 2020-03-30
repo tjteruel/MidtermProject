@@ -28,7 +28,7 @@ public class UserController {
 	}
 	
 	//need to change signUp JSP to match what is required
-	@RequestMapping(path = "createUser.do", method = RequestMethod.GET)
+	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user) {
 		dao.createUser(user);
 		ModelAndView mv = new ModelAndView();
@@ -49,12 +49,12 @@ public class UserController {
 		}
 	}
 	
-//	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST)
-//	public String deleteUser(@RequestParam("user") int id) {
-//		User user = dao.findUserById(id);
-//		dao.deleteUser(user);
-//		return "userAdded";
-//	}
+	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST)
+	public String deleteUser(@RequestParam("user") int id) {
+		User user = dao.findUserById(id);
+		dao.deleteUser(user);
+		return "userAdded";
+	}
 	
 	@RequestMapping(path = "updatePage.do", method = RequestMethod.POST)
 	public ModelAndView updateUser(@RequestParam("user") int id) {
