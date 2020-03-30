@@ -69,6 +69,7 @@ public class UserController {
 		dao.updateUser(user, id);
 		return "index";
 	}
+	//this is fucked
 	
 	@RequestMapping(path = "listUsers.do")
 	public String showUsers(Model model) {
