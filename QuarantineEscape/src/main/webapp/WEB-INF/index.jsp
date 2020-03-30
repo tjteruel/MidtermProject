@@ -41,6 +41,10 @@
 					<li class="nav-item"><a class="nav-link" href="createUserPage.do">Sign Up</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log In</a></li>
+					<li> 	<form action="findUser.do" method="GET" class="form">		
+		<input type="text" value="Input UserID" name="id" class="form-group" />
+		<input type="submit" value="Search" class="form-group; btn btn-info" />
+	</form></li>
 				</ul>
 			</div>
 		</div>
@@ -299,6 +303,8 @@
 							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
 							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
 							voluptatum molestiae adipisci, beatae obcaecati.</p>
+							
+						
 					</div>
 				</div>
 			</div>

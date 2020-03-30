@@ -21,7 +21,7 @@ public class UserController {
 	
 	@RequestMapping(path = "findUser.do", method = RequestMethod.GET, params = "id")
 	public String findUser(@RequestParam Integer id, Model model) {
-		String view = "user/show";
+		String view = "show";
 		User user = dao.findUserById(id);
 		model.addAttribute("user", user);
 		return view;
@@ -50,9 +50,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST)
-	public String deleteUser(@RequestParam("user") int id) {
+	public String deleteUser(@RequestParam("userId") int id) {
 		User user = dao.findUserById(id);
-		dao.deleteUser(user);
+		dao.deleteUser(user.getId());
 		return "userAdded";
 	}
 	
