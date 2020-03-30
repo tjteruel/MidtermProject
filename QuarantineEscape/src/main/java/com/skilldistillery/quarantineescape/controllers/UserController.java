@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired
 	private UserDAO dao;
 	
-	@RequestMapping(path = "findUser.do", method = RequestMethod.GET, params = "id")
+	@RequestMapping(path = "findUser.do", method = RequestMethod.GET,params="id")
 	public String findUser(@RequestParam Integer id, Model model) {
 		String view = "show";
 		User user = dao.findUserById(id);
