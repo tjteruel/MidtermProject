@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Event</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-<form:form action="updateEvent.do" method="POST" modelAttribute="event">
+	<form:form action="createEvent.do" method="POST" modelAttribute="event">
 		<input type="hidden" name="id" value="${event.id}">
 		<form:label path="title">Title:</form:label>
 		<form:input path="title" />
@@ -37,13 +36,13 @@
 		<form:input path="eventImageUrl" />
 		<form:errors path="eventImageUrl" />
 		<br />
-		
-		
-		
-		
-	
+
+
+
+
+
 		<input type="submit" value="Modify" />
-	
+
 	</form:form>
 
 </body>
