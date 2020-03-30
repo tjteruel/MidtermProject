@@ -64,6 +64,11 @@
               <input type="text" class="w3-input form-control" id="location" placeholder="${host.location}"  name="location">
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
+              
+              		<input type = "hidden" name = "id" value = "${host.id}"/>
+		<input type="submit" value="Update Host" class="text-center;btn btn-info" />
+		</form>
+		</div>
         </div>
       </div>
 </body>

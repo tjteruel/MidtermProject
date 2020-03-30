@@ -40,6 +40,8 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link">Logged In As : ${user.username}</a>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="logout.do">Log Out</a>
+					</li>
 					<li> 	<form action="findUser.do" method="GET" class="form">		
 		<input type="text" value="Input UserID" name="id" class="form-group" />
 		<input type="submit" value="Search" class="form-group; btn btn-info" />
