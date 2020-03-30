@@ -59,9 +59,9 @@ public class UserDAOImpl implements UserDAO{
 	//USER LOGIN
 	@Override
 	public User login(String userName, String password) {
-		String query = "SELECT user FROM User user where user.firstName = :uFirstName AND"
+		String query = "SELECT user FROM User user where user.userName = :uName AND"
 				+ "	user.password = :pWord AND user.enabled = 1";
-		List<User> users = em.createQuery(query, User.class).setParameter("uFirstName", userName)
+		List<User> users = em.createQuery(query, User.class).setParameter("uName", userName)
 				.setParameter("pWord", password).getResultList();
 		return users.size() >0 ? users.get(0) : null;
 	}
@@ -70,7 +70,7 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public User findUserById(int userId) {
 		User user = em.find(User.class, userId);
-		return null;
+		return user;
 	}
 
 }
