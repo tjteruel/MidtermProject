@@ -51,4 +51,10 @@ public class HostController {
 		return "userAdded";
 	}
 	
+	@RequestMapping(path = "listHosts.do")
+	public String showHosts(Model model) {
+		model.addAttribute("hosts", dao.findAll());
+		return "listAllHosts";
+	}
+	
 }
