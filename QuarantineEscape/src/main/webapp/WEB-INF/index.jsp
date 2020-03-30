@@ -23,8 +23,6 @@
 	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
 	rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="css/one-page-wonder.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -40,9 +38,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="#">Sign Up</a>
+					<li class="nav-item"><a class="nav-link" href="createUserPage.do">Sign Up</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log In</a></li>
 				</ul>
 			</div>
 		</div>
@@ -349,14 +347,6 @@
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<!-- 	<footer class="py-5 bg-black">
-		<div class="container">
-			<p class="m-0 text-center text-white small">A Website Created by: Ankit Shah, Christina Rowland, David Yoachum, and Tim Tereul</p>
-		</div>
-		/.container
-	</footer> -->
-
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="footer-top">
@@ -374,12 +364,12 @@
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
-							<li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="#">Meet
+							<li><i class="ion-ios-arrow-right"></i> <a href="index.do">Home</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
 									the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="#">Events</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="#">Signup</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="#">Login</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
 						</ul>
 					</div>
 
