@@ -49,14 +49,9 @@ public class HostDAOImpl implements HostDAO {
 		Host host = em.find(Host.class, hostId);
 		return null;
 	}
-
-//	//USER LOGIN
-//	@Override
-//	public Host login(String userName, String password) {
-//		String query = "SELECT host FROM Host host where host.userName = :uName AND"
-//				+ "	host.password = :pWord AND host.enabled = 1";
-//		List<Host> hosts = em.createQuery(query, Host.class).setParameter("uName", userName)
-//				.setParameter("pWord", password).getResultList();
-//		return hosts.size() >0 ? hosts.get(0) : null;
-//	}
+	@Override
+	public List<Host> findAll() {
+		String jpql = "SELECT h FROM Host h";
+		return em.createQuery(jpql, Host.class).getResultList();
+	}
 }
