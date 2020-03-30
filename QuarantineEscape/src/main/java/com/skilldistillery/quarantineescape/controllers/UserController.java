@@ -77,5 +77,14 @@ public class UserController {
 		return "listAllUsers";
 	}
 	
+	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
+	public String logout(Model model, HttpSession session) {
+		if (session.getAttribute("user") != null) {
+			session.removeAttribute("user");
+			model.addAttribute("logout", "Logout successful.");
+		}
+
+		return "index";
+	}
 	
 }
