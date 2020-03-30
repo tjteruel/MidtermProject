@@ -196,9 +196,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createdAt=" + createdAt
-				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role
-				+ ", categoryComments=" + categoryComments + ", userEvents=" + userEvents + ", eventComments="
-				+ eventComments + ", tags=" + tags + "]";
+				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role;
 	}
 
 	@Override
