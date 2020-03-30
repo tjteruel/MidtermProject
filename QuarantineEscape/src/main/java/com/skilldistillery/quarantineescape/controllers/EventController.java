@@ -19,10 +19,10 @@ public class EventController {
 	private EventDAO dao;
 	
 	@RequestMapping(path= {"allEvents.do"})
-	public String index(Model model) {
+	public String ShowEvents(Model model) {
 		
 		model.addAttribute("event", dao.findAll());
-		return "index";
+		return "listAllEvents";
 	}
 		
 	
