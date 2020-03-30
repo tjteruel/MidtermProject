@@ -73,4 +73,10 @@ public class UserDAOImpl implements UserDAO{
 		return user;
 	}
 
+	@Override
+	public List<User> findAll() {
+		String jpql = "SELECT u FROM User u";
+		return em.createQuery(jpql, User.class).getResultList();
+	}
+
 }

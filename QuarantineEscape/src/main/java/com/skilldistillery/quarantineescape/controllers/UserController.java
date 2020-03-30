@@ -52,7 +52,7 @@ public class UserController {
 	public String deleteUser(@RequestParam("userId") int id) {
 		User user = dao.findUserById(id);
 		dao.deleteUser(user.getId());
-		return "userAdded";
+		return "userDeleted";
 	}
 	
 	@RequestMapping(path = "updatePage.do", method = RequestMethod.POST)
@@ -70,7 +70,11 @@ public class UserController {
 		return "userAdded";
 	}
 	
-	
+	@RequestMapping(path = "listUsers.do")
+	public String showUsers(Model model) {
+		model.addAttribute("users", dao.findAll());
+		return "listAllUsers";
+	}
 	
 	
 }

@@ -374,12 +374,13 @@
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
-							<li><i class="ion-ios-arrow-right"></i> <a href="index.do">Home</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
 									the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">Events</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
 						</ul>
 					</div>
 
