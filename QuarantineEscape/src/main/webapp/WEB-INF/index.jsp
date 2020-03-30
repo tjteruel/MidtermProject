@@ -95,7 +95,7 @@
 						<li data-filter=".filter-card">Music</li>
 						<li data-filter=".filter-web">Games</li>
 						
-						<li data-filter=".filter-web"><a href="categoryForm.do">Add Categories</a></li>
+						
 						<li data-filter=".filter-web"><a href="listHosts.do">List Hosts</a></li>
 
 					<%-- </c:forEach> --%>
