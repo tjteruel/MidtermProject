@@ -26,5 +26,9 @@ public class HomeController {
 			return "meetTeam";
 		}
 		
+		@RequestMapping(path="categoryForm.do")
+		public String categoryCreate() {
+			return "categoryForm";
+		}
 		
 }
