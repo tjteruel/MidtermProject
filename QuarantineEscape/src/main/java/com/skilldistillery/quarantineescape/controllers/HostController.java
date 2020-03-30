@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.quarantineescape.data.HostDAO;
 import com.skilldistillery.quarantineescape.entities.Host;
-import com.skilldistillery.quarantineescape.entities.User;
+
 
 @Controller
 public class HostController {

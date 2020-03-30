@@ -18,7 +18,7 @@ public class EventController {
 	@Autowired
 	private EventDAO dao;
 	
-	@RequestMapping(path= {"/", "home.do"})
+	@RequestMapping(path= {"allEvents.do"})
 	public String index(Model model) {
 		
 		model.addAttribute("event", dao.findAll());

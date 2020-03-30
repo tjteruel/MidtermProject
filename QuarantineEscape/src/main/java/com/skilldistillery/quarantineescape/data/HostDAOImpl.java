@@ -4,10 +4,15 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Host;
 import com.skilldistillery.quarantineescape.entities.User;
 
+@Service
+@Transactional
 public class HostDAOImpl implements HostDAO {
 
 	@PersistenceContext
