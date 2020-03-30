@@ -81,6 +81,10 @@
 						<li data-filter=".filter-app">Animal Cams</li>
 						<li data-filter=".filter-card">Music</li>
 						<li data-filter=".filter-web">Games</li>
+						<li data-filter=".filter-web"><form action ="getCategory.do" method="GET">${category.categoryName }</form></li>
+						
+						<li data-filter=".filter-web"><a href="categoryForm.do">Add Categories</a></li>
+						
 					</ul>
 				</div>
 			</div>

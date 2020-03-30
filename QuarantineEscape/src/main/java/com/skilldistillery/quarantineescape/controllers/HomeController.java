@@ -30,5 +30,9 @@ public class HomeController {
 			return "userProfile";
 		}
 		
+		@RequestMapping(path="categoryForm.do")
+		public String categoryCreate() {
+			return "categoryForm";
+		}
 		
 }
