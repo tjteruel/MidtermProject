@@ -35,7 +35,7 @@ public class TagController {
 	}
 	
 	@RequestMapping(path = "updateTagPage.do", method = RequestMethod.POST)
-	public ModelAndView updateUser(@RequestParam("user") int id) {
+	public ModelAndView updateUser(@RequestParam("tag") int id) {
 		Tag tag = dao.getTagById(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("tag", tag);
