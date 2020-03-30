@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.xml.ws.soap.MTOM;
+
 
 @Entity
 @Table(name = "event_comment")
