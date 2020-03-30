@@ -46,7 +46,7 @@ public class EventController {
 		return "eventDeleted";
 	}
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public String updateEvent(@RequestParam("id")int id, Event event) {
+	public String updateEvent(Event event, int id) {
 		dao.updateEvent(event, id);
 		return "eventUpdated";
 	}
