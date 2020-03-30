@@ -84,6 +84,7 @@
 						<li data-filter=".filter-web"><form action ="getCategory.do" method="GET">${category.categoryName }</form></li>
 						
 						<li data-filter=".filter-web"><a href="categoryForm.do">Add Categories</a></li>
+						<li data-filter=".filter-web"><a href="locationForm.do">Add Location</a></li>
 						
 					</ul>
 				</div>
@@ -374,7 +375,7 @@
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
-							<li><i class="ion-ios-arrow-right"></i> <a href="index.do">Home</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
 									the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">Events</a></li>

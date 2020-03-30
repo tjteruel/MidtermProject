@@ -40,7 +40,7 @@
 							<div class="modal-footer">
 								<input type="hidden" name="isEmpty" value="">
 								<button type="input" name="submit" value="newAccount" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Create New Category</button>
-								<button type="button" class="btn btn-default btn-icon" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+								
 							</div>
 						</form>
 

@@ -35,4 +35,10 @@ public class HomeController {
 			return "categoryForm";
 		}
 		
+		
+		@RequestMapping(path="locationForm.do")
+		public String locationCreate() {
+			return "locationForm";
+		}
+		
 }

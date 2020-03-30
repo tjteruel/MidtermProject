@@ -46,7 +46,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public Category findCategoryById(int categoryId) {
 		Category category = em.find(Category.class,categoryId);
-		return null;
+		return category;
 	}
 
 }
