@@ -28,11 +28,10 @@
           <div class="w3-container w3-2019-eden">
             <h2>Sign Up Form</h2>
           </div>
-          <form action="createUser.do" class="needs-validation" novalidate method="POST">
-          <input id="updateId" type="hidden" name="id" value="${user.id }">
+          <form action="createUser.do" method="POST">
           <div class="form-group">
               <label for="username">Username:</label>
-              <input type="text" class="w3-input form-control" id="username" placeholder="Enter username"   name="username" required>
+              <input type="text" class="w3-input form-control" id="username" placeholder="Enter Username"   name="username" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>
@@ -62,13 +61,26 @@
             </div>
             <div class="form-group">
               <label for="userImageUrl">User Image URL:</label>
-              <input type="url" class="w3-input form-control" id="userImageUrl" placeholder="Enter Image URL"  name="userImageUrl" required>
+              <input type="url" class="w3-input form-control" id="userImageUrl" placeholder="Enter Image URL"  name="userImageUrl">
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
               <label for="userDescription">User Description:</label>
-              <input type="text" class="w3-input form-control" id="userDescription" placeholder="Enter User Description"  name="userDescription" required>
+              <input type="text" class="w3-input form-control" id="userDescription" placeholder="Enter User Description"  name="userDescription">
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+           </div>
+            	<div class="form-group">
+				<label for="enabled">Enabled</label> <select name="enabled" id="enabled"
+					class="btn btn-secondary dropdown-toggle" required>
+					<option value="True">True</option>
+					<option value="False">False</option>
+				</select>
+			</div>
+            <div class="form-group">
+              <label for="role">Role:</label>
+              <input type="text" class="w3-input form-control" id="role" placeholder="Enter User Role"  name="role" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>

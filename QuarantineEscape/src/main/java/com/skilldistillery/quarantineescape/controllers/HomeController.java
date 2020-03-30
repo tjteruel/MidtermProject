@@ -25,6 +25,10 @@ public class HomeController {
 		public String meetTeam() {
 			return "meetTeam";
 		}
+		@RequestMapping(path = "userProfilePage.do")
+		public String userProfile() {
+			return "userProfile";
+		}
 		
 		@RequestMapping(path="categoryForm.do")
 		public String categoryCreate() {
