@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.Location;
 @Service
@@ -46,6 +47,12 @@ public class LocationDAOImpl implements LocationDAO{
 		updatedLocation.setState(location.getState());
 		em.flush();
 		return updatedLocation;
+	}
+
+	@Override
+	public Location findLocationById(int locationId) {
+		Location location = em.find(Location.class, locationId);
+		return location;
 	}
 
 }

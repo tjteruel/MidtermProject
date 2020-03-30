@@ -58,12 +58,18 @@ public class UserDAOImpl implements UserDAO{
 
 	//USER LOGIN
 	@Override
-	public User login(String userName, String password) {
-		String query = "SELECT user FROM User user where user.userName = :uName AND"
-				+ "	user.password = :pWord AND user.enabled = 1";
-		List<User> users = em.createQuery(query, User.class).setParameter("uName", userName)
-				.setParameter("pWord", password).getResultList();
-		return users.size() >0 ? users.get(0) : null;
+	public User login(String username, String password) {
+		String query = "SELECT user FROM User user where user.username = :username AND"
+				+ "	user.password = :password";
+		User user;
+		try {
+			user = em.createQuery(query, User.class).setParameter("username", username)
+					.setParameter("password", password).getResultList().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			user = null;
+		}
+
+		return user;
 	}
 	
 	//FIND USER BY ID

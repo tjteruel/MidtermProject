@@ -1,0 +1,59 @@
+@charset "UTF-8";
+body {
+	background-image:
+		url("https://images.squarespace-cdn.com/content/v1/5c533c61e5f7d1726dd7a727/1553004037371-5VDR1JJN4GWYEKK8UKX7/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/IMG_0627.jpg?format=2500w");
+	position: relative;
+	min-height: 100vh;
+	background-size: cover;
+	z-index: -1;
+	min-height: 100vh;
+}
+
+header {
+	z-index: 1;
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+
+card {
+	margin: 25px 25px;
+}
+
+body::before {
+	content: "";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 0;
+}
+
+.h5, h5 {
+	font-size: x-large;
+}
+
+footer {
+	z-index: 2;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+
+.card-body form {
+	display: inline;
+}
+
+.card-body a {
+	display: inline;
+}
