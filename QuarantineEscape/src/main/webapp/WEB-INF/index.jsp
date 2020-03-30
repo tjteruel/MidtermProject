@@ -393,7 +393,7 @@
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
 									the Team</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">Events</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="listEvents.do">Events</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>

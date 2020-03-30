@@ -24,7 +24,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="event" items="${event}">
+			<c:forEach var="event" items="${events}">
 				<tr>
 					<td>${event.title}</td>
 					<td>${event.location}</td>
