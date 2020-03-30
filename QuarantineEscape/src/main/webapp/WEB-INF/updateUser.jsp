@@ -27,8 +27,8 @@
 					<input type="text" value = "${user.password}"  name="password" id="password" class="form-control" required />
 				</div>
 				<div class="form-group">
-					<label for="password">Role: </label>
-					<input type="text" value = "${user.role}"  name="password" id="password" class="form-control" required />
+					<label for="role">Role: </label>
+					<input type="text" value = "${user.role}"  name="role" id="role" class="form-control" required />
 				</div>
 				<div class="form-group">
 					<label for="enabled">Enabled: </label>
