@@ -33,13 +33,13 @@
 					<td>${event.description}</td>
 					<td>
 						<form action ="updateEvent.do" method = "POST">
-						<input type="hidden" value="${event.id}" name = "user"/>
+						<input type="hidden" value="${event.id}" name = "event"/>
 						<input type="submit" value="Update" class="btn btn-primary"/>
 						</form>
 					</td>
 					<td>
 						<form action ="deleteEvent.do" method = "POST" class="form-group">
-						<input type="hidden" value="${event.id}" name = "userId"/>
+						<input type="hidden" value="${event.id}" name = "eventId"/>
 						<input type="submit" value="Delete" class="btn btn-danger"/>
 						</form>
 					</td>
