@@ -141,6 +141,12 @@ public class EventDAOImpl implements EventDAO{
 		Event eventFound = em.find(Event.class, id);
 		return null;
 	}
+
+	@Override
+	public List<Event> findAll() {
+		String jpql = "Select e From Event e";
+		return em.createQuery(jpql, Event.class).getResultList();
+	}
 	
 
 }
