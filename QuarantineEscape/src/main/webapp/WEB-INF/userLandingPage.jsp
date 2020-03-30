@@ -38,9 +38,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="createUserPage.do">Sign Up</a>
+					<li class="nav-item"><a class="nav-link">Logged In As : ${user.username}</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log In</a></li>
 					<li> 	<form action="findUser.do" method="GET" class="form">		
 		<input type="text" value="Input UserID" name="id" class="form-group" />
 		<input type="submit" value="Search" class="form-group; btn btn-info" />
@@ -375,12 +374,12 @@
 						<h4>Useful Links</h4>
 						<ul>
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
-									the Team</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">Events</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet the Team</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Events</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Hosts</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Categories</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Locations</a></li>
 						</ul>
 					</div>
 
