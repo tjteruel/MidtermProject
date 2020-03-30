@@ -67,7 +67,7 @@ public class UserController {
 	@RequestMapping(path = "updateUser.do", method = RequestMethod.POST)
 	public String updateUser(@RequestParam("id")int id, User user) {
 		dao.updateUser(user, id);
-		return "userAdded";
+		return "index";
 	}
 	
 	@RequestMapping(path = "listUsers.do")
