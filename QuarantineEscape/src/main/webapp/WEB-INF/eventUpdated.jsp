@@ -10,31 +10,31 @@
 <body>
 
 <form:form action="updateEvent.do" method="POST" modelAttribute="event">
-		<input type="hidden" name="id" value="${event.id}">
-		<form:label path="title" name="title">Title:</form:label>
-		<form:input path="title" name="title"/>
+		
+		<form:label for="title" >Title:</form:label>
+		<form:input value="${event.title}" path="title" name="title"/>
 		<br />
-		<form:label path="description" name="description">Description:</form:label>
-		<form:input path="description" name="description"/>
+		<form:label for="description" >Description:</form:label>
+		<form:input value="${event.description}" path="description" name="description"/>
 		<br />
-		<form:label path="eventDate" name="eventDate">Event Date:</form:label>
-		<form:input path="eventDate" name="eventDate"/>
-		<form:errors path="eventDate" name="eventDate"/>
+		<form:label for="eventDate">Event Date:</form:label>
+		<form:input value="${event.eventDate}" path="eventDate" name="eventDate"/>
+		
 		<br />
-		<form:label path="publicOrPrivate" name="publicOrPrivate">Public or private:</form:label>
-		<form:input path="publicOrPrivate" name="publicOrPrivate"/>
-		<form:errors path="publicOrPrivate" name="publicOrPrivate"/>
+		<form:label for="publicOrPrivate" >Public or private:</form:label>
+		<form:input value="${event.publicOrPrivate}" path="publicOrPrivate" name="publicOrPrivate"/>
+		
 		<br />
-		<form:label path="eventTime" name="eventTime">Event time:</form:label>
-		<form:input path="eventTime" name="eventTime"/>
-		<form:errors path="eventTime" name="eventTime"/>
+		<form:label for="eventTime" name="eventTime">Event time:</form:label>
+		<form:input value="${event.eventTime}" path="eventTime" name="eventTime"/>
+		
 		<br />
-		<form:label path="eventLink" name="eventLink">Link to event:</form:label>
-		<form:input path="eventLink" name="eventLink"/>
-		<form:errors path="eventLink" name="eventLink"/>
+		<form:label for="eventLink" name="eventLink">Link to event:</form:label>
+		<form:input value="${event.eventLink}" path="eventLink" name="eventLink"/>
+		
 		<br />
-		<form:label path="eventImageUrl" name="eventImageUrl">Image:</form:label>
-		<form:input path="eventImageUrl" name="eventImageUrl"/>
+		<form:label for="eventImageUrl" name="eventImageUrl">Image:</form:label>
+		<form:input value="${event.ImageUrl}" path="eventImageUrl" name="eventImageUrl"/>
 		<form:errors path="eventImageUrl" name="eventImageUrl"/>
 		<br />
 		
