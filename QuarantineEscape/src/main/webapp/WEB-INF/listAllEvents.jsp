@@ -51,7 +51,7 @@
 
 									<td>
 
-										<form action="updateEvent.do" method="POST">
+										<form action="updateEventPage.do" method="POST">
 
 											<input type="hidden" value="${event.id}" name="event" /> <input
 												type="submit" value="Update" class="btn btn-primary" />
