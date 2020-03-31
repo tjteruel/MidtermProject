@@ -55,6 +55,8 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<Tag> tags;
+	
+	private String email;
 
 	////////////////////////////////////////////
 
@@ -170,6 +172,14 @@ public class User {
 		this.role = role;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public User() {
 		super();
 	}
@@ -192,11 +202,33 @@ public class User {
 		this.userEvents = userEvents;
 	}
 
+	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
+			LocalDate createdAt, String userDescription, Boolean enabled, String role,
+			List<CategoryComment> categoryComments, List<UserEvent> userEvents, List<EventComment> eventComments,
+			List<Tag> tags, String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.userImageUrl = userImageUrl;
+		this.createdAt = createdAt;
+		this.userDescription = userDescription;
+		this.enabled = enabled;
+		this.role = role;
+		this.categoryComments = categoryComments;
+		this.userEvents = userEvents;
+		this.eventComments = eventComments;
+		this.tags = tags;
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", password=" + password + ", userImageUrl=" + userImageUrl + ", createdAt=" + createdAt
-				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role;
+				+ ", userDescription=" + userDescription + ", enabled=" + enabled + ", role=" + role + ", email: " + email;
 	}
 
 	@Override
@@ -205,12 +237,15 @@ public class User {
 		int result = 1;
 		result = prime * result + ((categoryComments == null) ? 0 : categoryComments.hashCode());
 		result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
+		result = prime * result + ((eventComments == null) ? 0 : eventComments.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		result = prime * result + ((userDescription == null) ? 0 : userDescription.hashCode());
 		result = prime * result + ((userEvents == null) ? 0 : userEvents.hashCode());
 		result = prime * result + ((userImageUrl == null) ? 0 : userImageUrl.hashCode());
@@ -237,10 +272,20 @@ public class User {
 				return false;
 		} else if (!createdAt.equals(other.createdAt))
 			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
 		if (enabled == null) {
 			if (other.enabled != null)
 				return false;
 		} else if (!enabled.equals(other.enabled))
+			return false;
+		if (eventComments == null) {
+			if (other.eventComments != null)
+				return false;
+		} else if (!eventComments.equals(other.eventComments))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -264,6 +309,11 @@ public class User {
 				return false;
 		} else if (!role.equals(other.role))
 			return false;
+		if (tags == null) {
+			if (other.tags != null)
+				return false;
+		} else if (!tags.equals(other.tags))
+			return false;
 		if (userDescription == null) {
 			if (other.userDescription != null)
 				return false;
@@ -286,6 +336,7 @@ public class User {
 			return false;
 		return true;
 	}
+	
 
 /////////////////////////////////////////
 
