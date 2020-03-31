@@ -140,7 +140,7 @@ public class EventDAOImpl implements EventDAO{
 	@Override
 	public Event findEventById(int id) {
 		Event eventFound = em.find(Event.class, id);
-		return null;
+		return eventFound;
 	}
 
 	@Override

@@ -41,22 +41,23 @@ public class EventController {
 	}
 	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
 	public String deleteEvent(@RequestParam("eventId") int id) {
-		Event event = dao.findEventById(id);
+//		Event event = dao.findEventById(id);
 		dao.deleteEvent(id);
 		return "eventDeleted";
 	}
 	@RequestMapping(path = "updateEventPage.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(@RequestParam("event") int id) {
+		System.err.println(id);
 		Event event = dao.findEventById(id);
+		System.out.println(event.getTitle());
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("event", event);
 		mv.setViewName("eventUpdated");
 		return mv;
 		
 	}
-	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public String updatedEvent(@RequestParam("id")int id,Event event) {
-	
+	@RequestMapping(path = "eventUpdated.do", method = RequestMethod.POST)
+	public String updatedEvent(@RequestParam("id")int id, Event event) {
 		dao.updateEvent(event, id);
 		return "index";
 	}
