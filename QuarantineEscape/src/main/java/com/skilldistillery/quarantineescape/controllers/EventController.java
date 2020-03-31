@@ -58,15 +58,10 @@ public class EventController {
 		return mv;
 
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public String updatedEvent(@RequestParam("id") int id, Event event) {
-
-=======
 	@RequestMapping(path = "eventUpdated.do", method = RequestMethod.POST)
 	public String updatedEvent(@RequestParam("id")int id, Event event) {
->>>>>>> dcc5cddbb40ffa89622bd8c56991a9275b6a88f0
+
 		dao.updateEvent(event, id);
 		return "index";
 	}
