@@ -52,7 +52,7 @@ public class UserController {
 	public String deleteUser(@RequestParam("userId") int id) {
 		User user = dao.findUserById(id);
 		dao.deleteUser(user.getId());
-		return "userDeleted";
+		return "index";
 	}
 	
 	@RequestMapping(path = "updatePage.do", method = RequestMethod.POST)

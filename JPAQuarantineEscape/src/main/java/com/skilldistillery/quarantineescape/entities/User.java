@@ -56,7 +56,7 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Tag> tags;
 	
-	private String email;
+	private String email = "xxx@email.com";
 
 	////////////////////////////////////////////
 
