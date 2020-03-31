@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.quarantineescape.data.CategoryDAO;
 import com.skilldistillery.quarantineescape.entities.Category;
+import com.skilldistillery.quarantineescape.entities.User;
 
 @Controller
 public class CategoryController {
@@ -32,32 +33,36 @@ public class CategoryController {
 		mv.setViewName("index");
 		return mv;
 	}
+	
 
-	@RequestMapping(path = "deleteCategory.do", params = "id")
-	public ModelAndView deleteCategory(int id) {
-		boolean isDeleted = categoryDao.deleteCategory(id);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("deletedCategory");
-		mv.addObject("isDeleted", isDeleted);
-		mv.addObject("categoryId", id);
-		return mv;
+	@RequestMapping(path = "deleteCategory.do", method = RequestMethod.POST)
+	public String deleteUser(@RequestParam("categoryId") int id) {
+		Category category = categoryDao.findCategoryById(id);
+		categoryDao.deleteCategory(category.getId());
+		return "index";
 	}
 
-	@RequestMapping(path = "updateCategory.do", method = RequestMethod.POST)
-	public ModelAndView updateCategory(@RequestParam("category") int id) {
-		Category category = categoryDao.findCategoryById(id);
+
+	@RequestMapping(path = "updateCategoryPage.do", method = RequestMethod.POST)
+	public ModelAndView updateUser(@RequestParam("category") int id) {
+		Category category= categoryDao.findCategoryById(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("category", category);
 		mv.setViewName("updateCategory");
 		return mv;
+	}
 	
+	@RequestMapping(path = "updateCategory.do", method = RequestMethod.POST)
+	public String updateUser(@RequestParam("id")int id, Category category) {
+		categoryDao.updateCategory(category, id);
+		return "index";
 	}
 	
 	
 	@RequestMapping(path = "listCategories.do")
 	public String showCategories(Model model) {
 		model.addAttribute("categories",categoryDao.findAll()) ;
-		return "index";
+		return "categorydisplay";
 	}
 
 }

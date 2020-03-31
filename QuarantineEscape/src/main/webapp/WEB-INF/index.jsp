@@ -64,8 +64,9 @@
 						Categories</a></li>
 				<li class="nav-item"><a class="nav-link" href="locationForm.do">Add
 						Locations</a></li>
+						
 				<li class="nav-item"><a class="nav-link"
-					href="createEvent.do">Add Events</a></li>
+					href="createEventPage.do">Add Events</a></li>
 			</ul>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -136,14 +137,16 @@
 						<!-- </form> -->
 						<li data-filter="*" class="filter-active">All</li>
 						<li data-filter=".filter-app">Animal Cams</li>
-						<li data-filter=".filter-card">Music</li>
+						<li data-filter=".filter-card"><a href ="#category">Music</a></li>
 						<li data-filter=".filter-web">Games</li>
 
 
 						<li data-filter=".filter-web"><a href="listHosts.do">List
 								Hosts</a></li>
+						<li data-filter=".filter-web"><a href="listCategories.do">List
+								Categories</a></li>
 
-						<%-- </c:forEach> --%>
+					<%-- </c:forEach> --%>
 
 						<%-- </c:if> --%>
 					</ul>

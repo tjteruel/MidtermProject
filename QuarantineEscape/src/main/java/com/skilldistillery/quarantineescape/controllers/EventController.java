@@ -17,14 +17,13 @@ public class EventController {
 
 	@Autowired
 	private EventDAO dao;
-	
+
 	@RequestMapping(path = "listEvents.do")
 	public String showUsers(Model model) {
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
 	}
-		
-	
+
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
 	public String findEventById(@RequestParam int id, Model model) {
 		String view = "Event";
@@ -32,6 +31,7 @@ public class EventController {
 		model.addAttribute("event", event);
 		return view;
 	}
+
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
 	public ModelAndView createEvent(Event event) {
 		dao.createEvent(event);
@@ -39,30 +39,38 @@ public class EventController {
 		mv.setViewName("index");
 		return mv;
 	}
+
 	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
 	public String deleteEvent(@RequestParam("eventId") int id) {
-		Event event = dao.findEventById(id);
+//		Event event = dao.findEventById(id);
 		dao.deleteEvent(id);
 		return "eventDeleted";
 	}
+
 	@RequestMapping(path = "updateEventPage.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(@RequestParam("event") int id) {
+		System.err.println(id);
 		Event event = dao.findEventById(id);
+		System.out.println(event.getTitle());
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("event", event);
 		mv.setViewName("eventUpdated");
 		return mv;
-		
+
 	}
-	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public String updatedEvent(@RequestParam("id")int id,Event event) {
-	
+
+	@RequestMapping(path = "eventUpdated.do", method = RequestMethod.POST)
+	public String updatedEvent(@RequestParam("id")int id, Event event) {
+
 		dao.updateEvent(event, id);
 		return "index";
 	}
-	
-	
-	
-	
-	
+
+	@RequestMapping(path = "searchByCategory.do")
+	public String searchByCategory(@RequestParam("name") String name, Model model) {
+		model.addAttribute("events", dao.findByCategory(name));
+
+		return "listAllEvents";
+	}
+
 }

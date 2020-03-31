@@ -35,38 +35,29 @@
 						<thead>
 
 
-							<th>Event</th>
-							<th>Location</th>
-							<th>Date</th>
+							<th>Name</th>
 							<th>Description</th>
-							<th>Prereqs</th>
-							<th>Event Link</th>
+						
 							
 						</thead>
 						<tbody>
-							<c:forEach var="event" items="${events}">
+							<c:forEach var="category" items="${categories}">
 								<tr>
-									<td>${event.title}</td>
-									<td>${event.location}</td>
-									<td>${event.eventDate}</td>
-									<td>${event.description}</td>
-									<td>${event.prereqs}</td>
-									<td>${event.eventLink}</td>
+									<td>${category.categoryName}</td>
+									<td>${category.description}</td>
+									<td><img src="${category.categoryImageUrl}" width="325" height="150"/> 
+								
 
 									<td>
 
-										<form action="updateEventPage.do" method="POST">
+										<form action="updateCategoryPage.do" method="POST">
 
-											<input type="hidden" value="${event.id}" name="event" /> <input
+											<input type="hidden" value="${category.id}" name="category" /> <input
 												type="submit" value="Update" class="btn btn-primary" />
 										</form>
 									</td>
-									<td>
-										<form action="deleteEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
-										</form>
-									</td>
+									
+									
 								</tr>
 							</c:forEach>
 
