@@ -49,7 +49,7 @@
 									<td>${host.hostName}</td>
 									<td>${host.email}</td>
 									<td>${host.phoneNumber}</td>
-									<td>${host.url}</td>
+									<td><a href="${host.url}">Click Here</a></td>
 
 									<td>
 										<form action="updateHostPage.do" method="POST">
