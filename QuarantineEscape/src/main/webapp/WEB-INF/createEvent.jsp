@@ -43,7 +43,7 @@
 										<div class="form-group">
 											<label for="eventDate">Event Date: </label> <input
 												type="text" value="${event.eventDate}" name="eventDate"
-												id="eventDate" class="form-control" required />
+												id="eventDate" class="form-control" />
 										</div>
 										<div class="form-group">
 											<label for="eventLink">Link to Event: </label> <input type="text"
@@ -53,8 +53,17 @@
 											<label for="publicORPrivate">Public or Private: </label> 
 											
 												<select id="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="btn btn-secondary dropdown-toggle" required>
-												<option value="Public">Public</option>
-												<option value="Private">Private</option> 
+												<option value="True">Public</option>
+												<option value="False">Private</option> 
+												</select>
+										</div>
+										<div class="form-group">
+											<label for="status">Event Status: </label> 
+											
+												<select id="${event.status}" name="status" id="status" class="btn btn-secondary dropdown-toggle" required>
+												<option value="Canceled">Canceled</option>
+												<option value="Delayed">Delayed</option> 
+												<option value="Scheduled">Scheduled</option> 
 												</select>
 										</div>
 										<div class="form-group">
@@ -62,13 +71,13 @@
 												type="text" value="${event.eventImageUrl}" name="eventimageUrl"
 												id="eventImageUrl" class="form-control" />
 										</div>
-										<div class="form-group">
+									<%-- 	<div class="form-group">
 											<label for="location">Location : </label> <input type="text"
 												value="${event.location}" name="location" id="location"
 												class="form-control" />
-										</div>
+										</div> --%>
 
-										<input type="hidden" name="id" value="${event.id}" /> <input
+										<input
 											type="submit" value="Create Event" class="btn btn-primary" />
 									</fieldset>
 								</div>
