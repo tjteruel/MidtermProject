@@ -48,7 +48,7 @@ public class HostController {
 	@RequestMapping(path = "updateHost.do", method = RequestMethod.POST)
 	public String updateUser(@RequestParam("id")int id, Host host) {
 		dao.updateHost(host, id);
-		return "userAdded";
+		return "index";
 	}
 	
 	@RequestMapping(path = "listHosts.do")

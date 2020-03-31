@@ -121,8 +121,7 @@ public class Location {
 
 	@Override
 	public String toString() {
-		return "Location [id=" + id + ", country=" + country + ", state=" + state + ", city=" + city + ", address="
-				+ address + ", postalCode=" + postalCode + "]";
+		return ""+ address + " , " + city + " , " + state + " - " + postalCode + " , " +country ;			
 	}
 
 	public int getId() {

@@ -1,8 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	crossorigin="anonymous">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -15,6 +40,8 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/myStyles.css">
+<link rel="stylesheet" href="css/searchbar.css">
+
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link
@@ -33,31 +60,46 @@
 		<div class="container">
 			<a class="navbar-brand" href="home.do">Quarantine Escape</a>
 			<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="categoryForm.do">Add Categories</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="locationForm.do">Add Locations</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="createEventPage.do">Add Events</a>
-					</li>
-					</ul>
-			
+				<li class="nav-item"><a class="nav-link" href="categoryForm.do">Add
+						Categories</a></li>
+				<li class="nav-item"><a class="nav-link" href="locationForm.do">Add
+						Locations</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="createEventPage.do">Add Events</a></li>
+			</ul>
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="createUserPage.do">Sign Up</a>
+					<li class="nav-item"><a class="nav-link"
+						href="createUserPage.do">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log
+							In</a></li>
+
+
+					<li>
+						<form action="findUser.do" method="GET" id="id"
+							class="form-inline my-2 my-lg-0 ">
+							<input class="form-control sm-2" size="12" name="id"
+								type="search" placeholder="Enter User Id" aria-label="Search">
+							<button class="btn btn-outline-success my-2 my-sm-0"
+								type="submit">Search</button>
+						</form>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="signInPage.do">Log In</a></li>
-					
-					<li> 	<form action="findUser.do" method="GET" class="form">		
-		<input type="text" value="Input UserID" name="id" class="form-group" />
-		<input type="submit" value="Search" class="form-group; btn btn-info" />
-	</form></li>
-				</ul>
 			</div>
+		</div>
+		</div>
+
+
+
+
+		</ul>
+		</div>
 		</div>
 	</nav>
 
@@ -88,21 +130,22 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
-					 <%-- <c:set var="category" value="${categories}"/> --%> 
-					<%--  <c:if test= "${ not empty categoryName}">  --%>
-					<%-- <c:forEach items="${categories}" var ="category"> --%>
-				  <!-- </form> -->
-					 <li data-filter="*" class="filter-active">All</li> 
+						<%-- <c:set var="category" value="${categories}"/> --%>
+						<%--  <c:if test= "${ not empty categoryName}">  --%>
+						<%-- <c:forEach items="${categories}" var ="category"> --%>
+						<!-- </form> -->
+						<li data-filter="*" class="filter-active">All</li>
 						<li data-filter=".filter-app">Animal Cams</li>
 						<li data-filter=".filter-card">Music</li>
 						<li data-filter=".filter-web">Games</li>
-						
-						
-						<li data-filter=".filter-web"><a href="listHosts.do">List Hosts</a></li>
 
-					<%-- </c:forEach> --%>
-						
-				<%-- </c:if> --%>
+
+						<li data-filter=".filter-web"><a href="listHosts.do">List
+								Hosts</a></li>
+
+						<%-- </c:forEach> --%>
+
+						<%-- </c:if> --%>
 					</ul>
 				</div>
 			</div>
@@ -325,8 +368,8 @@
 							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
 							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
 							voluptatum molestiae adipisci, beatae obcaecati.</p>
-							
-						
+
+
 					</div>
 				</div>
 			</div>
@@ -386,20 +429,26 @@
 						<p>The world is going through an unprecedented health crisis
 							that has forced many of us to be self quarantined at home. This
 							quarantine does not mean that socialization should end, there
-							should be a virtual escape. </p>
+							should be a virtual escape.</p>
 					</div>
 
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
-									the Team</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listEvents.do">Events</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listTags.do">List Tags</a></li>
+
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="meetTheTeam.do">Meet the Team</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="listEvents.do">Events</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="createUserPage.do">SignUp</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="signInPage.do">Login</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="listUsers.do">List Users</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="listTags.do">List Tags</a></li>
 						</ul>
 					</div>
 
@@ -431,11 +480,8 @@
 			<div class="copyright">
 				<strong>Quarantine Escape</strong>
 			</div>
-			<div class="credits">
-
-				Designed by: Ankit Shah, Christina Rowland, David Yoachum, Tim
-				Teruel
-			</div>
+			<div class="credits">Designed by: Ankit Shah, Christina
+				Rowland, David Yoachum, Tim Teruel</div>
 		</div>
 	</footer>
 	<!-- End Footer -->

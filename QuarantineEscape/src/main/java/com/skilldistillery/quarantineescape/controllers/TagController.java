@@ -46,7 +46,7 @@ public class TagController {
 	@RequestMapping(path = "updateTag.do", method = RequestMethod.POST)
 	public String updateUser(@RequestParam("id")int id, Tag tag) {
 		dao.updateTag(tag, id);
-		return "userAdded";
+		return "index";
 	}
 	
 	@RequestMapping(path = "findTag.do", method = RequestMethod.GET, params = "id")

@@ -1,75 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Quarantine Escape Update Host</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/myStyles.css">
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom fonts for this template -->
-<link
-	href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
-	rel="stylesheet">
+<link rel="stylesheet" href="css/update.css">
+<meta charset="UTF-8">
+<title>Quarantine Escape - Update Host</title>
+</head>
 <body>
-  <div class="w3-card-4">
-        <div>
-          <div class="w3-container w3-2019-eden">
-            <h2>Update Host</h2>
-          </div>
-          <form action="updateHost.do" method="POST">
-            <div class="form-group">
-              <label for="hostName">Host Name:</label>
-              <input type="text" class="w3-input form-control" id="hostName" placeholder="${host.hostName}"   name="hostName" >
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-              <label for="email">Host Email:</label>
-              <input type="text" class="w3-input form-control" id="email" placeholder="${host.email}"  name="email" >
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-              <div class="form-group">
-              <label for="phoneNumber">Phone Number:</label>
-              <input type="text" class="w3-input form-control" id="phoneNumber" placeholder="${host.phoneNumber}" name="phoneNumber" required>
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-              <label for="urlLogo">Photo URL:</label>
-              <input type="urlLogo" class="w3-input form-control" id="urlLogo" placeholder="${host.urlLogo}"  name="urlLogo" required>
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-              <label for="userImageUrl">User Image URL:</label>
-              <input type="url" class="w3-input form-control" id="userImageUrl" placeholder="Enter Image URL"  name="userImageUrl">
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-              <label for="location">Location ID:</label>
-              <input type="text" class="w3-input form-control" id="location" placeholder="${host.location}"  name="location">
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Please fill out this field.</div>
-              
-              		<input type = "hidden" name = "id" value = "${host.id}"/>
-		<input type="submit" value="Update Host" class="text-center;btn btn-info" />
+
+	<form action="updateHost.do" method="POST">
+		<div id="fullscreen_bg" class="fullscreen_bg" />
+		<form class="form-signin">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+						<div class="panel panel-default">
+							<div class="panel panel-primary">
+								<h3 class="text-center">Update User information</h3>
+
+								<div class="panel-body">
+
+									<fieldset>
+										<legend>Update Host</legend>
+										<div class="form-group">
+											<label for="hostName">Host Name: </label> <input type="text"
+												value="${host.hostName}" name="hostName" id="hostName"
+												class="form-control" required />
+										</div>
+										<div class="form-group">
+											<label for="email">Host Email: </label> <input type="text"
+												value="${host.email}" name="email" id="email"
+												class="form-control" required />
+										</div>
+										<div class="form-group">
+											<label for="phoneNumber">Phone Number: </label> <input
+												type="text" value="${host.phoneNumber}" name="phoneNumber"
+												id="phoneNumber" class="form-control" required />
+										</div>
+										<div class="form-group">
+											<label for="url">Photo URL: </label> <input type="text"
+												value="${host.url}" name="url" id="url" class="form-control" />
+										</div>
+										<div class="form-group">
+											<label for="urlLogo">User Image URL: </label> <input
+												type="text" value="${host.urlLogo}" name="urlLogo"
+												id="urlLogo" class="form-control" />
+										</div>
+										<div class="form-group">
+											<label for="location">Location : </label> <input type="text"
+												value="${host.location}" name="location" id="location"
+												class="form-control" />
+										</div>
+
+										<input type="hidden" name="id" value="${host.id}" /> <input
+											type="submit" value="Update Host" class="btn btn-primary" />
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
-		</div>
-        </div>
-      </div>
+	</form>
+
 </body>
 </html>
+
+
+
+
