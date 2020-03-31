@@ -54,6 +54,11 @@ public class HomeController {
 			return "createEvent";
 		}
 	
+		@RequestMapping(path = "subscribe.do")
+		public String suscribe() {
+			return "subscribe";
+		}
+		
 		
 
 
