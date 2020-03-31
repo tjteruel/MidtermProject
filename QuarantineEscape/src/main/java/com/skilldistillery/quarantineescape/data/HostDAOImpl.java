@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Host;
+import com.skilldistillery.quarantineescape.entities.Location;
 import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
@@ -28,19 +29,29 @@ public class HostDAOImpl implements HostDAO {
 	@Override
 	public boolean deleteHost(int hostId) {
 		Host host = em.find(Host.class, hostId);
+		em.remove(host);
+		em.flush();
+		if (host == null) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public Host updateHost(Host host, int hostId) {
+	public Host updateHost(Host host, int hostId, Location loc) {
 		Host updatedHost = em.find(Host.class, hostId);
 		updatedHost.setHostName(host.getHostName());
 		updatedHost.setEmail(host.getEmail());
-		updatedHost.setLocation(host.getLocation());
 		updatedHost.setPhoneNumber(host.getPhoneNumber());
 		updatedHost.setUrl(host.getUrl());
 		updatedHost.setUrlLogo(host.getUrlLogo());
-
+//		updatedHost.setAddress(host.getAddress();
+//		updatedHost.setLocation(loc.setAddress(loc.getAddress()));
+		loc.setCity(loc.getCity());
+		loc.setCountry(loc.getCountry());
+		loc.setPostalCode(loc.getPostalCode());
+		loc.setState(loc.getState());
+		
 		return host;
 	}
 
@@ -49,6 +60,7 @@ public class HostDAOImpl implements HostDAO {
 		Host host = em.find(Host.class, hostId);
 		return host;
 	}
+
 	@Override
 	public List<Host> findAll() {
 		String jpql = "SELECT h FROM Host h";

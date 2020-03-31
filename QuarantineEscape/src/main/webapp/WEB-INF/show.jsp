@@ -19,11 +19,7 @@
 
 		<div class="wrapper">
 			<div class="outer-image">
-				<img class="round-image"
-
-				src="${user.userImageUrl}" 
-				 
-					height="100%">
+				<img class="round-image" src="${user.userImageUrl}" height="100%">
 			</div>
 			<div class="header"></div>
 		</div>
@@ -31,10 +27,7 @@
 			<div id="Portfolio">
 				<div class="inner">
 					<div class="Portfolio_title">
-						${user.username}
-						
-
-						<br />
+						${user.username} <br />
 
 					</div>
 					<table class="portfolio_content">
@@ -74,6 +67,8 @@
 				</div>
 			</div>
 		</div>
+
+
 		<!-- DELETE USER -->
 		<%-- 	<div class="btn-group;text-center" role="group" style="text-align:center" >
 				<button type="button" class="btn btn-info btn-sm" >
@@ -83,7 +78,7 @@
 		</form>
 		</button> --%>
 
-	<%-- 	<!-- Home Button -->
+		<%-- 	<!-- Home Button -->
 		<a href="deleteUser.do" method="POST" value="${user.id }"> <span
 			class="glyphicon glyphicon-trash"></span>
 		</a> <a href="home.do"> <span class="glyphicon glyphicon-home"></span>
@@ -98,7 +93,52 @@
 	</div>
 
 	</div>
-	
 
+
+	<!-- DISPLAY USERS EVENTS -->
+	<div class="col-md-12">
+		<h4 class="text_align">List Of RSVP Events</h4>
+		<div class="table-responsive">
+
+
+			<table id="mytable" class="table table-bordred table-striped">
+
+				<thead>
+
+
+					<th>Event</th>
+					<th>Location</th>
+					<th>Date</th>
+					<th>Description</th>
+					<th></th>
+
+				</thead>
+				<tbody>
+					<c:forEach var="event" items="${events}">
+						<tr>
+							<td>${event.title}</td>
+							<td>${event.location}</td>
+							<td>${event.eventDate}</td>
+							<td>${event.description}</td>
+							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
+											<input type="hidden" value="${event.id}" name="eventId" /> <input
+												type="submit" value="Delete" class="btn btn-danger" />
+										</form> --%>
+							</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
+			</table>
+
+			<!-- Home Button -->
+			<form action="home.do" method="POST">
+				<input type="submit" value="Home" class="btn btn-primary" />
+			</form>
+			<!-- UPDATE USER -->
+			<form action="updatePage.do" method="POST">
+				<input type="hidden" value="${user.id}" name="user" /> <input
+					type="submit" value="Update Profile" class="btn btn-primary" />
+			</form>
 </body>
 </html>

@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.quarantineescape.data.HostDAO;
 import com.skilldistillery.quarantineescape.entities.Host;
+import com.skilldistillery.quarantineescape.entities.Location;
+import com.skilldistillery.quarantineescape.entities.User;
 
 
 @Controller
@@ -46,8 +48,8 @@ public class HostController {
 	}
 	
 	@RequestMapping(path = "updateHost.do", method = RequestMethod.POST)
-	public String updateUser(@RequestParam("id")int id, Host host) {
-		dao.updateHost(host, id);
+	public String updateUser(@RequestParam("id")int id, Host host, Location loc) {
+		dao.updateHost(host, id, loc);
 		return "index";
 	}
 	
@@ -57,4 +59,10 @@ public class HostController {
 		return "listAllHosts";
 	}
 	
+	@RequestMapping(path = "deleteHost.do", method = RequestMethod.POST)
+	public String deleteHost(@RequestParam("hostId") int id) {
+		Host host = dao.findHostById(id);
+		dao.deleteHost(host.getId());
+		return "index";
+	}
 }

@@ -55,14 +55,35 @@
 												id="urlLogo" class="form-control" />
 										</div>
 										<div class="form-group">
-											<label for="location">Location : </label> <input type="text"
-												value="${host.location}" name="location" id="location"
+											<label for="address">Location Address: </label> <input type="text"
+												value="${host.location.address}" name="address" id="address"
 												class="form-control" />
 										</div>
-
+										<div class="form-group">
+											<label for="city">City: </label> <input type="text"
+												value="${host.location.city}" name="city" id="city"
+												class="form-control" />
+										</div>
+										<div class="form-group">
+											<label for="state">Province/State: </label> <input type="text"
+												value="${host.location.state}" name="state" id="state"
+												class="form-control" />
+										</div>
+										<div class="form-group">
+											<label for="country">Country: </label> <input type="text"
+												value="${host.location.country}" name="country" id="country"
+												class="form-control" />
+										</div>
+										<div class="form-group">
+											<label for="postalCode">Postal Code: </label> <input type="text"
+												value="${host.location.country}" name="postalCode" id="postalCode"
+												class="form-control" />
+										</div>
+									</fieldset>
+										<div class="form-group">
 										<input type="hidden" name="id" value="${host.id}" /> <input
 											type="submit" value="Update Host" class="btn btn-primary" />
-									</fieldset>
+											</div>
 								</div>
 							</div>
 						</div>

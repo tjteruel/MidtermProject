@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
@@ -87,6 +88,14 @@ public class UserDAOImpl implements UserDAO{
 	public List<User> findAll() {
 		String jpql = "SELECT u FROM User u";
 		return em.createQuery(jpql, User.class).getResultList();
+	}
+	
+	//USER RSVP TO EVENT
+	public boolean addEventToRSVP(int eventId, int userId) {
+	Event event = em.find(Event.class, eventId);
+	User managedUser = em.find(User.class, userId);
+	//managedUser.addEvent(event);
+	return false;
 	}
 
 }
