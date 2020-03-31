@@ -49,6 +49,16 @@
 							<td>${user.lastName }</td>
 						</tr>
 						<tr>
+							<td>User Description</td>
+							<td class="one">:</td>
+							<td>${user.userDescription }</td>
+						</tr>
+						<tr>
+							<td>User Email</td>
+							<td class="one">:</td>
+							<td>${user.email }</td>
+						</tr>
+						<tr>
 							<td>Role</td>
 							<td class="one">:</td>
 							<td>${user.role }</td>
