@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
+<link rel="stylesheet" href="css/update.css">
 <meta charset="UTF-8">
 <title>Quarantine Escape - Update Event</title>
 </head>
@@ -43,8 +50,12 @@
 												value="${event.eventLink}" name="eventLink" id="eventLink" class="form-control" />
 										</div>
 										<div class="form-group">
-											<label for="publicORPrivate">Public or Private: </label> <input type="text"
-												value="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="form-control" />
+											<label for="publicORPrivate">Public or Private: </label> 
+											
+												<select id="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="btn btn-secondary dropdown-toggle" required>
+												<option value="Public">Public</option>
+												<option value="Private">Private</option> 
+												</select>
 										</div>
 										<div class="form-group">
 											<label for="eventImageUrl">Event Image URL: </label> <input
