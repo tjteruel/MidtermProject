@@ -45,10 +45,20 @@ public class EventController {
 		dao.deleteEvent(id);
 		return "eventDeleted";
 	}
+	@RequestMapping(path = "updateEventPage.do", method = RequestMethod.POST)
+	public ModelAndView updateEvent(@RequestParam("event") int id) {
+		Event event = dao.findEventById(id);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("event", event);
+		mv.setViewName("eventUpdated");
+		return mv;
+		
+	}
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public String updateEvent(Event event, int id) {
+	public String updatedEvent(@RequestParam("id")int id,Event event) {
+	
 		dao.updateEvent(event, id);
-		return "eventUpdated";
+		return "index";
 	}
 	
 	
