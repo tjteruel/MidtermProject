@@ -9,12 +9,12 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Quarantine Escape - ${user.username}</title>
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/myStyles.css">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link
 	href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
@@ -38,12 +38,26 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item active"><a class="nav-link">Logged In
-							As : ${user.username}</a></li>
+				
+					<li class="nav-item active"><a class="nav-link">Logged In As :
+							${user.username}</a></li>
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
 					<li>
+					<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
 						<form action="findUser.do" method="GET" class="form">
 							<input type="text" value="Input UserID" name="id"
 								class="form-group" /> <input type="submit" value="Search"
@@ -445,9 +459,7 @@
 	<script src="assets/vendor/superfish/superfish.min.js"></script>
 	<script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
 	<script src="assets/vendor/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-		type="text/javascript"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
 
 </body>
 
