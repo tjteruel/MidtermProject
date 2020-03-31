@@ -26,6 +26,7 @@ public class EventDAOImpl implements EventDAO{
 	public Event createEvent(Event event) {
 		em.persist(event);
 		em.flush();
+		em.close();
 		return event;
 	}
 

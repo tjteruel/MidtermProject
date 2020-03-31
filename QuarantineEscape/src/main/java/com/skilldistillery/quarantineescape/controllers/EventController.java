@@ -34,9 +34,9 @@ public class EventController {
 	}
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
 	public ModelAndView createEvent(Event event) {
-		dao.createEvent(event);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index");
+		dao.createEvent(event);
 		return mv;
 	}
 	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
