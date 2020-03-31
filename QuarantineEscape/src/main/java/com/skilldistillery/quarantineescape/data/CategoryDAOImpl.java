@@ -17,7 +17,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Category createCategory(Category category) {
 		em.persist(category);
@@ -28,14 +28,15 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean deleteCategory(int categoryId) {
 		Category category = em.find(Category.class, categoryId);
-		em.remove(categoryId);
+
+		em.remove(category);
 		em.flush();
 		if (category == null) {
 			return true;
-		} 
+		}
 		return false;
 	}
-	
+
 	@Override
 	public Category updateCategory(Category category, int categoryId) {
 		Category updateCategory = em.find(Category.class, categoryId);
@@ -48,13 +49,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public Category findCategoryById(int categoryId) {
-		Category category = em.find(Category.class,categoryId);
+		Category category = em.find(Category.class, categoryId);
 		return category;
 	}
 
 	@Override
 	public List<Category> findAll() {
 		String jpql = "SELECT c FROM Category c";
-		return em.createQuery(jpql, Category.class).getResultList();	}
+		return em.createQuery(jpql, Category.class).getResultList();
+	}
 
 }

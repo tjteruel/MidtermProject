@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Category {
 	@Column(name = "category_image_url")
 	private String categoryImageUrl;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch= FetchType.EAGER)
 	@JoinTable(name = "event_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 
 	private List<Event> events;

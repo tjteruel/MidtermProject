@@ -2,6 +2,7 @@ package com.skilldistillery.quarantineescape.data;
 
 import java.util.List;
 
+import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.EventComment;
 import com.skilldistillery.quarantineescape.entities.User;
@@ -32,4 +33,8 @@ public interface EventDAO {
 	public List<EventComment> getEventCommentByEventId(int eventId);
 	
 	List<Event> findAll();
+	
+	public List<Event> findByCategory (String name);
+
+
 }
