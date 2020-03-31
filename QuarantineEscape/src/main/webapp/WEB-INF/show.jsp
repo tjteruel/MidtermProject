@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="css/show.css">
 <jsp:include page="js/show.js"></jsp:include>
 
-
 </head>
 <body class="h-100">
 	<div class="container h-100">
@@ -21,7 +20,9 @@
 		<div class="wrapper">
 			<div class="outer-image">
 				<img class="round-image"
-					src="https://yt3.ggpht.com/-GhFCaSPC3Ns/AAAAAAAAAAI/AAAAAAAAAAA/lyBDET_Q8lo/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+
+				src="${user.userImageUrl}" 
+				 
 					height="100%">
 			</div>
 			<div class="header"></div>
@@ -30,7 +31,10 @@
 			<div id="Portfolio">
 				<div class="inner">
 					<div class="Portfolio_title">
-						${user.username}<br />
+						${user.username}
+						
+
+						<br />
 
 					</div>
 					<table class="portfolio_content">
