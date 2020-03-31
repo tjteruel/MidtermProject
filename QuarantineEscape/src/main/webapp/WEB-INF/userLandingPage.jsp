@@ -8,13 +8,13 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Quarantine Escape - ${user.username} </title>
+<title>Quarantine Escape - ${user.username}</title>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/myStyles.css">
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link
 	href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
@@ -38,14 +38,18 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link">Logged In As : ${user.username}</a>
+
+					<li class="nav-item active"><a class="nav-link">Logged In
+							As : ${user.username}</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.do">Log
+							Out</a></li>
+					<li>
+						<form action="findUser.do" method="GET" class="form">
+							<input type="text" value="Input UserID" name="id"
+								class="form-group" /> <input type="submit" value="Search"
+								class="form-group; btn btn-info" />
+						</form>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="logout.do">Log Out</a>
-					</li>
-					<li> 	<form action="findUser.do" method="GET" class="form">		
-		<input type="text" value="Input UserID" name="id" class="form-group" />
-		<input type="submit" value="Search" class="form-group; btn btn-info" />
-	</form></li>
 				</ul>
 			</div>
 		</div>
@@ -82,10 +86,12 @@
 						<li data-filter=".filter-app">Animal Cams</li>
 						<li data-filter=".filter-card">Music</li>
 						<li data-filter=".filter-web">Games</li>
-						<li data-filter=".filter-web"><form action ="getCategory.do" method="GET">${category.categoryName }</form></li>
-						
-						<li data-filter=".filter-web"><a href="categoryForm.do">Add Categories</a></li>
-						
+						<li data-filter=".filter-web"><form action="getCategory.do"
+								method="GET">${category.categoryName }</form></li>
+
+						<li data-filter=".filter-web"><a href="categoryForm.do">Add
+								Categories</a></li>
+
 					</ul>
 				</div>
 			</div>
@@ -308,8 +314,8 @@
 							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
 							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
 							voluptatum molestiae adipisci, beatae obcaecati.</p>
-							
-						
+
+
 					</div>
 				</div>
 			</div>
@@ -369,19 +375,25 @@
 						<p>The world is going through an unprecedented health crisis
 							that has forced many of us to be self quarantined at home. This
 							quarantine does not mean that socialization should end, there
-							should be a virtual escape. </p>
+							should be a virtual escape.</p>
 					</div>
 
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet the Team</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Events</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Hosts</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Categories</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userProfilePage.do">List Locations</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="meetTheTeam.do">Meet the Team</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="userProfilePage.do">List Events</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="listUsers.do">List Users</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="userProfilePage.do">List Hosts</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="userProfilePage.do">List Categories</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="userProfilePage.do">List Locations</a></li>
 						</ul>
 					</div>
 
@@ -413,11 +425,8 @@
 			<div class="copyright">
 				<strong>Quarantine Escape</strong>
 			</div>
-			<div class="credits">
-
-				Designed by: Ankit Shah, Christina Rowland, David Yoachum, Tim
-				Tereul
-			</div>
+			<div class="credits">Designed by: Ankit Shah, Christina
+				Rowland, David Yoachum, Tim Tereul</div>
 		</div>
 	</footer>
 	<!-- End Footer -->
@@ -436,6 +445,9 @@
 	<script src="assets/vendor/superfish/superfish.min.js"></script>
 	<script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
 	<script src="assets/vendor/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+		type="text/javascript"></script>
 
 </body>
 
