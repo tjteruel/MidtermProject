@@ -1,49 +1,95 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta charset="UTF-8">
-<title>Quarantine Escape - Tags</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
+<jsp:include page="js/listAllUsers.js"></jsp:include>
+ <link rel="stylesheet" href="css/locationForm.css">
+<title>Quarantine Escape - Users</title>
+
+
+
 </head>
 <body>
-  		<h2>List of Tags in Database</h2>
-  		<table class="table table-striped">
-		<thead class="thead thead-dark">
-			<tr>
-				<th>Tag ID</th>
-				<th>Tag Name</th>
 
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="tag" items="${tags}">
-				<tr>
-					<td>${tag.id}</td>
-					<td>${tag.tagName}</td>
+	<div class="container">
+		<div class="row">
 
-					<td>
-						<form action ="updateTagPage.do" method = "POST">
-						<input type="hidden" value="${tag.id}" name = "tag"/>
-						<input type="submit" value="Update" class="btn btn-primary"/>
-						</form>
-					</td>
-					<td>
-						<form action ="deleteTag.do" method = "POST" class="form-group">
-						<input type="hidden" value="${tag.id}" name = "tagId"/>
-						<input type="submit" value="Delete" class="btn btn-danger"/>
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
-			
-		</tbody>
-		</table>
-		
+
+			<div class="col-md-12">
+				<h4 class="text_align">List Of Tags</h4>
+				<div class="table-responsive">
+
+
+					<table id="mytable" class="table table-bordred table-striped">
+
+						<thead>
+
+
+							<th>Tag ID</th>
+							<th>Tag Name</th>
+						
+							
+						</thead>
+						<tbody>
+							<c:forEach var="tag" items="${tags}">
+								<tr>
+									<td>${tag.id}</td>
+									<td>${tag.tagName}</td>
+									
+									<td>
+
+										<form action="updateTagPage.do" method="POST">
+
+											<input type="hidden" value="${tag.id}" name="tag" /> <input
+												type="submit" value="Update" class="btn btn-primary" />
+										</form>
+									</td>
+									<td>
+										<form action="deleteTag.do" method="POST" class="form-group">
+											<input type="hidden" value="${tag.id}" name="tagId" /> <input
+												type="submit" value="Delete" class="btn btn-danger" />
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+
+					<div class="clearfix"></div>
+					<ul class="pagination pull-right">
+						<li class="disabled"><a href="#"><span
+								class="glyphicon glyphicon-chevron-left"></span></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#"><span
+								class="glyphicon glyphicon-chevron-right"></span></a></li>
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

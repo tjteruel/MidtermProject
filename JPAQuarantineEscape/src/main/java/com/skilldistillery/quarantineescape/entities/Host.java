@@ -196,7 +196,7 @@ public class Host {
 	@Override
 	public String toString() {
 		return "Host [id=" + id + ", hostName=" + hostName + ", email=" + email + ", phoneNumber=" + phoneNumber
-				+ ", url=" + url + ", urlLogo=" + urlLogo + ", location=" + location;
+				+ ", url=" + url + ", urlLogo=" + urlLogo; 
 	}
 
 

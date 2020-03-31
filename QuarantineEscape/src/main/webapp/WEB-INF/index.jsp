@@ -436,26 +436,19 @@
 						<h4>Useful Links</h4>
 						<ul>
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
-<<<<<<< HEAD
+
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="meetTheTeam.do">Meet the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="listEvents.do">Events</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="createUserPage.do">Signup</a></li>
+								href="createUserPage.do">SignUp</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="signInPage.do">Login</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="listUsers.do">List Users</a></li>
-=======
-							<li><i class="ion-ios-arrow-right"></i> <a href="meetTheTeam.do">Meet
-									the Team</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listEvents.do">Events</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="createUserPage.do">Signup</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="signInPage.do">Login</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listUsers.do">List Users</a></li>
-							<li><i class="ion-ios-arrow-right"></i> <a href="listTags.do">List Tags</a></li>
->>>>>>> a8b25191978571ed1996cab41fbf4437f9e7cafb
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="listTags.do">List Tags</a></li>
 						</ul>
 					</div>
 
