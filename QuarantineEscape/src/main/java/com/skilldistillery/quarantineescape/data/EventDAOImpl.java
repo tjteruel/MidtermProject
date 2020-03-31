@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.EventComment;
 import com.skilldistillery.quarantineescape.entities.User;
@@ -147,6 +148,16 @@ public class EventDAOImpl implements EventDAO{
 		String jpql = "Select e From Event e";
 		return em.createQuery(jpql, Event.class).getResultList();
 	}
+
+	@Override
+	public List<Event> findByCategory(String name) {
+		String jpql = "select event from Event event join event.categories category "
+				+ " where category.name like :name";
+	return em.createQuery(jpql,Event.class).setParameter("name","%"+name+"%").getResultList();
+				
+		
+	}
+
 	
 
 }
