@@ -27,6 +27,7 @@ public class EventDAOImpl implements EventDAO{
 	public Event createEvent(Event event) {
 		em.persist(event);
 		em.flush();
+		em.close();
 		return event;
 	}
 
@@ -140,7 +141,7 @@ public class EventDAOImpl implements EventDAO{
 	@Override
 	public Event findEventById(int id) {
 		Event eventFound = em.find(Event.class, id);
-		return null;
+		return eventFound;
 	}
 
 	@Override

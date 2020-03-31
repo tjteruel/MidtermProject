@@ -39,6 +39,8 @@
 							<th>Location</th>
 							<th>Date</th>
 							<th>Description</th>
+							<th>Prereqs</th>
+							<th>Event Link</th>
 							
 						</thead>
 						<tbody>
@@ -48,6 +50,8 @@
 									<td>${event.location}</td>
 									<td>${event.eventDate}</td>
 									<td>${event.description}</td>
+									<td>${event.prereqs}</td>
+									<td>${event.eventLink}</td>
 
 									<td>
 

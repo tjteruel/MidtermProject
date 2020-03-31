@@ -25,6 +25,9 @@
 								<li>Name: ${event.title}</li>
 								<li>Date: ${event.eventDate}</li>
 								<li>Location: ${event.location}</li>
+								<li>Public: ${event.publicOrPrivate}</li>
+								<li>Prereqs: ${event.prereqs}</li>
+								<li>Link: ${event.eventLink}</li>
 							</ul>
 							<form action="updateEvent.do" method="GET">
 								<input type="hidden" name="id" value="${event.id}" />

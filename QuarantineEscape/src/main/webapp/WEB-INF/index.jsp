@@ -66,7 +66,7 @@
 						Locations</a></li>
 						
 				<li class="nav-item"><a class="nav-link"
-					href="createEvent.do">Add Events</a></li>
+					href="createEventPage.do">Add Events</a></li>
 			</ul>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"

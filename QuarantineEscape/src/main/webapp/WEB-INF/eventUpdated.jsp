@@ -1,15 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
+<link rel="stylesheet" href="css/update.css">
 <meta charset="UTF-8">
 <title>Quarantine Escape - Update Event</title>
 </head>
 <body>
 
-	<form action="eventUpdated.do" method="POST">
+	<form action="eventUpdated.do" method="Post">
 		<div id="fullscreen_bg" class="fullscreen_bg" />
 		<form class="form-signin">
 			<div class="container">
@@ -43,19 +50,32 @@
 												value="${event.eventLink}" name="eventLink" id="eventLink" class="form-control" />
 										</div>
 										<div class="form-group">
-											<label for="publicORPrivate">Public or Private: </label> <input type="text"
-												value="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="form-control" />
+											<label for="publicORPrivate">Public or Private: </label> 
+											
+												<select id="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="btn btn-secondary dropdown-toggle" required>
+												<option value="True">Public</option>
+												<option value="False">Private</option> 
+												</select>
+										</div>
+										<div class="form-group">
+											<label for="status">Event Status: </label> 
+											
+												<select id="${event.status}" name="status" id="status" class="btn btn-secondary dropdown-toggle" required>
+												<option value="Scheduled">Scheduled</option> 
+												<option value="Cancelled">Cancelled</option>
+												<option value="Delayed">Delayed</option> 
+												</select>
 										</div>
 										<div class="form-group">
 											<label for="eventImageUrl">Event Image URL: </label> <input
 												type="text" value="${event.eventImageUrl}" name="eventimageUrl"
 												id="eventImageUrl" class="form-control" />
 										</div>
-										<div class="form-group">
+										<%-- <div class="form-group">
 											<label for="location">Location : </label> <input type="text"
 												value="${event.location}" name="location" id="location"
 												class="form-control" />
-										</div>
+										</div> --%>
 
 										<input type="hidden" name="id" value="${event.id}" /> <input
 											type="submit" value="Update Event" class="btn btn-primary" />
