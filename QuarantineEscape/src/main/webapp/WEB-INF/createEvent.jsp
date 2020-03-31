@@ -61,9 +61,9 @@
 											<label for="status">Event Status: </label> 
 											
 												<select id="${event.status}" name="status" id="status" class="btn btn-secondary dropdown-toggle" required>
-												<option value="Canceled">Canceled</option>
-												<option value="Delayed">Delayed</option> 
 												<option value="Scheduled">Scheduled</option> 
+												<option value="Cancelled">Cancelled</option>
+												<option value="Delayed">Delayed</option> 
 												</select>
 										</div>
 										<div class="form-group">

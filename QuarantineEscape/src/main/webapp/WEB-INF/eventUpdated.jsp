@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<form action="eventUpdated.do" method="POST">
+	<form action="eventUpdated.do" method="Post">
 		<div id="fullscreen_bg" class="fullscreen_bg" />
 		<form class="form-signin">
 			<div class="container">
@@ -53,8 +53,17 @@
 											<label for="publicORPrivate">Public or Private: </label> 
 											
 												<select id="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="btn btn-secondary dropdown-toggle" required>
-												<option value="Public">Public</option>
-												<option value="Private">Private</option> 
+												<option value="True">Public</option>
+												<option value="False">Private</option> 
+												</select>
+										</div>
+										<div class="form-group">
+											<label for="status">Event Status: </label> 
+											
+												<select id="${event.status}" name="status" id="status" class="btn btn-secondary dropdown-toggle" required>
+												<option value="Scheduled">Scheduled</option> 
+												<option value="Cancelled">Cancelled</option>
+												<option value="Delayed">Delayed</option> 
 												</select>
 										</div>
 										<div class="form-group">
@@ -62,11 +71,11 @@
 												type="text" value="${event.eventImageUrl}" name="eventimageUrl"
 												id="eventImageUrl" class="form-control" />
 										</div>
-										<div class="form-group">
+										<%-- <div class="form-group">
 											<label for="location">Location : </label> <input type="text"
 												value="${event.location}" name="location" id="location"
 												class="form-control" />
-										</div>
+										</div> --%>
 
 										<input type="hidden" name="id" value="${event.id}" /> <input
 											type="submit" value="Update Event" class="btn btn-primary" />
