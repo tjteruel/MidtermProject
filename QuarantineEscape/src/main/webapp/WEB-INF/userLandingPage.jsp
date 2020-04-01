@@ -14,7 +14,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/myStyles.css">
+<link rel="stylesheet" href="css/userLandingPage.css">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link
@@ -64,7 +64,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="findUser.do?id=<c:out value="${loggedInUser.id }"/>">${user.username}</a></li>
+					<li class="nav-item active"><a class="nav-link" href="findUser.do?id=<c:out value="${loggedInUser.id }"/>">User: ${user.username}</a></li>
 						
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
@@ -75,7 +75,7 @@
 							<button class="btn btn-outline-success my-2 my-sm-0"
 								type="submit">Search</button>
 						</form></li>
-				</ul>x
+				</ul>
 			</div>
 		</div>
 	</nav>

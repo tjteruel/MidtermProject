@@ -14,7 +14,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Quarantine Escape Sign Up</title>
+<title>Quarantine Escape - Sign Up</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -53,7 +53,7 @@
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-				<h2 class="text_align">Please Sign Up</h2>
+				<h2 class="text_align">Please Sign Up for Quarantine Escape</h2>
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-12 ">
