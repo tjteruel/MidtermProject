@@ -51,7 +51,7 @@
 									<td>${event.eventDate}</td>
 									<td>${event.description}</td>
 									<td>${event.prereqs}</td>
-									<td>${event.eventLink}</td>
+									<td><a href="${event.eventLink}">Click Here</a></td>
 
 									<td>
 
