@@ -28,6 +28,16 @@ public class Host {
 	
 	private Boolean active;
 	
+	public Boolean getActive() {
+		return active;
+	}
+
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+
 	@Column(name="phone_number")
 	private String phoneNumber;
 	

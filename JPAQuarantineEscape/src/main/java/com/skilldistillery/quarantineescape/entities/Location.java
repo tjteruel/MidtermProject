@@ -23,8 +23,9 @@ public class Location {
 	
 	private String address;
 	
-	private Boolean active;
-	
+
+
+
 	@Column (name="postal_code")
 	private String postalCode;
 	
