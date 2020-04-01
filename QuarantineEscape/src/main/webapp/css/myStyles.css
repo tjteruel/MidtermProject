@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-/*!
- * Start Bootstrap - One Page Wonder v5.0.7 (https://startbootstrap.com/template-overviews/one-page-wonder)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/blob/master/LICENSE)
- */
-
 body {
   font-family: 'Lato';
 }
@@ -316,6 +310,15 @@ header.masthead .bg-circle-4 {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
+}
+
+
+
+#portfolio .image-fluid{
+
+  max-width: 100%;
+  height: auto;
+
 }
 /*--------------------------------------------------------------
 # Footer

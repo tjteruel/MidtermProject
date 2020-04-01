@@ -28,9 +28,15 @@ public class EventController {
 	private UserDAO userDao;
 
 	@RequestMapping(path = "listEvents.do")
-	public String showUsers(Model model) {
+	public String showEvents(Model model) {
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
+	}
+	
+	@RequestMapping(path = "listEvents1.do", method=RequestMethod.GET)
+	public String showEvents1(Model model) {
+		model.addAttribute("events", dao.findAll());
+		return "index";
 	}
 
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
@@ -40,6 +46,8 @@ public class EventController {
 		model.addAttribute("event", event);
 		return view;
 	}
+	
+
 
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
 	public ModelAndView createEvent(Event event) {
@@ -111,5 +119,6 @@ public class EventController {
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
 	}
-
 }
+
+
