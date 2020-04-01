@@ -50,7 +50,8 @@
 								
 								<c:if test="${event.active}">
 									<tr>
-										<td>${event.title}</td>
+										<td><a href="findEvent.do?id=<c:out value="${event.id}"/>">${event.title}</a></td>
+										    
 										<td>${event.location}</td>
 										<td>${event.eventDate}</td>
 										<td>${event.description}</td>
