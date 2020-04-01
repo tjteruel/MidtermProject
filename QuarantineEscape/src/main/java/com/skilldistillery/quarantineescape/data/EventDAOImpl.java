@@ -79,10 +79,13 @@ public class EventDAOImpl implements EventDAO {
 
 	// UPDATES USEREVENT TABLE
 	@Override
-	public UserEvent createUserEvent(Event event, User user) {
-		UserEventId userEventId = new UserEventId(user.getId(), event.getId());
-		UserEvent userEvent = new UserEvent();
-		userEvent.setId(userEventId);
+	public UserEvent createUserEvent(int eventId, int userId) {
+//		UserEventId userEventId = new UserEventId(user.getId(), event.getId());
+		User user = em.find(User.class, userId);
+		Event event = em.find(Event.class, eventId);
+		UserEvent userEvent = new UserEvent(user, event);
+//		userEvent.setId(userEventId);
+//		userEvent.setEvent(event);
 		userEvent.setAttended(false);
 		em.persist(userEvent);
 		em.flush();

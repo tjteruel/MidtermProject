@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
-<link rel="stylesheet" href="css/locationForm.css">
+ <link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Users</title>
 
 
@@ -41,9 +41,10 @@
 							<th>Description</th>
 							<th>Prereqs</th>
 							<th>Event Link</th>
-
+							
 						</thead>
 						<tbody>
+
 						
 								<c:forEach var="event" items="${events}">
 								
@@ -87,7 +88,6 @@
 						
 						</tbody>
 					</table>
-
 
 					<div class="clearfix"></div>
 					<ul class="pagination pull-right">
