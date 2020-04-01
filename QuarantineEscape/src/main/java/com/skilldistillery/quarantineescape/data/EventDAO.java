@@ -35,6 +35,9 @@ public interface EventDAO {
 	List<Event> findAll();
 	
 	public List<Event> findByCategory (String name);
+	
+	public Event deactivate(int id);
+	public Event activate (int id);
 
 
 }

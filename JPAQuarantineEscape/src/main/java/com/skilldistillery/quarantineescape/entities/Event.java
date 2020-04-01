@@ -366,8 +366,7 @@ public class Event {
 		return "Event [id=" + id + ", description=" + description + ", title=" + title + ", eventDate=" + eventDate
 				+ ", eventTime=" + eventTime + ", eventLink=" + eventLink + ", publicOrPrivate=" + publicOrPrivate
 				+ ", eventImageUrl=" + eventImageUrl + ", status=" + status + ", prereqs=" + prereqs + ", createdAt="
-				+ createdAt + ", host="
-				+ host + ", location=" + location + "]";
+				+ createdAt;
 	}
 
 }

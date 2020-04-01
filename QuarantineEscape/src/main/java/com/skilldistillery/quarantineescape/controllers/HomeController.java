@@ -59,12 +59,6 @@ public class HomeController {
 			return "subscribe";
 		}
 		
-		@RequestMapping(path = "try.do")
-		public String try1() {
-			return "try";
-		}
-		
-		
 
 
 		
