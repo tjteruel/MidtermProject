@@ -35,7 +35,7 @@ public class EventController {
 	@RequestMapping(path = "listEvents.do")
 	public String showUsers(Model model) {
 		model.addAttribute("events", dao.findAll());
-		return "try";
+		return "listAllEvents";
 	}
 
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
