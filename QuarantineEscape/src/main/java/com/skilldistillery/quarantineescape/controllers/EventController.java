@@ -12,14 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.quarantineescape.data.EventDAO;
 
-import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.Event;
 
 import com.skilldistillery.quarantineescape.data.UserDAO;
-import com.skilldistillery.quarantineescape.entities.Event;
+//import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.User;
 import com.skilldistillery.quarantineescape.entities.UserEvent;
-
 
 @Controller
 public class EventController {
@@ -28,9 +26,6 @@ public class EventController {
 	private EventDAO dao;
 	@Autowired
 	private UserDAO userDao;
-
-	
-
 
 	@RequestMapping(path = "listEvents.do")
 	public String showUsers(Model model) {
@@ -74,7 +69,7 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "eventUpdated.do", method = RequestMethod.POST)
-	public String updatedEvent(@RequestParam("id")int id, Event event) {
+	public String updatedEvent(@RequestParam("id") int id, Event event) {
 
 		dao.updateEvent(event, id);
 		return "index";
@@ -86,26 +81,33 @@ public class EventController {
 
 		return "listAllEvents";
 	}
-	
 
-	@RequestMapping(path="findByCategory.do")
+	@RequestMapping(path = "findByCategory.do")
 	public String listOfEventsByCategory(@RequestParam("categoryName") String categoryName, Model model) {
-		model.addAttribute("contents",  dao.findByCategory(categoryName));
+		model.addAttribute("contents", dao.findByCategory(categoryName));
 		return "eventList";
 	}
-	
 
 	@RequestMapping(path = "attendEvent.do", method = RequestMethod.POST)
 	public String attentEvent(Integer eventId, HttpSession session, Model model) {
-		User user = (User) session.getAttribute("loggedInUser"); //currently returning null
+		User user = (User) session.getAttribute("loggedInUser"); // currently returning null
 		user = userDao.findUserById(user.getId());
 		Event event = dao.findEventById(eventId);
-		UserEvent userEvent =dao.createUserEvent(event, user);
+		UserEvent userEvent = dao.createUserEvent(event, user);
 		model.addAttribute("event", event);
 		model.addAttribute("userEvent", userEvent);
 		model.addAttribute("notAttending", dao.findUserEvent(eventId, user.getId()));
 		return "show";
 	}
 
+	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
+	public String deactivateEvent(int eventId, Model model) {
+		System.out.println(eventId);
+		dao.deactivate(eventId);
+//		dao.findEventById(event.getId());
+//		event.setActive(false);
+		model.addAttribute("events", dao.findAll());
+		return "listAllEvents";
+	}
 
 }
