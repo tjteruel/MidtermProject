@@ -91,6 +91,14 @@ public class EventDAOImpl implements EventDAO {
 		em.flush();
 		return userEvent;
 	}
+	
+	// FINDS EVENTS BY USER ID
+	@Override
+	public List<UserEvent> findAllAttendingEvents(int userId) {
+		String jpql = "Select u From UserEvent u where u.user.id = :userId";
+		List<UserEvent> attendingEvents = em.createQuery(jpql, UserEvent.class).setParameter("userId", userId).getResultList();
+		return attendingEvents;
+	}
 
 	@Override
 	public boolean deleteUserEvent(Event event, User user) {

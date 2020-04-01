@@ -22,6 +22,8 @@ public interface EventDAO {
 	
 	public UserEvent createUserEvent(int eventId, int userId);
 	
+	public List<UserEvent> findAllAttendingEvents(int userId);
+	
 	public boolean deleteUserEvent(Event event, User user);
 	
 	public UserEvent setUserEvent(UserEvent userEvent);
