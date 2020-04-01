@@ -48,6 +48,16 @@ public class Event {
 	private Status status;
 
 	private String prereqs;
+	
+	private Boolean active;
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	@Column(name = "create_date")
 	private LocalDate createdAt;

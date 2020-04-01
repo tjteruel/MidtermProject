@@ -26,7 +26,7 @@
 
 
 			<div class="col-md-12">
-				<h4 class="text_align">List Of Events</h4>
+				<h4 class="text_align">List Of Categories</h4>
 				<div class="table-responsive">
 
 

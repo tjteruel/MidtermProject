@@ -92,16 +92,9 @@
 								type="submit">Search</button>
 						</form>
 					</li>
-			</div>
+					</ul>
 		</div>
-		</div>
-
-
-
-
-		</ul>
-		</div>
-		</div>
+	
 	</nav>
 
 	<header class="masthead text-center text-white">
@@ -137,7 +130,7 @@
 						<!-- </form> -->
 						<li data-filter="*" class="filter-active">All</li>
 						<li data-filter=".filter-app">Animal Cams</li>
-						<li data-filter=".filter-card"><a href ="#category">Music</a></li>
+						<li data-filter=".filter-card"><a href ="#">Music</a></li>
 						<li data-filter=".filter-web">Games</li>
 
 
@@ -153,7 +146,9 @@
 				</div>
 			</div>
 
+			
 			<div class="row portfolio-container">
+			
 
 				<div
 					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">

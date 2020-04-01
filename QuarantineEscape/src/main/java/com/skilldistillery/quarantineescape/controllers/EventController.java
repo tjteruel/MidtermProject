@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.quarantineescape.data.EventDAO;
+import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.Event;
-import com.skilldistillery.quarantineescape.entities.User;
 
 @Controller
 public class EventController {
@@ -18,10 +18,11 @@ public class EventController {
 	@Autowired
 	private EventDAO dao;
 
+
 	@RequestMapping(path = "listEvents.do")
 	public String showUsers(Model model) {
 		model.addAttribute("events", dao.findAll());
-		return "listAllEvents";
+		return "try";
 	}
 
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
@@ -44,7 +45,7 @@ public class EventController {
 	public String deleteEvent(@RequestParam("eventId") int id) {
 //		Event event = dao.findEventById(id);
 		dao.deleteEvent(id);
-		return "eventDeleted";
+		return "index";
 	}
 
 	@RequestMapping(path = "updateEventPage.do", method = RequestMethod.POST)
@@ -72,5 +73,12 @@ public class EventController {
 
 		return "listAllEvents";
 	}
+	
+	@RequestMapping(path="findByCategory.do")
+	public String listOfEventsByCategory(@RequestParam("categoryName") String categoryName, Model model) {
+		model.addAttribute("contents",  dao.findByCategory(categoryName));
+		return "eventList";
+	}
+	
 
 }
