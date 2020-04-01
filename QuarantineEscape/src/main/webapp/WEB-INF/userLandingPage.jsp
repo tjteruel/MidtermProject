@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,8 +64,8 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="show.do"
-						id="id" name="id">User: ${user.username}</a></li>
+					<li class="nav-item active"><a class="nav-link" href="findUser.do?id=<c:out value="${loggedInUser.id }"/>">${user.username}</a></li>
+						
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
 					<li class="nav-item"><form action="findUser.do" method="GET"
@@ -74,7 +75,7 @@
 							<button class="btn btn-outline-success my-2 my-sm-0"
 								type="submit">Search</button>
 						</form></li>
-				</ul>
+				</ul>x
 			</div>
 		</div>
 	</nav>
@@ -96,6 +97,8 @@
 	</header>
 
 	<!-- ======= Portfolio Section ======= -->
+
+
 	<section id="portfolio" class="section-bg">
 		<div class="container">
 
@@ -120,215 +123,36 @@
 				</div>
 			</div>
 
-			<div class="row portfolio-container">
 
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app1.jpg" data-lightbox="portfolio"
-								data-title="App 1" class="link-preview"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
+		<div class="row portfolio-container">
+			<div class="row-fluid"> 
 
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 1</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
+					<c:forEach var="event" items="${events}">
+								<c:if test="${event.active}">
+							<div class="card" style="width: 20rem;">
+								<img class="card-img-top" src="${event.eventImageUrl}"
+									alt="Card image top" >
+								<div class="card-body">
+									<h3 class="card-title">${event.title}</h3>
+									<p> ${event.active}</p>
+									<h4 class="card-subtitle">Card subtitle</h4>
+									<p class="card-text">This is a simple Card example</p>
+								</div>
+							</div>
+					</c:if>
+					</c:forEach>
 				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 3</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="App 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 2</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 2</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 2</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="App 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 3</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card1.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 1"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 1</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 3</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web1.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 1"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 1</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
+	</div>
 	</section>
 	<!-- End Portfolio Section -->
+
 
 	<section>
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6 order-lg-2">
 					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+						<img class="img-fluid rounded-circle" src="" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6 order-lg-1">
@@ -351,7 +175,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+						<img class="img-fluid rounded-circle" src="" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -372,7 +196,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6 order-lg-2">
 					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
+						<img class="img-fluid rounded-circle" src="" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6 order-lg-1">
@@ -437,9 +261,11 @@
 								href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">Center
 									for Disease Control (CDC)</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="https://covid19.colorado.gov/">Colorado Department of Public Health and Environment (CDPHE)</a></li>
+								href="https://covid19.colorado.gov/">Colorado Department of
+									Public Health and Environment (CDPHE)</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href=https://coronavirus.jhu.edu/map.html>Johns Hopkins University (JHU) COVID-19 Map</a></li>
+								href=https://coronavirus.jhu.edu/map.html>Johns Hopkins
+									University (JHU) COVID-19 Map</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="https://zoom.us/">Zoom Video Communications</a></li>
 						</ul>
@@ -453,11 +279,12 @@
 			<div class="copyright">
 				<strong>Quarantine Escape</strong>
 			</div>
-			<div class="credits">Designed by: 
-			<a href="https://github.com/Ankitshah89">Ankit Shah, </a>
-			<a href="https://github.com/rowland1318/">Christina Rowland, </a> 
-			<a href="https://github.com/dyoachum">David Yoachum, </a>
-			<a href=https://github.com/tjteruel>Tim Tereul</a></div>
+			<div class="credits">
+				Designed by: <a href="https://github.com/Ankitshah89">Ankit
+					Shah, </a> <a href="https://github.com/rowland1318/">Christina
+					Rowland, </a> <a href="https://github.com/dyoachum">David Yoachum,
+				</a> <a href=https://github.com/tjteruel>Tim Tereul</a>
+			</div>
 		</div>
 	</footer>
 	<!-- End Footer -->

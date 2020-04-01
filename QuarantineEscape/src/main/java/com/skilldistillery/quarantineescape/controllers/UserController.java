@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.quarantineescape.data.EventDAO;
 import com.skilldistillery.quarantineescape.data.UserDAO;
 import com.skilldistillery.quarantineescape.entities.User;
 
@@ -18,9 +19,12 @@ public class UserController {
 
 	@Autowired
 	private UserDAO dao;
+	@Autowired
+	private EventDAO eDao;
 	
 	@RequestMapping(path = "findUser.do", method = RequestMethod.GET,params="id")
 	public String findUser(@RequestParam Integer id, Model model) {
+		System.out.println(id);
 		String view = "show";
 		User user = dao.findUserById(id);
 		model.addAttribute("user", user);
@@ -44,6 +48,7 @@ public class UserController {
 			return "index";
 		} else {
 			session.setAttribute("loggedInUser", userLoggedIn);
+			model.addAttribute("events", eDao.findAll());
 			return "userLandingPage";
 		}
 	}
