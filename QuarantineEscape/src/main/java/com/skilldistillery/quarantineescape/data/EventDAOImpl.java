@@ -17,12 +17,12 @@ import com.skilldistillery.quarantineescape.entities.UserEventId;
 
 @Service
 @Transactional
-public class EventDAOImpl implements EventDAO{
-	
+public class EventDAOImpl implements EventDAO {
+
 	@PersistenceContext
 	private EntityManager em;
 
-	//CREATE NEW EVENT
+	// CREATE NEW EVENT
 	@Override
 	public Event createEvent(Event event) {
 		em.persist(event);
@@ -31,23 +31,23 @@ public class EventDAOImpl implements EventDAO{
 		return event;
 	}
 
-	//DELETE EXISTING EVENT
+	// DELETE EXISTING EVENT
 	@Override
 	public boolean deleteEvent(int eventId) {
 		Event event = em.find(Event.class, eventId);
 		em.remove(event);
 		em.flush();
-		if (event ==null) {
+		if (event == null) {
 			return true;
 		}
 		return false;
 	}
 
-	//UPDATE EXISTING EVENT
+	// UPDATE EXISTING EVENT
 	@Override
 	public Event updateEvent(Event event, int eventId) {
 		Event updatedEvent = em.find(Event.class, eventId);
-		
+
 		updatedEvent.setTitle(event.getTitle());
 		updatedEvent.setDescription(event.getDescription());
 		updatedEvent.setEventDate(event.getEventDate());
@@ -69,7 +69,7 @@ public class EventDAOImpl implements EventDAO{
 		return updatedEvent;
 	}
 
-	//FIND EXISTING EVENT
+	// FIND EXISTING EVENT
 	@Override
 	public UserEvent findUserEvent(int eventId, int userId) {
 		UserEventId userEventId = new UserEventId(userId, eventId);
@@ -77,7 +77,7 @@ public class EventDAOImpl implements EventDAO{
 		return userEvent;
 	}
 
-	//UPDATES USEREVENT TABLE
+	// UPDATES USEREVENT TABLE
 	@Override
 	public UserEvent createUserEvent(Event event, User user) {
 		UserEventId userEventId = new UserEventId(user.getId(), event.getId());
@@ -118,7 +118,7 @@ public class EventDAOImpl implements EventDAO{
 		return null;
 	}
 
-	//DELETES COMMENT
+	// DELETES COMMENT
 	@Override
 	public boolean deleteComment(int commentId) {
 		EventComment eComment = em.find(EventComment.class, commentId);
@@ -131,11 +131,12 @@ public class EventDAOImpl implements EventDAO{
 		return false;
 	}
 
-	//FINDS COMMENTS BY EVENT ID
+	// FINDS COMMENTS BY EVENT ID
 	@Override
 	public List<EventComment> getEventCommentByEventId(int eventId) {
 		String query = "SELECT eComment FROM EventComment eComment WHERE eComment.event.id = :eId";
-		List <EventComment> eComments = em.createQuery(query, EventComment.class).setParameter("eId", eventId).getResultList();
+		List<EventComment> eComments = em.createQuery(query, EventComment.class).setParameter("eId", eventId)
+				.getResultList();
 		return eComments;
 	}
 
@@ -155,33 +156,25 @@ public class EventDAOImpl implements EventDAO{
 	public List<Event> findByCategory(String name) {
 		String jpql = "select event from Event event join event.categories category "
 				+ " where category.name like :name";
-	return em.createQuery(jpql,Event.class).setParameter("name","%"+name+"%").getResultList();
-				
-		
+		return em.createQuery(jpql, Event.class).setParameter("name", "%" + name + "%").getResultList();
+
 	}
 
 	@Override
 	public Event deactivate(int id) {
 		Event event = em.find(Event.class, id);
-		
-		System.out.println("****************");
-		System.out.println(event);
 		event.setActive(false);
 		em.persist(event);
 		em.flush();
-		System.out.println("00000000000000000000000000");
-		System.out.println(event);
 		return event;
 	}
 
 	@Override
 	public Event activate(int id) {
-		Event event = em.find(Event.class,  id);
+		Event event = em.find(Event.class, id);
 		event.setActive(true);
 		em.flush();
 		return event;
 	}
-
-	
 
 }

@@ -102,10 +102,7 @@ public class EventController {
 
 	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
 	public String deactivateEvent(int eventId, Model model) {
-		System.out.println(eventId);
 		dao.deactivate(eventId);
-//		dao.findEventById(event.getId());
-//		event.setActive(false);
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
 	}

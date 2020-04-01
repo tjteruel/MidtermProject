@@ -46,6 +46,7 @@
 						<tbody>
 						
 								<c:forEach var="event" items="${events}">
+								
 								<c:if test="${event.active}">
 									<tr>
 										<td>${event.title}</td>
