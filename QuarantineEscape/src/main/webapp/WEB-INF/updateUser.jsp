@@ -12,7 +12,7 @@
 <head>
 <link rel="stylesheet" href="css/update.css">
 <meta charset="UTF-8">
-<title>Quarantine Escape - Update User</title>
+<title>Quarantine Escape - Update ${user.username}</title>
 </head>
 <body>
 
@@ -24,12 +24,12 @@
 					<div class="col-md-4 col-md-offset-4">
 						<div class="panel panel-default">
 							<div class="panel panel-primary">
-								<h3 class="text-center">Update User information</h3>
+								<h3 class="text-center">Update User Information</h3>
 
 								<div class="panel-body">
 
 									<fieldset>
-										<legend>Update User</legend>
+										<legend>Update ${user.username}</legend>
 										<div class="form-group">
 											<label for="firstName">First Name: </label> <input
 												type="text" value="${user.firstName}" name="firstName"
@@ -41,14 +41,29 @@
 												class="form-control" required />
 										</div>
 										<div class="form-group">
-											<label for="username">UserName: </label> <input type="text"
+											<label for="username">Username: </label> <input type="text"
 												value="${user.username}" name="username" id="username"
+												class="form-control" required />
+										</div>
+										<div class="form-group">
+											<label for="email">Email: </label> <input type="email"
+												value="${user.email}" name="email" id="email"
 												class="form-control" required />
 										</div>
 										<div class="form-group">
 											<label for="password">Password: </label> <input type="text"
 												value="${user.password}" name="password" id="password"
 												class="form-control" required />
+										</div>
+										<div class="form-group">
+											<label for="userImageUrl">User Image URL: </label> <input type="url"
+												value="${user.userImageUrl}" name="userImageUrl" id="userImageUrl"
+												class="form-control"/>
+										</div>
+										<div class="form-group">
+											<label for="userDescription">User Description: </label> <input type="text"
+												value="${user.userDescription}" name="userDescription" id="userDescription"
+												class="form-control"/>
 										</div>
 										<div class="form-group">
 											<label for="role">Role: </label> <input type="text"
@@ -58,6 +73,14 @@
 										<div class="form-group">
 											<label for="enabled">Enabled: </label> <select name="enabled"
 												selected="${user.enabled}" id="enabled"
+												class="btn btn-secondary dropdown-toggle" required>
+												<option value="True">True</option>
+												<option value="False">False</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="active">Active: </label> <select name="active"
+												selected="${user.active}" id="active"
 												class="btn btn-secondary dropdown-toggle" required>
 												<option value="True">True</option>
 												<option value="False">False</option>

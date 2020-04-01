@@ -55,6 +55,7 @@ public class UserDAOImpl implements UserDAO{
 		updatedUser.setEventComments(user.getEventComments());
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setUsername(user.getUsername());
+		updatedUser.setActive(user.getActive());
 		
 		em.flush();
 		return updatedUser;
