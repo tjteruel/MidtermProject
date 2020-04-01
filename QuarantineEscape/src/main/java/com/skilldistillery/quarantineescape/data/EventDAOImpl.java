@@ -82,6 +82,7 @@ public class EventDAOImpl implements EventDAO{
 		UserEventId userEventId = new UserEventId(user.getId(), event.getId());
 		UserEvent userEvent = new UserEvent();
 		userEvent.setId(userEventId);
+		userEvent.setEvent(event);
 		userEvent.setAttended(false);
 		em.persist(userEvent);
 		em.flush();
