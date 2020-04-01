@@ -22,7 +22,14 @@ public class Location {
 	private String city;
 	
 	private String address;
+<<<<<<< HEAD
 		
+=======
+	
+
+
+
+>>>>>>> 7226d91f7c74d129b550db1d143959297f862631
 	@Column (name="postal_code")
 	private String postalCode;
 	

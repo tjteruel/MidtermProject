@@ -25,7 +25,23 @@ public class Host {
 	
 //	@Column(name="location_id")
 //	private int locationId;
+<<<<<<< HEAD
 		
+=======
+	
+	private Boolean active;
+	
+	public Boolean getActive() {
+		return active;
+	}
+
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+
+>>>>>>> 7226d91f7c74d129b550db1d143959297f862631
 	@Column(name="phone_number")
 	private String phoneNumber;
 	
