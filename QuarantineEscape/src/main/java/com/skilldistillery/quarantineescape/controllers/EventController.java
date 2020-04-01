@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,16 +102,22 @@ public class EventController {
 	public String attentEvent(Integer eventId, HttpSession session, Model model) {
 		System.err.println("eventId: " + eventId);
 		User user = (User) session.getAttribute("loggedInUser"); 
+		if (user == null) {
+			return "index";
+		}
 		Event event = dao.findEventById(eventId);
+		System.err.println("user: " + user);
 		UserEvent userEvent =dao.createUserEvent(eventId, user.getId());
 		user = userDao.findUserById(user.getId());
+		List<UserEvent> attendingEvents = dao.findAllAttendingEvents(user.getId());
 		session.setAttribute("loggedInUser", user);
 		System.err.println("user: " + user);
 		System.err.println("event: " + event);
 		System.err.println("userEvent: " + userEvent);
 		model.addAttribute("event", event);
 		model.addAttribute("userEvent", userEvent);
-		model.addAttribute("notAttending", dao.findUserEvent(eventId, user.getId()));
+		model.addAttribute("attendingEvents", attendingEvents);
+		model.addAttribute("attending", dao.findUserEvent(eventId, user.getId()));
 		return "show";
 	}
 

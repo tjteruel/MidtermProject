@@ -23,11 +23,16 @@ public class UserController {
 	private EventDAO eDao;
 	
 	@RequestMapping(path = "findUser.do", method = RequestMethod.GET,params="id")
-	public String findUser(@RequestParam Integer id, Model model) {
+	public String findUser(@RequestParam Integer id, Model model, HttpSession session) {
 		System.out.println(id);
 		String view = "show";
 		User user = dao.findUserById(id);
-		model.addAttribute("user", user);
+		if (user == null) {
+			return "index";
+		} else {
+			model.addAttribute("user", user);
+			model.addAttribute("attendingEvents", eDao.findAllAttendingEvents(user.getId()));
+		}
 		return view;
 	}
 

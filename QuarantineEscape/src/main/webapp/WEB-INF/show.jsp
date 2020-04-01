@@ -109,15 +109,15 @@
 					<th>Event</th>
 					<th>Date</th>
 					<th>Description</th>
-					<th></th>
+					<th> </th>
 
 				</thead>
 				<tbody>
-					<c:forEach var="ue" items="${userEvent}">
-						<tr>
-							<td>${ue.event.title}</td>
-							<td>${ue.event.eventDate}</td>
-							<td>${ue.event.description}</td>
+				 	<c:forEach var="ae" items="${attendingEvents}">
+ 						<tr>
+							<td>${ae.event.title}</td>
+							<td>${ae.event.eventDate}</td>
+							<td>${ae.event.description}</td>
 							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
 											<input type="hidden" value="${event.id}" name="eventId" /> <input
 												type="submit" value="Delete" class="btn btn-danger" />
