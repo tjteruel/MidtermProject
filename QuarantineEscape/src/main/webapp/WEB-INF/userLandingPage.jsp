@@ -38,32 +38,39 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-				
-					<li class="nav-item active"><a class="nav-link">Logged In As :
-							${user.username}</a></li>
+					<li>
+						<div class="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown">User Dropdown</button>
+							<div class="dropdown-menu">
+								<h5 class="dropdown-header">Events</h5>
+								<a class="dropdown-item" href="createEventPage.do">Add Event</a> <a
+									class="dropdown-item" href="#">List Events</a> 
+								<h5 class="dropdown-header">Users</h5>
+								<a class="dropdown-item" href="#">Another link</a>
+								<h5 class="dropdown-header">Locations</h5>
+								<a class="dropdown-item" href="locationForm.do">Add Location</a>
+								<h5 class="dropdown-header">Categories</h5>
+								<a class="dropdown-item" href="categoryForm.do">Add Category</a>
+								<h5 class="dropdown-header">Tags</h5>
+								<a class="dropdown-item" href="#">Add Tag</a>
+								<h5 class="dropdown-header">Hosts</h5>
+								<a class="dropdown-item" href="#">Add Host</a>
+								<a class="dropdown-item" href="#">List Hosts</a>
+							</div>
+						</div> 
+					</li>
+					<li class="nav-item active"><a class="nav-link" href="show.do">Logged
+							In As : ${user.username}</a></li>
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
-					<li>
-					<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div> 
-</div>
-						<form action="findUser.do" method="GET" class="form">
-							<input type="text" value="Input UserID" name="id"
-								class="form-group" /> <input type="submit" value="Search"
-								class="form-group; btn btn-info" />
-						</form>
-					</li>
+					<li class="nav-item"><form action="findUser.do" method="GET"
+							id="id" class="form-inline my-2 my-lg-0 ">
+							<input class="form-control sm-2" size="12" name="id"
+								type="search" placeholder="Enter User Id" aria-label="Search">
+							<button class="btn btn-outline-success my-2 my-sm-0"
+								type="submit">Search</button>
+						</form></li>
 				</ul>
 			</div>
 		</div>
@@ -446,20 +453,17 @@
 	<!-- End Footer -->
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/wow/wow.min.js"></script>
-	<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script src="assets/vendor/counterup/counterup.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/venobox/venobox.min.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="assets/vendor/superfish/superfish.min.js"></script>
-	<script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
-	<script src="assets/vendor/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
-	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 
 </body>
 
