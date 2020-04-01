@@ -156,31 +156,30 @@
 		<div class="row portfolio-container">
 
 			<c:forEach var="event" items="${events}">
-	<c:if test="${event.active}">
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-						
+				<c:if test="${event.active}">
 				
-							<img src="${event.eventImageUrl}" class="image-fluid" alt="">
-							<a href="${event.eventLink}" data-lightbox="portfolio"
-								data-title="${event.title }" class="link-preview"><i
-								class="ion ion-eye"></i></a>
-							<a href="findEvent.do" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
+					<div
+						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+						<div class="portfolio-wrap">
+							<figure>
 
-						<div class="portfolio-info">
-							<h4>
-								<a href="findEvent.do">${event.title }</a>
-							</h4>
-							
-							<p></p>
+								<div class="image-fluid">
+								<img src="${event.eventImageUrl}">
+								</div>
+								<a href="${event.eventLink}" data-lightbox="portfolio"
+									data-title="${event.title }" class="link-preview"><i
+									class="ion ion-eye"></i></a>
+							</figure>
+
+							<div class="portfolio-info">
+								<h4>
+									<a href="findEvent.do?id=<c:out value="${event.id }"/>">${event.title }</a>
+								</h4>
+
+								<p></p>
+							</div>
 						</div>
 					</div>
-				</div>
 				</c:if>
 			</c:forEach>
 		</div>
@@ -188,7 +187,7 @@
 	</section>
 
 
-	
+
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="footer-top">
