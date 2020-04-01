@@ -109,6 +109,13 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<label for="active">Active</label> <select name="active"
+									id="active" class="btn btn-secondary dropdown-toggle" required>
+									<option value="True">True</option>
+									<option value="False">False</option>
+								</select>
+							</div>
+							<div class="form-group">
 								<label for="role">Role:</label> <input type="text"
 									class="form-control input-lg" id="role"
 									placeholder="Enter User Role" name="role" required>
