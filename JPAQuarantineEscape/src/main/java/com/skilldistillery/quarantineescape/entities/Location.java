@@ -23,15 +23,8 @@ public class Location {
 	
 	private String address;
 	
-	private Boolean active;
-	
-	public Boolean getActive() {
-		return active;
-	}
 
-	public void setActive(Boolean active) {
-		this.active = active;
-	}
+
 
 	@Column (name="postal_code")
 	private String postalCode;
