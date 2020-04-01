@@ -97,7 +97,7 @@
 
 	<!-- DISPLAY USERS EVENTS -->
 	<div class="col-md-12">
-		<h4 class="text_align">List Of RSVP Events</h4>
+		<h4 class="text_align">My Events</h4>
 		<div class="table-responsive">
 
 
@@ -107,19 +107,17 @@
 
 
 					<th>Event</th>
-					<th>Location</th>
 					<th>Date</th>
 					<th>Description</th>
 					<th></th>
 
 				</thead>
 				<tbody>
-					<c:forEach var="event" items="${events}">
+					<c:forEach var="ue" items="${userEvent}">
 						<tr>
-							<td>${event.title}</td>
-							<td>${event.location}</td>
-							<td>${event.eventDate}</td>
-							<td>${event.description}</td>
+							<td>${ue.event.title}</td>
+							<td>${ue.event.eventDate}</td>
+							<td>${ue.event.description}</td>
 							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
 											<input type="hidden" value="${event.id}" name="eventId" /> <input
 												type="submit" value="Delete" class="btn btn-danger" />

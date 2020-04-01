@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class UserEvent {
 
 	@EmbeddedId
-	private UserEventId id;
+	private UserEventId id = new UserEventId();
 
 	private Boolean attended;
 
@@ -43,6 +43,12 @@ public class UserEvent {
 
 	public User getUser() {
 		return user;
+	}
+
+	public UserEvent(User user, Event event) {
+		super();
+		this.user = user;
+		this.event = event;
 	}
 
 	public void setUser(User user) {
