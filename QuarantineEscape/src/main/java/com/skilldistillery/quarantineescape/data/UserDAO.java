@@ -12,5 +12,8 @@ public interface UserDAO {
 	public User login(String userName, String password);
 	public User findUserById(int userId);
 	List<User> findAll();
+	
+	
+	public User deactivate(int id);
 
 }

@@ -43,6 +43,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="user" items="${users}">
+							<c:if test="${user.active }">
 								<tr>
 									<td>${user.id}</td>
 									<td>${user.firstName}</td>
@@ -58,12 +59,13 @@
 										</form>
 									</td>
 									<td>
-										<form action="deleteUser.do" method="POST" class="form-group">
+										<form action="deactivateUser.do" method="POST" class="form-group">
 											<input type="hidden" value="${user.id}" name="userId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
+												type="submit" value="Deactivate" class="btn btn-danger" />
 										</form>
 									</td>
 								</tr>
+								</c:if>
 							</c:forEach>
 
 						</tbody>

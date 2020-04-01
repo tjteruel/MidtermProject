@@ -44,39 +44,47 @@
 							
 						</thead>
 						<tbody>
-							<c:forEach var="event" items="${events}">
-								<tr>
-									<td>${event.title}</td>
-									<td>${event.location}</td>
-									<td>${event.eventDate}</td>
-									<td>${event.description}</td>
-									<td>${event.prereqs}</td>
-									<td><a href="${event.eventLink}">Click Here</a></td>
 
-									<td>
+						
+								<c:forEach var="event" items="${events}">
+								
+								<c:if test="${event.active}">
+									<tr>
+										<td>${event.title}</td>
+										<td>${event.location}</td>
+										<td>${event.eventDate}</td>
+										<td>${event.description}</td>
+										<td>${event.prereqs}</td>
+										<td><a href="${event.eventLink}">Click Here</a></td>
 
-										<form action="updateEventPage.do" method="POST">
+										<td>
 
-											<input type="hidden" value="${event.id}" name="event" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									<td>
-										<form action="deleteEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
-										</form>
-									</td>
-									<!-- test RSVP & display on user page -->
-									<td>
-										<form action="attendEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="RSVP" class="btn btn-primary" />
-										</form>
-									</td>
-								</tr>
-							</c:forEach>
+											<form action="updateEventPage.do" method="POST">
 
+												<input type="hidden" value="${event.id}" name="event" /> <input
+													type="submit" value="Update" class="btn btn-primary" />
+											</form>
+										</td>
+										<td>
+											<form action="deactivateEvent.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${event.id}" name="eventId" />
+												<input type="submit" value="Deactivate"
+													class="btn btn-danger" />
+											</form>
+										</td>
+										<!-- test RSVP & display on user page -->
+										<td>
+											<form action="attendEvent.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${event.id}" name="eventId" />
+												<input type="submit" value="RSVP" class="btn btn-primary" />
+											</form>
+										</td>
+									</tr>
+							</c:if>
+								</c:forEach>
+						
 						</tbody>
 					</table>
 
