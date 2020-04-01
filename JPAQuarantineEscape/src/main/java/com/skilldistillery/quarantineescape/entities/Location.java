@@ -22,9 +22,6 @@ public class Location {
 	private String city;
 	
 	private String address;
-	
-
-
 
 	@Column (name="postal_code")
 	private String postalCode;
