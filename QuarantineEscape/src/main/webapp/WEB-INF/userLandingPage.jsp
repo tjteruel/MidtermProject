@@ -44,15 +44,16 @@
 								data-toggle="dropdown">User Dropdown</button>
 							<div class="dropdown-menu">
 								<h5 class="dropdown-header">Events</h5>
-								<a class="dropdown-item" href="createEventPage.do">Add Event</a> <a
-									class="dropdown-item" href="listEvents.do">List Events</a> 
+								<a class="dropdown-item" href="createEventPage.do">Add Event</a>
+								<a class="dropdown-item" href="listEvents.do">List Events</a>
 								<h5 class="dropdown-header">Users</h5>
 								<a class="dropdown-item" href="listUsers.do">List Users</a>
 								<h5 class="dropdown-header">Locations</h5>
 								<a class="dropdown-item" href="locationForm.do">Add Location</a>
 								<h5 class="dropdown-header">Categories</h5>
 								<a class="dropdown-item" href="categoryForm.do">Add Category</a>
-								<a class="dropdown-item" href="listCategories.do">List Categories</a>
+								<a class="dropdown-item" href="listCategories.do">List
+									Categories</a>
 								<h5 class="dropdown-header">Tags</h5>
 								<a class="dropdown-item" href="listTags.do">List Tags</a>
 								<h5 class="dropdown-header">Hosts</h5>
@@ -60,9 +61,10 @@
 								<h5 class="dropdown-header">Team</h5>
 								<a class="dropdown-item" href="meetTheTeam.do">Meet the Team</a>
 							</div>
-						</div> 
+						</div>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="show.do" id="id" name="id">User: ${user.username}</a></li>
+					<li class="nav-item active"><a class="nav-link" href="show.do"
+						id="id" name="id">User: ${user.username}</a></li>
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
 					<li class="nav-item"><form action="findUser.do" method="GET"
@@ -401,21 +403,21 @@
 					</div>
 
 					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Useful Links</h4>
+						<h4>Quarantine Escape Links</h4>
 						<ul>
 							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="meetTheTeam.do">Meet the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="userProfilePage.do">List Events</a></li>
+								href="listEvents.do">List Events</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="listUsers.do">List Users</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="userProfilePage.do">List Hosts</a></li>
+								href="listHosts.do">List Hosts</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="userProfilePage.do">List Categories</a></li>
+								href="listCategories.do">List Categories</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
-								href="userProfilePage.do">List Locations</a></li>
+								href="listTags.do">List Tags</a></li>
 						</ul>
 					</div>
 
@@ -428,15 +430,19 @@
 						</p>
 
 					</div>
-					<div class="col-lg-3 col-md-6 footer-newsletter">
-						<h4>Our Newsletter</h4>
-						<p>Tamen quem nulla quae legam multos aute sint culpa legam
-							noster magna veniam enim veniam illum dolore legam minim quorum
-							culpa amet magna export quem marada parida nodela caramase seza.</p>
-						<form action="" method="post">
-							<input type="email" name="email"><input type="submit"
-								value="Subscribe">
-						</form>
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Outside Resources</h4>
+						<ul>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">Center
+									for Disease Control (CDC)</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="https://covid19.colorado.gov/">Colorado Department of Public Health and Environment (CDPHE)</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href=https://coronavirus.jhu.edu/map.html>Johns Hopkins University (JHU) COVID-19 Map</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a
+								href="https://zoom.us/">Zoom Video Communications</a></li>
+						</ul>
 					</div>
 
 				</div>
@@ -447,8 +453,11 @@
 			<div class="copyright">
 				<strong>Quarantine Escape</strong>
 			</div>
-			<div class="credits">Designed by: Ankit Shah, Christina
-				Rowland, David Yoachum, Tim Tereul</div>
+			<div class="credits">Designed by: 
+			<a href="https://github.com/Ankitshah89">Ankit Shah, </a>
+			<a href="https://github.com/rowland1318/">Christina Rowland, </a> 
+			<a href="https://github.com/dyoachum">David Yoachum, </a>
+			<a href=https://github.com/tjteruel>Tim Tereul</a></div>
 		</div>
 	</footer>
 	<!-- End Footer -->

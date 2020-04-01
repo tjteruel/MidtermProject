@@ -64,6 +64,7 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setEventComments(event.getEventComments());
 		updatedEvent.setHost(event.getHost());
 		updatedEvent.setLocation(event.getLocation());
+		updatedEvent.setActive(event.getActive());
 		em.flush();
 		return updatedEvent;
 	}

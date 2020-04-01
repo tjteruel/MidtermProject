@@ -35,7 +35,7 @@ public class EventController {
 
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
 	public String findEventById(@RequestParam int id, Model model) {
-		String view = "Event";
+		String view = "showEvent";
 		Event event = dao.findEventById(id);
 		model.addAttribute("event", event);
 		return view;
