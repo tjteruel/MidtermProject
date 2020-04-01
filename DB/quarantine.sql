@@ -302,6 +302,20 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
+-- Data for table `category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `category` (`id`, `name`, `description`, `category_image_url`) VALUES (1, 'Animal Cam', 'Watch Live Streams of your Favorite Animals', 'https://i.ytimg.com/vi/2BDnAMR3GLg/maxresdefault.jpg');
+INSERT INTO `category` (`id`, `name`, `description`, `category_image_url`) VALUES (2, 'Symphony Orchestra', 'Watch an an Elaborate Musical Composition Conducted by a Symphony Orchestra', 'https://www.kcsymphony.org/wp-content/uploads/2019/07/featured_Symphony-Store-1.jpg');
+INSERT INTO `category` (`id`, `name`, `description`, `category_image_url`) VALUES (3, 'Art Tour', 'Explore a Gallery\'s Art Collection and Exhibitions Virtually', 'https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F03%2Fgoogle-arts-culture-art-museums-galleries-virtual-tours-001.jpg?quality=95&w=1170&cbr=1&q=90&fit=max');
+INSERT INTO `category` (`id`, `name`, `description`, `category_image_url`) VALUES (4, 'Museum Tour', 'Explore a Museums\'s Collection and Exhibitions Virtually', 'https://media.newswest9.com/assets/KWES/images/428ec661-66ed-4f9d-a621-018e4c5d8572/428ec661-66ed-4f9d-a621-018e4c5d8572_360x203.png');
+INSERT INTO `category` (`id`, `name`, `description`, `category_image_url`) VALUES (5, 'Speaking Event', 'Listen to Others Discuss Topics ', 'https://s3.amazonaws.com/startupcollective-com/wp-content/uploads/Conference-presentation-675x320.jpg');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -389,6 +403,22 @@ INSERT INTO `event` (`id`, `description`, `title`, `event_date`, `event_time`, `
 INSERT INTO `event` (`id`, `description`, `title`, `event_date`, `event_time`, `link_to_event`, `host_id`, `location_id`, `public`, `event_image_url`, `status`, `prereqs`, `create_date`, `active`) VALUES (18, 'Adams and Berlioz \n\nAdams Harmonielehre\nBerlioz Symphonie Fantastique\n\nSir Simon Rattle conductor\nLondon Symphony Orchestra', 'London Symphony Orchestra Live Performance', '2020-04-30', '13:00:00', 'https://lso.co.uk/whats-on/2019-20-season/alwaysplaying.html', 10, 10, 1, 'https://images.lincolncenter.org/image/upload/tbtctlqoes7j7ln0hyar', 'Scheduled', 'Go to London Symphony Orchestras Youtube Channel to watch the perfomance live', '2020-01-01 10:10:10', 1);
 INSERT INTO `event` (`id`, `description`, `title`, `event_date`, `event_time`, `link_to_event`, `host_id`, `location_id`, `public`, `event_image_url`, `status`, `prereqs`, `create_date`, `active`) VALUES (19, 'BERLINER PHILHARMONIKER\nIVÁN FISCHER\n\nDaniel Stabrawa, Bruno Delepelaire, Jonathan Kelly, Stefan Schweigert\nJoseph Haydn\nSinfonia concertante in B flat major, Hob. I:105\nDaniel Stabrawa violin, Bruno Delepelaire cello, Jonathan Kelly oboe, Stefan Schweigert bassoon\n\nFranz Liszt\nA Faust Symphony in three character pictures after J. W. von Goethe (1854 version without final chorus)', 'Berliner Philharmoniker Ivan Fischer', '2020-04-24', '13:00:00', 'https://www.digitalconcerthall.com/en/concert/52558', 11, 11, 1, 'https://www.digitalconcerthall.com/cms/thumbnails/960x540/images/core/2019-04-16_1639_2020-04-20-Fischer-Ivan2_Akos-', 'Scheduled', 'Buy a ticket on the Berliner Philharmoniker on the website ', '2020-01-01 10:10:10', 1);
 INSERT INTO `event` (`id`, `description`, `title`, `event_date`, `event_time`, `link_to_event`, `host_id`, `location_id`, `public`, `event_image_url`, `status`, `prereqs`, `create_date`, `active`) VALUES (20, 'Barbara Hannigan, Principal Guest Conductor of Gothenburg Symphony Orchestra, combines moments of mourning with a peace manifestation – all performed by Gothenburg Symphony Orchestra, Gothenburg Symphonic Choir, Barbara Hannigan conductor, Veronika Eberle violin and song soloists.\nAlban Berg’s moving Violin Concerto, passionately played by Veronika Eberle, was dedicated to “The Memory of an Angel”, a young human being who really shone during her short life. And, as is the case with people who are dearly missed, the memory lives on. Those memories are given space in the Requiem, and Mozart’s mass for the departed is both comforting and strengthening. A yearning for peace that also permeates Schoenberg’s appeal for world peace, Friede auf Erden.', 'To the Memory of Our Beloved', '2020-04-04', '7:00:00', 'https://www.gso.se/en/programme/concerts/hannigan-eberle/2020-04-04-15:00/', 12, 12, 1, 'https://www.gso.se/wp-content/uploads/2018/12/veronikaeberle-creditfelixbroede.jpg', 'Scheduled', '', '2020-01-01 10:10:10', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (1, 1, 'animals', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (2, 2, 'music', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (3, 3, 'art', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (4, 4, 'tour', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (5, 5, 'museum', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (6, 6, 'literature', '2020-04-05');
+INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (7, 7, 'women', '2020-04-05');
 
 COMMIT;
 
