@@ -53,7 +53,9 @@
 											<label for="urlLogo">User Image URL: </label> <input
 												type="text" value="${host.urlLogo}" name="urlLogo"
 												id="urlLogo" class="form-control" />
-										</div>
+												</div>
+			
+											
 										<div class="form-group">
 											<label for="address">Location Address: </label> <input type="text"
 												value="${host.location.address}" name="address" id="address"
@@ -78,12 +80,12 @@
 											<label for="postalCode">Postal Code: </label> <input type="text"
 												value="${host.location.country}" name="postalCode" id="postalCode"
 												class="form-control" />
-										</div>
+										</div> 
 									</fieldset>
-										<div class="form-group">
+									<div class="form-group">
 										<input type="hidden" name="id" value="${host.id}" /> <input
 											type="submit" value="Update Host" class="btn btn-primary" />
-											</div>
+									</div>
 								</div>
 							</div>
 						</div>
