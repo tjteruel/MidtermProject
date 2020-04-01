@@ -67,6 +67,13 @@
 												type="submit" value="Delete" class="btn btn-danger" />
 										</form>
 									</td>
+									<!-- test RSVP & display on user page -->
+									<td>
+										<form action="attendEvent.do" method="POST" class="form-group">
+											<input type="hidden" value="${event.id}" name="eventId" /> <input
+												type="submit" value="RSVP" class="btn btn-primary" />
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 
