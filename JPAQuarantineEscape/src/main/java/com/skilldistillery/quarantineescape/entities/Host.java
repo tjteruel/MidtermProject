@@ -25,9 +25,7 @@ public class Host {
 	
 //	@Column(name="location_id")
 //	private int locationId;
-	
-	private Boolean active;
-	
+		
 	@Column(name="phone_number")
 	private String phoneNumber;
 	
