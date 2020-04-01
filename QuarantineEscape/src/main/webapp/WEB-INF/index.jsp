@@ -41,6 +41,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/myStyles.css">
 <link rel="stylesheet" href="css/searchbar.css">
+<!-- <link rel="stylesheet" href="css/try.css"> -->
 
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template -->
@@ -59,15 +60,6 @@
 		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="home.do">Quarantine Escape</a>
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="categoryForm.do">Add
-						Categories</a></li>
-				<li class="nav-item"><a class="nav-link" href="locationForm.do">Add
-						Locations</a></li>
-						
-				<li class="nav-item"><a class="nav-link"
-					href="createEventPage.do">Add Events</a></li>
-			</ul>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -101,9 +93,8 @@
 								type="submit">Search</button>
 						</form>
 					</li>
-					</ul>
-		</div>
-	
+				</ul>
+			</div>
 	</nav>
 
 	<header class="masthead text-center text-white">
@@ -122,308 +113,80 @@
 		<div class="bg-circle-4 bg-circle"></div>
 	</header>
 
-	<!-- ======= Portfolio Section ======= -->
+	<!-- ======= Main Section ======= -->
 	<section id="portfolio" class="section-bg">
 		<div class="container">
 
 			<header class="section-header">
-				<h3 class="section-title">Our Events</h3>
+				<h3 class="section-title" align="center">Our Events</h3>
 			</header>
 
 			<div class="row">
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
-						<%-- <c:set var="category" value="${categories}"/> --%>
-						<%--  <c:if test= "${ not empty categoryName}">  --%>
-						<%-- <c:forEach items="${categories}" var ="category"> --%>
-						<!-- </form> -->
-						<li data-filter="*" class="filter-active">All</li>
-						<li data-filter=".filter-app">Animal Cams</li>
-						<li data-filter=".filter-card"><a href ="#">Music</a></li>
-						<li data-filter=".filter-web">Games</li>
-
-
 						<li data-filter=".filter-web"><a href="listHosts.do">List
 								Hosts</a></li>
 						<li data-filter=".filter-web"><a href="listCategories.do">List
 								Categories</a></li>
+						<li data-filter=".filter-web"><a href="categoryForm.do">Add
+								Categories</a></li>
+						<li data-filter=".filter-web"><a href="locationForm.do">Add
+								Locations</a></li>
+						<li data-filter=".filter-web"><a href="createEventPage.do">Add
+								Events</a></li>
 
-					<%-- </c:forEach> --%>
 
-						<%-- </c:if> --%>
+
 					</ul>
 				</div>
 			</div>
 
-			
-			<div class="row portfolio-container">
-			
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app1.jpg" data-lightbox="portfolio"
-								data-title="App 1" class="link-preview"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 1</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 3</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="App 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 2</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 2</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web2.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 2"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 2</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/app3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="App 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">App 3</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card1.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 1"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 1</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/card3.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Card 3"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Card 3</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-							<a href="img/portfolio/web1.jpg" class="link-preview venobox"
-								data-gall="portfolioGallery" title="Web 1"><i
-								class="ion ion-eye"></i></a>
-							<a href="#" class="link-details" title="More Details"><i
-								class="ion ion-android-open"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="#">Web 1</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
 		</div>
-	</section>
-	<!-- End Portfolio Section -->
 
-	<section>
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 order-lg-2">
-					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+
+
+
+
+
+
+
+
+
+
+		<div class="row portfolio-container">
+
+			<c:forEach var="event" items="${events}">
+				<c:if test="${event.active}">
+				
+					<div
+						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+						<div class="portfolio-wrap">
+							<figure>
+
+								<div class="image-fluid">
+								<img src="${event.eventImageUrl}">
+								</div>
+								<a href="${event.eventLink}" data-lightbox="portfolio"
+									data-title="${event.title }" class="link-preview"><i
+									class="ion ion-eye"></i></a>
+							</figure>
+
+							<div class="portfolio-info">
+								<h4>
+									<a href="findEvent.do?id=<c:out value="${event.id }"/>">${event.title }</a>
+								</h4>
+
+								<p></p>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-6 order-lg-1">
-					<div class="p-5">
-						<h2 class="display-4">For those about to rock...</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
-							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-							voluptatum molestiae adipisci, beatae obcaecati.</p>
-
-
-					</div>
-				</div>
-			</div>
+				</c:if>
+			</c:forEach>
 		</div>
+
 	</section>
 
-	<section>
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="p-5">
-						<h2 class="display-4">We salute you!</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
-							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-							voluptatum molestiae adipisci, beatae obcaecati.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
-	<section>
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 order-lg-2">
-					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 order-lg-1">
-					<div class="p-5">
-						<h2 class="display-4">Let there be rock!</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Quod aliquid, mollitia odio veniam sit iste esse assumenda amet
-							aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-							voluptatum molestiae adipisci, beatae obcaecati.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer">

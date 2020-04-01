@@ -61,12 +61,76 @@
 							<td class="one">:</td>
 							<td>${user.enabled }</td>
 						</tr>
-
+						
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						
+					<c:forEach var="event" items="${events}">
 						<tr>
+							<td>Event</td>
+							<td class="one">:</td>
+							<td>${event.title}</td>
+						</tr>
+						<tr>
+							<td>Location</td>
+							<td class="one">:</td>
+							<td>${event.location }</td>
+						</tr>
+						<tr>
+							<td>Date</td>
+							<td class="one">:</td>
+							<td>${event.eventDate }</td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td class="one">:</td>
+							<td>${event.description }</td>
+						</tr>
+						</c:forEach>
+
+						
+						
+						
+					<%-- 	
+					<thead>
+
+
+					<th>Event</th>
+					<th>Location</th>
+					<th>Date</th>
+					<th>Description</th>
+					<th></th>
+
+				</thead>
+				<tbody>
+					<c:forEach var="event" items="${events}">
+						<tr>
+							<td>${event.title}</td>
+							<td>${event.location}</td>
+							<td>${event.eventDate}</td>
+							<td>${event.description}</td>
+							<td>Remove Event from Attending List <form action="deleteEvent.do" method="POST" class="form-group">
+											<input type="hidden" value="${event.id}" name="eventId" /> <input
+												type="submit" value="Delete" class="btn btn-danger" />
+										</form>
+							</td>
+						</tr>
+					</c:forEach>
+
+				</tbody> --%>
+				
+				
+				
 					</table>
+					
+					
+					
 				</div>
 			</div>
 		</div>
+		</div>
+		</body>
 
 
 		<!-- DELETE USER -->
@@ -87,16 +151,16 @@
 		<form action="home.do" method="POST" class="form-group">
 			<input type="hidden" name="food" /> <input
 				type="submit" value="Home" class="btn btn-info" /> -->
-
+<!-- 
 		</form>
 		</button>
 	</div>
 
-	</div>
+	</div> -->
 
 
 	<!-- DISPLAY USERS EVENTS -->
-	<div class="col-md-12">
+<%-- 	<div class="col-md-12">
 		<h4 class="text_align">List Of RSVP Events</h4>
 		<div class="table-responsive">
 
@@ -120,10 +184,10 @@
 							<td>${event.location}</td>
 							<td>${event.eventDate}</td>
 							<td>${event.description}</td>
-							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
+							<td>Remove Event from Attending List <form action="deleteEvent.do" method="POST" class="form-group">
 											<input type="hidden" value="${event.id}" name="eventId" /> <input
 												type="submit" value="Delete" class="btn btn-danger" />
-										</form> --%>
+										</form>
 							</td>
 						</tr>
 					</c:forEach>
@@ -140,5 +204,5 @@
 				<input type="hidden" value="${user.id}" name="user" /> <input
 					type="submit" value="Update Profile" class="btn btn-primary" />
 			</form>
-</body>
+</body> --%>
 </html>
