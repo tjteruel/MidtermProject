@@ -44,6 +44,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="host" items="${hosts}">
+							<c:if test="${host.active }">
 								<tr>
 									<td>${host.id}</td>
 									<td>${host.hostName}</td>
@@ -58,12 +59,13 @@
 										</form>
 									</td>
 									<td>
-										<form action="deleteHost.do" method="POST" class="form-group">
+										<form action="deactivateHost.do" method="POST" class="form-group">
 											<input type="hidden" value="${host.id}" name="hostId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
+												type="submit" value="Deactivate" class="btn btn-danger" />
 										</form>
 									</td>
 								</tr>
+								</c:if>
 							</c:forEach>
 
 						</tbody>
