@@ -97,10 +97,15 @@ public class EventController {
 
 	@RequestMapping(path = "attendEvent.do", method = RequestMethod.POST)
 	public String attentEvent(Integer eventId, HttpSession session, Model model) {
-		User user = (User) session.getAttribute("loggedInUser"); //currently returning null
+		System.err.println("eventId: " + eventId);
+		User user = (User) session.getAttribute("loggedInUser"); 
 		user = userDao.findUserById(user.getId());
 		Event event = dao.findEventById(eventId);
 		UserEvent userEvent =dao.createUserEvent(event, user);
+		System.err.println("user: " + user);
+		System.err.println("event: " + event);
+		System.err.println("userEvent: " + userEvent);
+
 		model.addAttribute("event", event);
 		model.addAttribute("userEvent", userEvent);
 		model.addAttribute("notAttending", dao.findUserEvent(eventId, user.getId()));
