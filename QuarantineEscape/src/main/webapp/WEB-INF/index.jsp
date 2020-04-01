@@ -92,6 +92,15 @@
 								type="submit">Search</button>
 						</form>
 					</li>
+					<li>
+						<form action="findEvent.do" method="GET" id="id"
+							class="form-inline my-2 my-lg-0 ">
+							<input class="form-control sm-2" size="12" name="id"
+								type="search" placeholder="Enter Event Id" aria-label="Search">
+							<button class="btn btn-outline-success my-2 my-sm-0"
+								type="submit">Search</button>
+						</form>
+					</li>
 					</ul>
 		</div>
 	
