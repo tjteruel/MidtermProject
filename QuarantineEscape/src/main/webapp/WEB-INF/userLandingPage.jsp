@@ -45,23 +45,24 @@
 							<div class="dropdown-menu">
 								<h5 class="dropdown-header">Events</h5>
 								<a class="dropdown-item" href="createEventPage.do">Add Event</a> <a
-									class="dropdown-item" href="#">List Events</a> 
+									class="dropdown-item" href="listEvents.do">List Events</a> 
 								<h5 class="dropdown-header">Users</h5>
-								<a class="dropdown-item" href="#">Another link</a>
+								<a class="dropdown-item" href="listUsers.do">List Users</a>
 								<h5 class="dropdown-header">Locations</h5>
 								<a class="dropdown-item" href="locationForm.do">Add Location</a>
 								<h5 class="dropdown-header">Categories</h5>
 								<a class="dropdown-item" href="categoryForm.do">Add Category</a>
+								<a class="dropdown-item" href="listCategories.do">List Categories</a>
 								<h5 class="dropdown-header">Tags</h5>
-								<a class="dropdown-item" href="#">Add Tag</a>
+								<a class="dropdown-item" href="listTags.do">List Tags</a>
 								<h5 class="dropdown-header">Hosts</h5>
-								<a class="dropdown-item" href="#">Add Host</a>
-								<a class="dropdown-item" href="#">List Hosts</a>
+								<a class="dropdown-item" href="listHosts.do">List Hosts</a>
+								<h5 class="dropdown-header">Team</h5>
+								<a class="dropdown-item" href="meetTheTeam.do">Meet the Team</a>
 							</div>
 						</div> 
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="show.do">Logged
-							In As : ${user.username}</a></li>
+					<li class="nav-item active"><a class="nav-link" href="show.do" id="id" name="id">User: ${user.username}</a></li>
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
 					<li class="nav-item"><form action="findUser.do" method="GET"
