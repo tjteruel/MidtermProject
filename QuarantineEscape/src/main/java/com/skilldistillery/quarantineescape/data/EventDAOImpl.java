@@ -159,6 +159,28 @@ public class EventDAOImpl implements EventDAO{
 		
 	}
 
+	@Override
+	public Event deactivate(int id) {
+		Event event = em.find(Event.class, id);
+		
+		System.out.println("****************");
+		System.out.println(event);
+		event.setActive(false);
+		em.persist(event);
+		em.flush();
+		System.out.println("00000000000000000000000000");
+		System.out.println(event);
+		return event;
+	}
+
+	@Override
+	public Event activate(int id) {
+		Event event = em.find(Event.class,  id);
+		event.setActive(true);
+		em.flush();
+		return event;
+	}
+
 	
 
 }

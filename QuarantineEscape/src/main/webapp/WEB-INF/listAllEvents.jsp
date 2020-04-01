@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
- <link rel="stylesheet" href="css/locationForm.css">
+<link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Users</title>
 
 
@@ -41,44 +41,51 @@
 							<th>Description</th>
 							<th>Prereqs</th>
 							<th>Event Link</th>
-							
+
 						</thead>
 						<tbody>
-							<c:forEach var="event" items="${events}">
-								<tr>
-									<td>${event.title}</td>
-									<td>${event.location}</td>
-									<td>${event.eventDate}</td>
-									<td>${event.description}</td>
-									<td>${event.prereqs}</td>
-									<td><a href="${event.eventLink}">Click Here</a></td>
+						
+								<c:forEach var="event" items="${events}">
+								<c:if test="${event.active}">
+									<tr>
+										<td>${event.title}</td>
+										<td>${event.location}</td>
+										<td>${event.eventDate}</td>
+										<td>${event.description}</td>
+										<td>${event.prereqs}</td>
+										<td><a href="${event.eventLink}">Click Here</a></td>
 
-									<td>
+										<td>
 
-										<form action="updateEventPage.do" method="POST">
+											<form action="updateEventPage.do" method="POST">
 
-											<input type="hidden" value="${event.id}" name="event" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									<td>
-										<form action="deleteEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
-										</form>
-									</td>
-									<!-- test RSVP & display on user page -->
-									<td>
-										<form action="attendEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="RSVP" class="btn btn-primary" />
-										</form>
-									</td>
-								</tr>
-							</c:forEach>
-
+												<input type="hidden" value="${event.id}" name="event" /> <input
+													type="submit" value="Update" class="btn btn-primary" />
+											</form>
+										</td>
+										<td>
+											<form action="deactivateEvent.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${event.id}" name="eventId" />
+												<input type="submit" value="Deactivate"
+													class="btn btn-danger" />
+											</form>
+										</td>
+										<!-- test RSVP & display on user page -->
+										<td>
+											<form action="attendEvent.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${event.id}" name="eventId" />
+												<input type="submit" value="RSVP" class="btn btn-primary" />
+											</form>
+										</td>
+									</tr>
+							</c:if>
+								</c:forEach>
+						
 						</tbody>
 					</table>
+
 
 					<div class="clearfix"></div>
 					<ul class="pagination pull-right">
