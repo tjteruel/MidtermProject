@@ -73,4 +73,13 @@ public class HostDAOImpl implements HostDAO {
 		String jpql = "SELECT h FROM Host h";
 		return em.createQuery(jpql, Host.class).getResultList();
 	}
+
+	@Override
+	public Host deactivate(int id) {
+		Host host = em.find(Host.class, id);
+		host.setActive(false);
+		em.persist(host);
+		em.flush();
+		return host;
+	}
 }
