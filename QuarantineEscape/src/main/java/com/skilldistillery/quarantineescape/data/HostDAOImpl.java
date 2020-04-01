@@ -40,6 +40,7 @@ public class HostDAOImpl implements HostDAO {
 	@Override
 	public Host updateHost(Host host, int hostId, Location loc) {
 		Host updatedHost = em.find(Host.class, hostId);
+		Location updatedLoc = em.find(Location.class, loc.getId());
 		//sys.err shows host location ID is null. null pointer exception at updatedHost.getLocation()
 		//host, hostId, and loc all print correct data
 		System.err.println("host: " + host);

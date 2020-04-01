@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `state` VARCHAR(200) NULL DEFAULT NULL,
   `city` VARCHAR(200) NULL DEFAULT NULL,
   `address` VARCHAR(200) NULL DEFAULT NULL,
-  `postal_code` VARCHAR(10) NULL DEFAULT NULL,
+  `postal_code` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
@@ -337,6 +337,20 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `category_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `category_comment` (`id`, `user_id`, `category_id`, `content`, `create_date`) VALUES (1, 1, 1, 'Love watching all the animals live! You definitely have to do your research to  determine when the animals are the most active!', '2020-04-01');
+INSERT INTO `category_comment` (`id`, `user_id`, `category_id`, `content`, `create_date`) VALUES (2, 2, 2, 'Surprised that there is such awesome music that you can watch live!', '2020-04-01');
+INSERT INTO `category_comment` (`id`, `user_id`, `category_id`, `content`, `create_date`) VALUES (3, 3, 3, 'I am finally able to see art that I never had time to visit in person.', '2020-04-01');
+INSERT INTO `category_comment` (`id`, `user_id`, `category_id`, `content`, `create_date`) VALUES (4, 4, 4, 'Excited to virtually visit museums that I otherwise would never see because of the distance.', '2020-04-01');
+INSERT INTO `category_comment` (`id`, `user_id`, `category_id`, `content`, `create_date`) VALUES (5, 5, 5, 'The speaking events have not let me down so far, great experts and opinions', '2020-04-01');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `location`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -408,6 +422,46 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `event_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (1, 1);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (1, 2);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (1, 8);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 10);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 11);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 12);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 13);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 14);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 15);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 16);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 17);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 18);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 19);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (2, 20);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (3, 5);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (4, 6);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (3, 7);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (3, 9);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (5, 3);
+INSERT INTO `event_category` (`category_id`, `event_id`) VALUES (5, 4);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (1, 6, 4, 'Is there any live streams happening leading up to the awards ceremony?', '2020-04-01');
+INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (2, 7, 1, 'How can I donate to the help the cute penguins?', '2020-04-01');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `tag`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -419,6 +473,50 @@ INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (4, 4, 'to
 INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (5, 5, 'museum', '2020-04-05');
 INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (6, 6, 'literature', '2020-04-05');
 INSERT INTO `tag` (`id`, `user_id`, `tag_name`, `create_date`) VALUES (7, 7, 'women', '2020-04-05');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (1, 1);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (1, 2);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (1, 8);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 10);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 11);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 12);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 13);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 14);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 15);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 16);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 17);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 18);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 19);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (2, 20);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (4, 9);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (4, 7);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (4, 6);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (4, 5);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (7, 3);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (6, 4);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (3, 9);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (3, 6);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (3, 5);
+INSERT INTO `event_tag` (`tag_id`, `event_id`) VALUES (5, 6);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `quarantinedb`;
+INSERT INTO `user_event` (`user_id`, `event_id`, `attended`, `rating`, `rating_comment`) VALUES (1, 2, 1, 4, 'Awesome!!!');
+INSERT INTO `user_event` (`user_id`, `event_id`, `attended`, `rating`, `rating_comment`) VALUES (2, 4, 1, 5, 'Great Show!');
 
 COMMIT;
 

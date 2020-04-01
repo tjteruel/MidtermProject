@@ -36,12 +36,22 @@ public class User {
 	@Column(name = "create_date")
 	private LocalDate createdAt;
 
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
 	@Column(name = "user_description")
 	private String userDescription;
 
 	private Boolean enabled;
 
 	private String role;
+	
+	private Boolean active;
 
 	@OneToMany(mappedBy = "user")
 	private List<CategoryComment> categoryComments;

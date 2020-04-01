@@ -78,10 +78,11 @@
 										</div>
 										<div class="form-group">
 											<label for="postalCode">Postal Code: </label> <input type="text"
-												value="${host.location.country}" name="postalCode" id="postalCode"
+												value="${host.location.postalCode}" name="postalCode" id="postalCode"
 												class="form-control" />
 										</div> 
 									</fieldset>
+									<!-- not passing location? -->
 									<div class="form-group">
 										<input type="hidden" name="id" value="${host.id}" /> <input
 											type="submit" value="Update Host" class="btn btn-primary" />
