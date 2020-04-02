@@ -138,11 +138,11 @@
 												</tr>
 
 
-												<!-- UPDATE USER -->
+										
 
 
 											</c:forEach>
-											<!-- Home Button -->
+											
 								</table>
 								</tbody>
 

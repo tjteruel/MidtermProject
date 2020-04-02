@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <link
@@ -101,35 +103,11 @@
 									placeholder="Enter User Description" name="userDescription">
 
 							</div>
-							<div class="form-group">
-								<label for="enabled">Enabled</label> <select name="enabled"
-									id="enabled" class="btn btn-secondary dropdown-toggle" required>
-									<option value="True">True</option>
-									<option value="False">False</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="active">Active</label> <select name="active"
-									id="active" class="btn btn-secondary dropdown-toggle" required>
-									<option value="True">True</option>
-									<option value="False">False</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="role">Role</label> <select name="role"
-									id="role" class="btn btn-secondary dropdown-toggle" required>
-									<option value="User">User</option>
-									<option value="Admin">Admin</option>
-								</select>
-							</div>
-						<!-- 	<div class="form-group">
-								<label for="role">Role:</label> <input type="text"
-									class="form-control input-lg" id="role"
-									placeholder="Enter User Role" name="role" required>
+							
+						
 
-							</div> -->
 							<div style="text-align: center">
-							<button type="submit" class="btn btn-primary">Sign Up</button>
+								<button type="submit" class="btn btn-primary">Sign Up</button>
 							</div>
 						</form>
 

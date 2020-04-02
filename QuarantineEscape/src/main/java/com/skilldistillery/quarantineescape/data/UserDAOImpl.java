@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Event;
+import com.skilldistillery.quarantineescape.entities.Role;
 import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
@@ -21,6 +22,9 @@ public class UserDAOImpl implements UserDAO{
 	//CREATE NEW USER
 	@Override
 	public User createUser(User user) {
+		user.setRole(Role.User);
+		user.setActive(true);
+		user.setEnabled(true);
 		em.persist(user);
 		em.flush();
 		return user;
