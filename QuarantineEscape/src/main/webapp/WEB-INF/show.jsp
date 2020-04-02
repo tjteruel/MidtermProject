@@ -115,13 +115,13 @@
 				<tbody>
 				 	<c:forEach var="ae" items="${attendingEvents}">
  						<tr>
-							<td>${ae.event.title}</td>
+							<td><a href="findEvent.do?id=${ae.event.id}">${ae.event.title}</a></td>
 							<td>${ae.event.eventDate}</td>
 							<td>${ae.event.description}</td>
-							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
-										</form> --%>
+							<td><form action="unattendEvent.do" method="POST" class="form-group">
+											<input type="hidden" value="${ae.event.id}" name="eventId" /> <input
+												type="submit" value="Remove" class="btn btn-danger" />
+										</form>
 							</td>
 						</tr>
 					</c:forEach>

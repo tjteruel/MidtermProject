@@ -127,6 +127,23 @@ public class EventController {
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
 	}
+	
+	@RequestMapping(path = "unattendEvent.do", method = RequestMethod.POST)
+	public String unattendEvent(Integer eventId, HttpSession session, Model model) {
+		System.err.println("eventId: " + eventId);
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user == null) {
+			return "index";
+		}
+		Event event = dao.findEventById(eventId);
+		user = userDao.findUserById(user.getId());
+		dao.deleteUserEvent(event, user);
+		List<UserEvent> attendingEvents = dao.findAllAttendingEvents(user.getId());
+		model.addAttribute("attendingEvents", attendingEvents);
+		model.addAttribute("event", event);
+		model.addAttribute("notAttending", dao.findUserEvent(eventId, user.getId()));
+		return "show";
+	}
 }
 
 
