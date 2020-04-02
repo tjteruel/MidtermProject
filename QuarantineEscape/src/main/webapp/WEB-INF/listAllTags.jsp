@@ -14,7 +14,9 @@
 <head>
 <meta charset="UTF-8">
 
+
 <link rel="stylesheet" href="css/locationForm.css">
+
 <title>Quarantine Escape - Tags</title>
 
 
@@ -97,6 +99,7 @@
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
 <script src ="js/listAllUsers.js"></script>
+
 
 
 </body>

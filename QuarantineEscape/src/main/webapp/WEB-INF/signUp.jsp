@@ -25,6 +25,7 @@
 
 <link rel="stylesheet" href="css/signup.css">
 
+
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -118,7 +119,9 @@
 		</div>
 	</div>
 
+
 	<script src="js/signup.js"></script>
+
 
 </body>
 </html>
