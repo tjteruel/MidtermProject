@@ -64,17 +64,27 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="findUser.do?id=<c:out value="${loggedInUser.id }"/>">User: ${user.username}</a></li>
+					<li class="nav-item active"><a class="nav-link" href="findUser.do?id=<c:out value="${loggedInUser.id }"/>">${user.username}</a></li>
 						
 					<li class="nav-item"><a class="nav-link" href="logout.do">Log
 							Out</a></li>
-					<li class="nav-item"><form action="findUser.do" method="GET"
-							id="id" class="form-inline my-2 my-lg-0 ">
-							<input class="form-control sm-2" size="12" name="id"
-								type="search" placeholder="Enter User Id" aria-label="Search">
-							<button class="btn btn-outline-success my-2 my-sm-0"
-								type="submit">Search</button>
-						</form></li>
+					<form action="findUser.do" method="GET" id="id"
+						class="form-inline my-2 my-lg-0 ">
+						<input class="form-control sm-2" size="12" name="id" type="search"
+							placeholder="Enter User Id" aria-label="Search">
+						<!-- <button class="btn btn-outline-success my-2 my-sm-0"
+								type="submit">Search</button> -->
+					</form>
+					<!-- 	</li>
+					<li> -->
+					
+					<form action="findEvent.do" method="GET" id="id"
+						class="form-inline my-2 my-lg-0 ">
+						<input class="form-control sm-2" size="12" name="id" type="search"
+							placeholder="Enter Event Id" aria-label="Search">
+						<!-- <button class="btn btn-outline-success my-2 my-sm-0"
+								type="submit">Search</button> -->
+					</form>
 				</ul>
 			</div>
 		</div>

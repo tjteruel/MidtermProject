@@ -44,8 +44,7 @@ public class UserController {
 		return mv;
 	}
 	
-	//Need to fix this to sign in
-	@RequestMapping(path = "signIn.do")
+	@RequestMapping(path = "signIn.do", method = RequestMethod.POST)
 	public String signIn(HttpSession session, User user, Model model) {
 		System.out.println(user.getUsername() + user.getPassword());
 		User userLoggedIn = dao.login(user.getUsername(), user.getPassword());
