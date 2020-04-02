@@ -9,7 +9,7 @@
 
     					<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-							<h4 class="modal-title">Ready to add a Category?</h4>
+							<h4 class="modal-title">Ready to Add a Category?</h4>
 						</div>
 
 						<form action="createCategory.do" method="POST">
@@ -17,14 +17,14 @@
 								<div class="form-group">
 									<label for="categoryName">Category Name</label>
 									<input type="text" class="form-control" id="categoryName" placeholder="Enter the Category Name" name="categoryName">
-									<span class="help-block">You are creating a new category.</span>
+									<span class="help-block">You are Creating a New Category.</span>
 								</div>
 								<div class="row">
 									<div class="modal-body">
 										<div class="form-group">
 											<label for="description">Description</label>
 											<input type="text" class="form-control" id="description"  name="description" placeholder="Enter the description" >
-											<span class="help-block">Provide some description.</span>
+											<span class="help-block">Provide a Description.</span>
 										</div>
 									</div>
 									<!-- <div class="col-md-6">

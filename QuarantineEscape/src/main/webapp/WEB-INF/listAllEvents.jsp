@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
 <link rel="stylesheet" href="css/locationForm.css">
-<title>Quarantine Escape - Users</title>
+<title>Quarantine Escape - Events</title>
 
 
 
@@ -27,7 +27,7 @@
 
 
 			<div class="col-md-12">
-				<h4 class="text_align">List Of Events</h4>
+				<h4 class="text_align">List of Events</h4>
 				<div class="table-responsive">
 
 
