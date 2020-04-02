@@ -119,28 +119,7 @@
 
 			<header class="section-header">
 				<h3 class="section-title" align="center">Our Events</h3>
-			</header>
-
-			<div class="row">
-				<div class="col-lg-12">
-					<ul id="portfolio-flters">
-						<li data-filter=".filter-web"><a href="listHosts.do">List
-								Hosts</a></li>
-						<li data-filter=".filter-web"><a href="listCategories.do">List
-								Categories</a></li>
-						<li data-filter=".filter-web"><a href="categoryForm.do">Add
-								Categories</a></li>
-						<li data-filter=".filter-web"><a href="locationForm.do">Add
-								Locations</a></li>
-						<li data-filter=".filter-web"><a href="createEventPage.do">Add
-								Events</a></li>
-
-
-
-					</ul>
-				</div>
-			</div>
-
+				</header>
 		</div>
 
 
@@ -157,14 +136,14 @@
 
 			<c:forEach var="event" items="${events}">
 				<c:if test="${event.active}">
-				
+
 					<div
 						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
 						<div class="portfolio-wrap">
 							<figure>
 
 								<div class="image-fluid">
-								<img src="${event.eventImageUrl}">
+									<img src="${event.eventImageUrl}">
 								</div>
 								<a href="${event.eventLink}" data-lightbox="portfolio"
 									data-title="${event.title }" class="link-preview"><i
@@ -183,8 +162,10 @@
 				</c:if>
 			</c:forEach>
 		</div>
+		
 
 	</section>
+	
 
 
 
