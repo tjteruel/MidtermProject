@@ -111,6 +111,11 @@
 							<div class="form-group">
 								<textarea class="form-control" rows="3" name="comment" required></textarea>
 							</div>
+							<div>
+						<form action="userLandingPage.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
 							<input type="hidden" value="${event.id}" name="eventId">
 							<button type="submit" class="btn btn-success" >Submit</button>
 						</form>
