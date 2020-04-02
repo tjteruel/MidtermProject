@@ -12,14 +12,14 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
- <link rel="stylesheet" href="css/locationForm.css">
+<link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Users</title>
 
 
 
 </head>
 <body>
-<%-- <jsp:include page="includes/navbar.jsp"/> --%>
+	<%-- <jsp:include page="includes/navbar.jsp"/> --%>
 	<div class="container">
 		<div class="row">
 
@@ -38,32 +38,34 @@
 							<th>Name</th>
 							<th>UserName</th>
 							<th>Description</th>
-							
+
 						</thead>
 						<tbody>
 							<c:forEach var="user" items="${users}">
-							<c:if test="${user.active }">
-								<tr>
-									<td>${user.id}</td>
-									<td>${user.firstName}</td>
-									<td>${user.username}</td>
-									<td>${user.userDescription}</td>
+								<c:if test="${user.active }">
+									<tr>
+										<td>${user.id}</td>
+										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName} ${user.lastName }</a></td>
+										
+										<td>${user.username}</td>
+										<td>${user.userDescription}</td>
 
-									<td>
+										<td>
 
-										<form action="updatePage.do" method="POST">
+											<form action="updatePage.do" method="POST">
 
-											<input type="hidden" value="${user.id}" name="user" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									<td>
-										<form action="deactivateUser.do" method="POST" class="form-group">
-											<input type="hidden" value="${user.id}" name="userId" /> <input
-												type="submit" value="Deactivate" class="btn btn-danger" />
-										</form>
-									</td>
-								</tr>
+												<input type="hidden" value="${user.id}" name="user" /> <input
+													type="submit" value="Update" class="btn btn-primary" />
+											</form>
+										</td>
+										<td>
+											<form action="deactivateUser.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${user.id}" name="userId" /> <input
+													type="submit" value="Deactivate" class="btn btn-danger" />
+											</form>
+										</td>
+									</tr>
 								</c:if>
 							</c:forEach>
 
