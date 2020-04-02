@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Event;
+import com.skilldistillery.quarantineescape.entities.Host;
 import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
@@ -56,6 +57,23 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
+	public Host deactivateHost(int id) {
+		Host host = em.find(Host.class, id);
+		host.setActive(false);
+		em.persist(host);
+		em.flush();
+		return host;
+	}
+	
+	@Override
+	public Host activateHost(int id) {
+		Host host = em.find(Host.class, id);
+		host.setActive(true);
+		em.persist(host);
+		em.flush();
+		return host;
+	}
+	@Override
 	public List<Event> getDeactivatedEvents() {
 		String query = "SELECT event FROM Event event WHERE event.active = 0";
 		List<Event> events = em.createQuery(query, Event.class).getResultList();
@@ -82,5 +100,6 @@ public class AdminDAOImpl implements AdminDAO {
 		List<Event> events = em.createQuery(query, Event.class).getResultList();
 		return events;
 	}
+
 
 }
