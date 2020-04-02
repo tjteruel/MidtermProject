@@ -27,50 +27,24 @@ public class AdminController {
 	@Autowired
 	private AdminDAO adminDao;
 	
-	public boolean checkIfAdmin(HttpSession session) {
-		User user = (User) session.getAttribute("loggedInUser");
-		if (user.getRole().equals(Role.Admin)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public Model refresh(Model model) {
-		List<User> activeUsers = adminDao.getActiveUsers();
-		model.addAttribute("activeUsers", activeUsers);
-		
-		List<User> deactivatedUsers = adminDao.getDeactivatedUsers();
-		model.addAttribute("deactivatedUsers", deactivatedUsers);
-		
-		List<Event> activeEvents = adminDao.getActiveEvents();
-		model.addAttribute("activeEvents", activeEvents);
-		
-		List<Event> deactivatedEvents = adminDao.getDeactivatedEvents();
-		model.addAttribute("deactivatedEvents", deactivatedEvents);
-		return model;
-	}
-	
-	@RequestMapping(path = "adminSettings.do", method = RequestMethod.GET)
-	public String adminSettings(HttpSession session, Model model) {
-		if (checkIfAdmin(session) == true) {
-			
-			model = refresh(model);
-//			model.addAttribute("sectionNumber", 1);
-			
-			return "adminLandingPage";
-		} else {
-			session.removeAttribute("loggedInUser");
-			return "userLandingPage";
-		}
-	}
+
 	
 	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
-	public String deactivateEvent(int eventId, Model model) {
+	public String deactivateEvent(int eventId, Model model, HttpSession session) {
+		User currentUser = (User) session.getAttribute("loggedInUser");
+		System.out.println(session.getAttribute("loggedInUser"));
+		System.out.println(currentUser.getRole().equals(Role.Admin));
+		if (currentUser.getRole().equals(Role.Admin)) {
 		adminDao.deactivateEvent(eventId);
 		model.addAttribute("events", eDao.findAll());
 		return "listAllEvents";
+		} else {
+			return "index";
+		}
+		
 	}
+	
+	
 //	@RequestMapping(path = "activateEvent.do", method = RequestMethod.POST)
 //	public String activateEvent(int eventId, Model model) {
 //		if (user.getRole().equals(Role.Admin)) {
@@ -79,5 +53,5 @@ public class AdminController {
 //		return "listAllEvents";
 //	}
 
-	
 }
+

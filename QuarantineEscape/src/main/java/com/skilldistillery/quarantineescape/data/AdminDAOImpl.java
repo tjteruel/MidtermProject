@@ -50,6 +50,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public Event activateEvent(int id) {
 		Event event = em.find(Event.class, id);
 		event.setActive(true);
+		em.persist(event);
 		em.flush();
 		return event;
 	}
