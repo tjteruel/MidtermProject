@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.quarantineescape.entities.Host;
 import com.skilldistillery.quarantineescape.entities.Location;
-import com.skilldistillery.quarantineescape.entities.User;
 
 @Service
 @Transactional
@@ -74,12 +73,12 @@ public class HostDAOImpl implements HostDAO {
 		return em.createQuery(jpql, Host.class).getResultList();
 	}
 
-	@Override
-	public Host deactivate(int id) {
-		Host host = em.find(Host.class, id);
-		host.setActive(false);
-		em.persist(host);
-		em.flush();
-		return host;
-	}
+//	@Override
+//	public Host deactivate(int id) {
+//		Host host = em.find(Host.class, id);
+//		host.setActive(false);
+//		em.persist(host);
+//		em.flush();
+//		return host;
+//	}
 }
