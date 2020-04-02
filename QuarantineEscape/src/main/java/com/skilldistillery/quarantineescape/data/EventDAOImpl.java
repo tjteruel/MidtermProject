@@ -188,4 +188,18 @@ public class EventDAOImpl implements EventDAO {
 //		return event;
 //	}
 
+	
+	@Override
+	public boolean alreadyRSVP(int userId, int eventId) {
+		String jpql = "SELECT u FROM UserEvent u";
+		List<UserEvent> userEvents = em.createQuery(jpql, UserEvent.class).getResultList();
+		if (userEvents.contains(userId) && userEvents.contains(eventId)) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+
+
 }

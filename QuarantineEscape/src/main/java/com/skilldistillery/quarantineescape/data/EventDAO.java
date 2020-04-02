@@ -7,6 +7,7 @@ import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.EventComment;
 import com.skilldistillery.quarantineescape.entities.User;
 import com.skilldistillery.quarantineescape.entities.UserEvent;
+import com.skilldistillery.quarantineescape.entities.UserEventId;
 
 public interface EventDAO {
 	
@@ -38,8 +39,12 @@ public interface EventDAO {
 	
 	public List<Event> findByCategory (String name);
 	
+
 //	public Event deactivate(int id);
 //	public Event activate (int id);
+	
+	public boolean alreadyRSVP(int userId, int eventId);
+
 
 
 }
