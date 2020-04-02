@@ -49,6 +49,7 @@
 								<c:if test="${user.active and user.role !=role }">
 									<tr>
 										<td>${user.id}</td>
+										
 										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName}
 												${user.lastName }</a></td>
 

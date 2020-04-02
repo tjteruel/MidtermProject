@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,18 +112,28 @@
 										</thead>
 										<tbody>
 
+									
+											<c:set var="role" value="<%=Role.Admin%>" />
 											<c:forEach var="ae" items="${attendingEvents}">
 												<tr>
 
 													<td><a href="findEvent.do?id=${ae.event.id}">${ae.event.title}</a></td>
 													<td>${ae.event.eventDate}</td>
 													<td>${ae.event.description}</td>
+												<c:choose>		
+												<c:when test="${not empty loggedInUser or loggedInUser.role == role}">
+												<c:if test="${loggedInUser.id == user.id or loggedInUser.role == role}">
 													<td><form action="unattendEvent.do" method="POST"
 															class="form-group">
 															<input type="hidden" value="${ae.event.id}"
 																name="eventId" /> <input type="submit" value="Remove"
 																class="btn btn-danger" />
 														</form></td>
+														</c:if>
+														</c:when>
+														</c:choose>
+
+
 
 												</tr>
 
@@ -138,13 +150,21 @@
 
 						</div>
 					</div>
+					
+					
 					<div class="profile-userbuttons1">
+					<c:choose>
+					<c:when test="${not empty loggedInUser or loggedInUser.role == role}">
+					<c:if test="${loggedInUser.id == user.id or loggedInUser.role == role}">
 
 						<form action="updatePage.do" method="POST">
 							<input type="hidden" value="${user.id}" name="user" /> <input
 								type="submit" value="Update Profile"
 								class="btn btn-danger btn-sm" />
 						</form>
+						</c:if>
+						</c:when>
+						</c:choose>
 					</div>
 
 
