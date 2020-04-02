@@ -2,141 +2,165 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>COVID AND CHILL</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
+
 <link rel="stylesheet" href="css/show.css">
-<jsp:include page="js/show.js"></jsp:include>
-
+<meta charset="UTF-8">
+<title>User Profile</title>
 </head>
-<body class="h-100">
-	<div class="container h-100">
+<body>
 
-		<div class="wrapper">
-			<div class="outer-image">
-				<img class="round-image" src="${user.userImageUrl}" height="100%">
-			</div>
-			<div class="header"></div>
-		</div>
-		<div id="centerpixel">
-			<div id="Portfolio">
-				<div class="inner">
-					<div class="Portfolio_title">
-						${user.username} <br />
 
+
+	<div class="container">
+		<div class="row profile">
+			<div class="col-md-3">
+				<div class="profile-sidebar">
+					<!-- SIDEBAR USERPIC -->
+					<div class="profile-userpic">
+						<img src="${user.userImageUrl}" class="img-responsive" alt="">
 					</div>
-					<table class="portfolio_content">
-						<tr>
-							<td>First Name</td>
-							<td class="one">:</td>
-							<td>${user.firstName }</td>
-						</tr>
-						<tr>
-							<td>Last Name</td>
-							<td class="one">:</td>
-							<td>${user.lastName }</td>
-						</tr>
-						<tr>
-							<td>User Description</td>
-							<td class="one">:</td>
-							<td>${user.userDescription }</td>
-						</tr>
-						<tr>
-							<td>User Email</td>
-							<td class="one">:</td>
-							<td>${user.email }</td>
-						</tr>
-						<tr>
-							<td>Role</td>
-							<td class="one">:</td>
-							<td>${user.role }</td>
-						</tr>
-						<tr>
-							<td>Active</td>
-							<td class="one">:</td>
-							<td>${user.enabled }</td>
-						</tr>
+					<!-- END SIDEBAR USERPIC -->
+					<!-- SIDEBAR USER TITLE -->
+					<div class="profile-usertitle">
+						<div class="profile-usertitle-name">${user.firstName}
+							${user.lastName }</div>
+						<div class="profile-usertitle-job">${user.username}</div>
+					</div>
+					<!-- END SIDEBAR USER TITLE -->
+					<!-- SIDEBAR BUTTONS -->
+					<div class="profile-userbuttons">
+						<button type="button" class="btn btn-success btn-sm">Follow</button>
+						<button type="button" class="btn btn-danger btn-sm">Message</button>
+					</div>
+					<!-- END SIDEBAR BUTTONS -->
+					<!-- SIDEBAR MENU -->
 
-						<tr>
-					</table>
+					<!-- END MENU -->
+
+					<div class="portlet light bordered">
+						<!-- STAT -->
+						<div class="row list-separated profile-stat">
+							<div class="col-md-4 col-sm-4 col-xs-6">
+								<div class="uppercase profile-stat-title">${user.role}</div>
+								<div class="uppercase profile-stat-text">Role</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-6">
+								<div class="uppercase profile-stat-title">${user.createdAt }
+								</div>
+								<div class="uppercase profile-stat-text">Joined</div>
+							</div>
+
+						</div>
+						<!-- END STAT -->
+						<div>
+							<h4 class="profile-desc-title">About ${user.firstName}
+								${user.lastName }</h4>
+							<span class="profile-desc-text"> ${user.userDescription }
+							</span>
+							<div class="margin-top-20 profile-desc-link">
+								<i class="fa fa-globe"></i> <a href="#">${user.email}</a>
+							</div>
+
+
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="profile-content">
+
+					<!--  -->
+
+
+
+
+
+					<div class="profile-userbuttons1">
+						<form action="home.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
+
+
+
+
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								<table class="table table-bordered table-hover"
+									data-tablesaw-mode="columntoggle" data-tablesaw-minimap>
+									<caption class="text-center">
+										List of Events for the ${user.firstName} ${user.lastName }
+										<thead>
+											<tr>
+												<th data-tablesaw-priority="persist">Event</th>
+												<th data-tablesaw-priority="2">Date</th>
+												<th data-tablesaw-priority="3">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+
+											<c:forEach var="ae" items="${attendingEvents}">
+												<tr>
+
+													<td>${ae.event.title}</td>
+													<td>${ae.event.eventDate}</td>
+													<td>${ae.event.description}</td>
+
+												</tr>
+
+
+												<!-- UPDATE USER -->
+
+
+											</c:forEach>
+											<!-- Home Button -->
+								</table>
+								</tbody>
+								
+							</div>
+
+						</div>
+					</div>
+					<div class="profile-userbuttons1">
+
+									<form action="updatePage.do" method="POST">
+										<input type="hidden" value="${user.id}" name="user" /> <input
+											type="submit" value="Update Profile"
+											class="btn btn-danger btn-sm" />
+									</form>
+								</div>
+
+
+					<!--  -->
 				</div>
 			</div>
 		</div>
-
-
-		<!-- DELETE USER -->
-		<%-- 	<div class="btn-group;text-center" role="group" style="text-align:center" >
-				<button type="button" class="btn btn-info btn-sm" >
-		<form action="deleteUser.do" method="POST" class="form-group">
-			<input type="hidden" value="${user.id}" name="userId" /> <input
-				type="submit" value="Delete" class="btn btn-info" />
-		</form>
-		</button> --%>
-
-		<%-- 	<!-- Home Button -->
-		<a href="deleteUser.do" method="POST" value="${user.id }"> <span
-			class="glyphicon glyphicon-trash"></span>
-		</a> <a href="home.do"> <span class="glyphicon glyphicon-home"></span>
-		</a> --%>
-		<!-- <button type="button" class="btn btn-info btn-sm" >
-		<form action="home.do" method="POST" class="form-group">
-			<input type="hidden" name="food" /> <input
-				type="submit" value="Home" class="btn btn-info" /> -->
-
-		</form>
-		</button>
-	</div>
-
 	</div>
 
 
-	<!-- DISPLAY USERS EVENTS -->
-	<div class="col-md-12">
-		<h4 class="text_align">My Events</h4>
-		<div class="table-responsive">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 
 
-			<table id="mytable" class="table table-bordred table-striped">
-
-				<thead>
-
-
-					<th>Event</th>
-					<th>Date</th>
-					<th>Description</th>
-					<th> </th>
-
-				</thead>
-				<tbody>
-				 	<c:forEach var="ae" items="${attendingEvents}">
- 						<tr>
-							<td>${ae.event.title}</td>
-							<td>${ae.event.eventDate}</td>
-							<td>${ae.event.description}</td>
-							<td>Remove Event from Attending List <%-- <form action="deleteEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${event.id}" name="eventId" /> <input
-												type="submit" value="Delete" class="btn btn-danger" />
-										</form> --%>
-							</td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-
-			<!-- Home Button -->
-			<form action="home.do" method="POST">
-				<input type="submit" value="Home" class="btn btn-primary" />
-			</form>
-			<!-- UPDATE USER -->
-			<form action="updatePage.do" method="POST">
-				<input type="hidden" value="${user.id}" name="user" /> <input
-					type="submit" value="Update Profile" class="btn btn-primary" />
-			</form>
 </body>
 </html>
