@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,11 +68,14 @@
 							</div>
 
 							<div>
+							
+									<c:if test="${not empty loggedInUser}">
 								<form action="attendEvent.do" method="POST" class="form-group">
 									<input type="hidden" value="${event.id}" name="eventId" /> <input
 										type="hidden" value="${user.id}" name="userId" /> <input
 										type="submit" value="RSVP" class="btn btn-primary" />
 								</form>
+								</c:if>
 							</div>
 
 							<div class="store-features hidden-xs">

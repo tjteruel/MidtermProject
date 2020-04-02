@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -41,11 +42,14 @@
 							
 						</thead>
 						<tbody>
+						<c:set var="Admin" value="<%=Role.Admin%>" />
 							<c:forEach var="tag" items="${tags}">
 								<tr>
 									<td>${tag.id}</td>
 									<td>${tag.tagName}</td>
 									
+									
+										<c:if test="${loggedInUser.role == Admin}">
 									<td>
 
 										<form action="updateTagPage.do" method="POST">
@@ -60,6 +64,7 @@
 												type="submit" value="Delete" class="btn btn-danger" />
 										</form>
 									</td>
+									</c:if>
 								</tr>
 							</c:forEach>
 
