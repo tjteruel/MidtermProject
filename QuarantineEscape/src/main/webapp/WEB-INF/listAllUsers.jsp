@@ -86,6 +86,11 @@
 							</c:forEach>
 
 						</tbody>
+						<div>
+						<form action="userLandingPage.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
 					</table>
 
 					<div class="clearfix"></div>

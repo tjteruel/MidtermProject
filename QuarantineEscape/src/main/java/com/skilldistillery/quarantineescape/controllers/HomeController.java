@@ -33,6 +33,7 @@ public class HomeController {
 		public String login(HttpSession session, Model model) {
 		User user =	(User) session.getAttribute("loggedInUser");
 			if (user == null) {
+				model.addAttribute("events", eventDao.findAll());
 				return "index";
 			} else {
 				List<UserEvent> attendingEvents = eventDao.findAllAttendingEvents(user.getId());

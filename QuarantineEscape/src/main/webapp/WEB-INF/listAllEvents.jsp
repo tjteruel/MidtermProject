@@ -82,6 +82,7 @@
 										<!-- </td> -->
 										<!-- test RSVP & display on user page -->
 
+
 										<c:if test="${not empty sessionScope.loggedInUser}">
 
 											<td>
@@ -97,7 +98,10 @@
 									</tr> -->
 								</c:if>
 							</c:forEach>
-
+						<form action="userLandingPage.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
 						</tbody>
 					</table>
 
@@ -110,6 +114,7 @@
 						<li><a href="#">3</a></li>
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
+						
 						<li><a href="#"><span
 								class="glyphicon glyphicon-chevron-right"></span></a></li>
 					</ul>

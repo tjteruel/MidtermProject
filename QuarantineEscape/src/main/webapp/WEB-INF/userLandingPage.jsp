@@ -347,7 +347,7 @@
 				Designed by: <a href="https://github.com/Ankitshah89">Ankit
 					Shah, </a> <a href="https://github.com/rowland1318/">Christina
 					Rowland, </a> <a href="https://github.com/dyoachum">David Yoachum,
-				</a> <a href=https://github.com/tjteruel>Tim Tereul</a>
+				</a> <a href=https://github.com/tjteruel>Tim Teruel</a>
 			</div>
 		</div>
 	</footer>
