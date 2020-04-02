@@ -123,6 +123,12 @@ public class EventController {
 		model.addAttribute("events", dao.findAll());
 		return "listAllEvents";
 	}
+	@RequestMapping(path = "activateEvent.do", method = RequestMethod.POST)
+	public String activateEvent(int eventId, Model model) {
+		dao.activate(eventId);
+		model.addAttribute("events", dao.findAll());
+		return "listAllEvents";
+	}
 	
 	@RequestMapping(path = "unattendEvent.do", method = RequestMethod.POST)
 	public String unattendEvent(Integer eventId, HttpSession session, Model model) {

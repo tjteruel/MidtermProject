@@ -22,7 +22,16 @@ public class AdminController {
 	@Autowired
 	private EventDAO eDao;
 	
-
+//	public boolean checkIfAdmin(HttpSession session) {
+//		User user = (User) session.getAttribute("loggedInUser");
+//		if (user.getRole().equalsIgnoreCase("admin")) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+	
+	
 
 	
 }

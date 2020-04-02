@@ -66,9 +66,12 @@
 												class="form-control"/>
 										</div>
 										<div class="form-group">
-											<label for="role">Role: </label> <input type="text"
-												value="${user.role}" name="role" id="role"
-												class="form-control" required />
+											<label for="role">Role: </label> <select name="role"
+												selected="${user.role}" id="role"
+												class="btn btn-secondary dropdown-toggle" required>
+												<option value="User">User</option>
+												<option value="Admin">Admin</option>
+											</select>
 										</div>
 										<div class="form-group">
 											<label for="enabled">Enabled: </label> <select name="enabled"
