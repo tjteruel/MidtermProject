@@ -105,6 +105,7 @@
 												<th data-tablesaw-priority="persist">Event</th>
 												<th data-tablesaw-priority="2">Date</th>
 												<th data-tablesaw-priority="3">Description</th>
+												<th data-tablesaw-priority="4"> </th>
 											</tr>
 										</thead>
 										<tbody>
@@ -112,14 +113,15 @@
 											<c:forEach var="ae" items="${attendingEvents}">
 												<tr>
 
-													<td>${ae.event.title}</td>
+													<td><a href="findEvent.do?id=${ae.event.id}">${ae.event.title}</a></td>
 													<td>${ae.event.eventDate}</td>
 													<td>${ae.event.description}</td>
-													<td><form action="unattendEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${ae.event.id}" name="eventId" /> <input
-												type="submit" value="Remove" class="btn btn-danger" />
-										</form>
-							</td>
+													<td><form action="unattendEvent.do" method="POST"
+															class="form-group">
+															<input type="hidden" value="${ae.event.id}"
+																name="eventId" /> <input type="submit" value="Remove"
+																class="btn btn-danger" />
+														</form></td>
 
 												</tr>
 
@@ -131,19 +133,19 @@
 											<!-- Home Button -->
 								</table>
 								</tbody>
-								
+
 							</div>
 
 						</div>
 					</div>
 					<div class="profile-userbuttons1">
 
-									<form action="updatePage.do" method="POST">
-										<input type="hidden" value="${user.id}" name="user" /> <input
-											type="submit" value="Update Profile"
-											class="btn btn-danger btn-sm" />
-									</form>
-								</div>
+						<form action="updatePage.do" method="POST">
+							<input type="hidden" value="${user.id}" name="user" /> <input
+								type="submit" value="Update Profile"
+								class="btn btn-danger btn-sm" />
+						</form>
+					</div>
 
 
 					<!--  -->
@@ -201,7 +203,7 @@
 				</tbody>
 			</table> --%>
 
-			<!-- Home Button -->
+	<%-- <!-- Home Button -->
 			<form action="home.do" method="POST">
 				<input type="submit" value="Home" class="btn btn-primary" />
 			</form>
@@ -209,7 +211,7 @@
 			<form action="updatePage.do" method="POST">
 				<input type="hidden" value="${user.id}" name="user" /> <input
 					type="submit" value="Update Profile" class="btn btn-primary" />
-			</form>
+			</form> --%>
 
 </body>
 </html>
