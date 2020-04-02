@@ -4,20 +4,12 @@ plugins {
 	id 'java'
 }
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 apply plugin: 'war'
 war {
   enabled = true
   archiveName = "${baseName}.war"     // Our app name, as defined in settings.gradle
-<<<<<<< HEAD
-  destinationDir = file("../")         // Project root directory
-=======
   destinationDir = file("./")         // Project root directory
->>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 }
 
 group = 'com.skilldistillery'
