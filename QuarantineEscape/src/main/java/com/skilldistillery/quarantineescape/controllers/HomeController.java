@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.skilldistillery.quarantineescape.data.EventDAO;
 import com.skilldistillery.quarantineescape.entities.Category;
 import com.skilldistillery.quarantineescape.entities.User;
+import com.skilldistillery.quarantineescape.entities.UserEvent;
 
 @Controller
 public class HomeController {
@@ -23,21 +26,21 @@ public class HomeController {
 		@RequestMapping(path = {"/","home.do"})
 		public String home(Model model) {
 			model.addAttribute("events", eventDao.findAll());
-	
 			return "index";
 		}
 		
-		@RequestMapping(path = "gotoHome.do", method= RequestMethod.GET)
-		public String login(HttpSession session) {
+		@RequestMapping(path = "userLandingPage.do", method= RequestMethod.POST)
+		public String login(HttpSession session, Model model) {
 		User user =	(User) session.getAttribute("loggedInUser");
-			
 			if (user == null) {
 				return "index";
 			} else {
-				
-				return "profileView";
+				List<UserEvent> attendingEvents = eventDao.findAllAttendingEvents(user.getId());
+				model.addAttribute("attendingEvents", attendingEvents);
+				model.addAttribute("user", user);
+				model.addAttribute("events", eventDao.findAll());
+				return "userLandingPage";
 			}
-			
 		}
 		
 		@RequestMapping(path = "createUserPage.do")

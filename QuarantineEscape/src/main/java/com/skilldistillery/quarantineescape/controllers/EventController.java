@@ -102,19 +102,24 @@ public class EventController {
 		}
 		Event event = dao.findEventById(eventId);
 		System.err.println("user: " + user);
-		UserEvent userEvent =dao.createUserEvent(eventId, user.getId());
-		user = userDao.findUserById(user.getId());
-		List<UserEvent> attendingEvents = dao.findAllAttendingEvents(user.getId());
-		session.setAttribute("loggedInUser", user);
-		System.err.println("user: " + user);
-		System.err.println("event: " + event);
-		System.err.println("userEvent: " + userEvent);
-		model.addAttribute("event", event);
-		model.addAttribute("user", user);
-		model.addAttribute("userEvent", userEvent);
-		model.addAttribute("attendingEvents", attendingEvents);
-		model.addAttribute("attending", dao.findUserEvent(eventId, user.getId()));
-		return "show";
+		
+		try {
+			UserEvent userEvent =dao.createUserEvent(eventId, user.getId());
+			user = userDao.findUserById(user.getId());
+			List<UserEvent> attendingEvents = dao.findAllAttendingEvents(user.getId());
+			session.setAttribute("loggedInUser", user);
+			System.err.println("user: " + user);
+			System.err.println("event: " + event);
+			System.err.println("userEvent: " + userEvent);
+			model.addAttribute("event", event);
+			model.addAttribute("user", user);
+			model.addAttribute("userEvent", userEvent);
+			model.addAttribute("attendingEvents", attendingEvents);
+			model.addAttribute("attending", dao.findUserEvent(eventId, user.getId()));
+			return "show";
+		} catch (Exception e) {
+			return "show";
+		}
 	}
 
 	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
