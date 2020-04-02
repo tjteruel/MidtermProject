@@ -115,6 +115,11 @@
 													<td>${ae.event.title}</td>
 													<td>${ae.event.eventDate}</td>
 													<td>${ae.event.description}</td>
+													<td><form action="unattendEvent.do" method="POST" class="form-group">
+											<input type="hidden" value="${ae.event.id}" name="eventId" /> <input
+												type="submit" value="Remove" class="btn btn-danger" />
+										</form>
+							</td>
 
 												</tr>
 
@@ -162,7 +167,7 @@
 		crossorigin="anonymous"></script>
 
 
-	<!-- DISPLAY USERS EVENTS -->
+	<%-- 
 	<div class="col-md-12">
 		<h4 class="text_align">My Events</h4>
 		<div class="table-responsive">
@@ -194,7 +199,7 @@
 					</c:forEach>
 
 				</tbody>
-			</table>
+			</table> --%>
 
 			<!-- Home Button -->
 			<form action="home.do" method="POST">
