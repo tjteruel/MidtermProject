@@ -48,7 +48,7 @@ public class UserController {
 	public String signIn(HttpSession session, User user, Model model) {
 		System.out.println(user.getUsername() + user.getPassword());
 		User userLoggedIn = dao.login(user.getUsername(), user.getPassword());
-		if (userLoggedIn == null) {
+		if (userLoggedIn == null ) {
 			return "index";
 		} else {
 			session.setAttribute("loggedInUser", userLoggedIn);
@@ -88,12 +88,13 @@ public class UserController {
 	
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(Model model, HttpSession session) {
-		if (session.getAttribute("user") != null) {
-			session.removeAttribute("user");
-			model.addAttribute("logout", "Logout successful.");
+			session.removeAttribute("loggedInUser");
+			return "index";
 		}
-		return "index";
-	}
+
+
+
+
 	
 
 //	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
