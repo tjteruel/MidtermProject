@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/showevent.css">
 <%-- <jsp:include page="js/try.js"></jsp:include> --%>
 <meta charset="UTF-8">
-<title>User Profile</title>
+<title>Quarantine Escape - Event Profile</title>
 </head>
 <body>
 

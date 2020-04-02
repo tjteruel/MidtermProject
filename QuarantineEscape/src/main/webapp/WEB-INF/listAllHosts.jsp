@@ -16,7 +16,7 @@
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
 <link rel="stylesheet" href="css/locationForm.css">
-<title>Quarantine Escape - Users</title>
+<title>Quarantine Escape - Hosts</title>
 
 
 

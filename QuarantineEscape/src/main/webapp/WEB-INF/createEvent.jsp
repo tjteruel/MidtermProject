@@ -24,7 +24,7 @@
 					<div class="col-md-4 col-md-offset-4">
 						<div class="panel panel-default">
 							<div class="panel panel-primary">
-								<h3 class="text-center">Event information</h3>
+								<h3 class="text-center">Event Information</h3>
 
 								<div class="panel-body">
 

@@ -26,7 +26,7 @@
 
 
 			<div class="col-md-12">
-				<h4 class="text_align">List Of Users in the Database</h4>
+				<h4 class="text_align">List of Users in the Database</h4>
 				<div class="table-responsive">
 
 

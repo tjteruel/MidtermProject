@@ -13,7 +13,7 @@
 <head>
 <link rel="stylesheet" href="css/update.css">
 <meta charset="UTF-8">
-<title>Quarantine Escape - Update Host</title>
+<title>Quarantine Escape - Update Tag</title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 					<div class="col-md-4 col-md-offset-4">
 						<div class="panel panel-default">
 							<div class="panel panel-primary">
-								<h3 class="text-center">Update Tag information</h3>
+								<h3 class="text-center">Update Tag Information</h3>
 
 								<div class="panel-body">
 
