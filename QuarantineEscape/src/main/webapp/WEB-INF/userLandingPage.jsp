@@ -293,7 +293,7 @@
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Quarantine Escape Links</h4>
 						<ul>
-							<li><i class="ion-ios-arrow-right"></i> <a href="home.do">Home</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userLandingPage.do">Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="meetTheTeam.do">Meet the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
