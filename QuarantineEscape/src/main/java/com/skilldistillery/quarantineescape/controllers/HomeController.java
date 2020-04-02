@@ -29,7 +29,7 @@ public class HomeController {
 			return "index";
 		}
 		
-		@RequestMapping(path = "userLandingPage.do", method= RequestMethod.POST)
+		@RequestMapping(path = "userLandingPage.do")
 		public String login(HttpSession session, Model model) {
 		User user =	(User) session.getAttribute("loggedInUser");
 			if (user == null) {

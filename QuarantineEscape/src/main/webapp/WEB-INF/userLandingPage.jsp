@@ -31,7 +31,7 @@
 	<nav
 		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Quarantine Escape</a>
+			<a class="navbar-brand" href="userLandingPage.do">Quarantine Escape</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -293,7 +293,7 @@
 					<div class="col-lg-3 col-md-6 footer-links">
 						<h4>Quarantine Escape Links</h4>
 						<ul>
-							<li><i class="ion-ios-arrow-right"></i> <a href="userLandingPage.do">Home</a></li>
+							<li><i class="ion-ios-arrow-right"></i> <a href="userLandingPage.do" >Home</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
 								href="meetTheTeam.do">Meet the Team</a></li>
 							<li><i class="ion-ios-arrow-right"></i> <a
