@@ -2,96 +2,111 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Event</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/show.css">
-<jsp:include page="js/showEvent.js"></jsp:include>
 
+<link rel="stylesheet" href="css/showevent.css">
+<%-- <jsp:include page="js/try.js"></jsp:include> --%>
+<meta charset="UTF-8">
+<title>User Profile</title>
 </head>
-<body class="h-100">
-	<div class="container h-100">
+<body>
 
-		<div class="wrapper">
-			<div class="outer-image">
-				<img class="round-image" src="${event.eventImageUrl}" height="100%">
-			</div>
-			<div class="header"></div>
-		</div>
-		<div id="centerpixel">
-			<div id="Portfolio">
-				<div class="inner">
-					<div class="Portfolio_title">
-						${event.title} <br />
+	<div class="store-page-container">
+		<section class="store-header">
+			<h1 class="store-header-title">${event.title }</h1>
+			<hr class="hidden-xs break-lines">
 
-					</div>
-					<table class="portfolio_content">
-						<tr>
-							<td>Description</td>
-							<td class="one">:</td>
-							<td>${event.description}</td>
-						</tr>
-						<tr>
-							<td>Event Date</td>
-							<td class="one">:</td>
-							<td>${event.eventDate}</td>
-						</tr>
-						<tr>
-							<td>Time</td>
-							<td class="one">:</td>
-							<td>${event.eventTime}</td>
-						</tr>
-						<tr>
-							<td>Link</td>
-							<td class="one">:</td>
-							<td>${event.eventLink}</td>
-						</tr>
-						<tr>
-							<td>Public or Private</td>
-							<td class="one">:</td>
-							<td>${event.publicOrPrivate}</td>
-						</tr>
-						<tr>
-							<td>Prereqs</td>
-							<td class="one">:</td>
-							<td>${event.prereqs}</td>
-						</tr>
-						<tr>
-							<td>Active</td>
-							<td class="one">:</td>
-							<td>${event.active}</td>
-						</tr>
-
-						<tr>
-					</table>
+			<section class="store-body">
+				<div class="store-content">
+					<!--       <picture> -->
+					<%-- <div class="img_right">
+        <img src="${event.eventImageUrl }" 
+           alt="Event Image"/>  
+           </div> --%>
+					<!--       </picture> -->
 				</div>
-			</div>
-		</div>
+				<div class="store-info">
+					<div class="store-info-container">
+						<address class="store-address">
+							<span>${event.location} </span> <span></span> <span
+								class="text-highlight-xs">(847) 272-8920</span> <a
+								href="https://www.google.com/maps/place/1775+${event.location }"
+								class="text-highlight-xs text-highlight-md map">
+
+								<hr class="break-lines" /> Map and Directions
+							</a>
+						</address>
+						<div>
+							<p>
+								<b>Event Date</b><br>${event.eventDate }</p>
+							<p>
+								<b>Event Time</b><br>${event.eventTime }</p>
+						</div>
+						<ul class="store-hours">
+
+							<li><b>Public:</b> ${event.publicOrPrivate }</li>
+							<li><b>Status:</b> ${event.status }</li>
+						</ul>
 
 
-		
-
-		
-	</div>
-
-	
+						<hr class="break-lines" />
 
 
-	
 
-			<!-- Home Button -->
-			<form action="home.do" method="POST">
-				<input type="submit" value="Home" class="btn btn-primary" />
-			</form>
-			<!-- UPDATE USER -->
-			<form action="updateEventPage.do" method="POST">
-				<input type="hidden" value="${event.id}" name="event" /> <input
-					type="submit" value="Update Profile" class="btn btn-primary" />
-			</form>
+
+						<div class="store-other-info">
+							<div class="store-features">
+								<div class="store-feature-title">${event.title }</div>
+								<a class="store-appointment" href="${event.eventLink}">Visit
+									the Website</a>
+							</div>
+
+
+							<div class="store-features hidden-xs">
+								<div class="store-feature-title  text-inline">
+									<b>Pre-Requisite:</b>
+								</div>
+								<p class="text-inline">${event.prereqs }</p>
+							</div>
+							<div class="store-features">
+								<div class="store-feature-title">
+									<strong>Event Details</strong>
+								</div>
+								<p class="store-detail">${event.description }</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+				integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+				crossorigin="anonymous"></script>
+			<script
+				src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+				integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+				crossorigin="anonymous"></script>
+			<script
+				src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+				integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+				crossorigin="anonymous"></script>
 </body>
 </html>

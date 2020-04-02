@@ -35,11 +35,6 @@ public class EventController {
 		return "listAllEvents";
 	}
 	
-	@RequestMapping(path = "listEvents1.do", method=RequestMethod.GET)
-	public String showEvents1(Model model) {
-		model.addAttribute("events", dao.findAll());
-		return "index";
-	}
 
 	@RequestMapping(path = "findEvent.do", method = RequestMethod.GET, params = "id")
 	public String findEventById(@RequestParam int id, Model model) {

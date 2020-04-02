@@ -36,13 +36,6 @@ public class User {
 	@Column(name = "create_date")
 	private LocalDate createdAt;
 
-	public Boolean getActive() {
-		return active;
-	}
-
-	public void setActive(Boolean active) {
-		this.active = active;
-	}
 
 	@Column(name = "user_description")
 	private String userDescription;
@@ -69,6 +62,13 @@ public class User {
 	private String email = "xxx@email.com";
 
 	////////////////////////////////////////////
+	public Boolean getActive() {
+		return active;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	public List<Tag> getTags() {
 		return tags;
