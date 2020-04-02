@@ -66,6 +66,13 @@
 									the Website</a>
 							</div>
 
+							<div>
+								<form action="attendEvent.do" method="POST" class="form-group">
+									<input type="hidden" value="${event.id}" name="eventId" /> <input
+										type="hidden" value="${user.id}" name="userId" /> <input
+										type="submit" value="RSVP" class="btn btn-primary" />
+								</form>
+							</div>
 
 							<div class="store-features hidden-xs">
 								<div class="store-feature-title  text-inline">
