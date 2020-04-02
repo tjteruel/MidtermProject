@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.quarantineescape.data.EventDAO;
 
 import com.skilldistillery.quarantineescape.entities.Event;
+import com.skilldistillery.quarantineescape.entities.Role;
 import com.skilldistillery.quarantineescape.entities.EventComment;
 import com.skilldistillery.quarantineescape.data.UserDAO;
 //import com.skilldistillery.quarantineescape.entities.Event;
@@ -30,6 +31,15 @@ public class EventController {
 	private EventDAO dao;
 	@Autowired
 	private UserDAO userDao;
+	
+//	public boolean checkIfAdmin(HttpSession session) {
+//		User user = (User) session.getAttribute("loggedInUser");
+//		if (user.getRole().equals(Role.Admin)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 
 	@RequestMapping(path = "listEvents.do")
 	public String showEvents(Model model) {
@@ -124,12 +134,18 @@ public class EventController {
 		}
 	}
 
-	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
-	public String deactivateEvent(int eventId, Model model) {
-		dao.deactivate(eventId);
-		model.addAttribute("events", dao.findAll());
-		return "listAllEvents";
-	}
+//	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
+//	public String deactivateEvent(int eventId, Model model) {
+//		dao.deactivate(eventId);
+//		model.addAttribute("events", dao.findAll());
+//		return "listAllEvents";
+//	}
+//	@RequestMapping(path = "activateEvent.do", method = RequestMethod.POST)
+//	public String activateEvent(int eventId, Model model) {
+//		dao.activate(eventId);
+//		model.addAttribute("events", dao.findAll());
+//		return "listAllEvents";
+//	}
 	
 	@RequestMapping(path = "unattendEvent.do", method = RequestMethod.POST)
 	public String unattendEvent(Integer eventId, HttpSession session, Model model) {

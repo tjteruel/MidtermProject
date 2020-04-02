@@ -92,21 +92,24 @@ public class UserController {
 			return "index";
 		}
 
+
+
+
 	
 
-	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
-	public String deactivateUser(int userId, Model model) {
-		dao.deactivate(userId);
-		model.addAttribute("users", dao.findAll());
-		return "listAllUsers";
-	}
-	
-	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
-	public String activateUser(int userId, Model model) {
-		dao.activate(userId);
-		model.addAttribute("users", dao.findAll());
-		return "listAllUsers";
-	}
+//	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
+//	public String deactivateUser(HttpSession session, int userId, Model model) {
+//		dao.deactivate(userId);
+//		model.addAttribute("users", dao.findAll());
+//		return "listAllUsers";
+//	}
+//	
+//	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
+//	public String activateUser(int userId, Model model) {
+//		dao.activate(userId);
+//		model.addAttribute("users", dao.findAll());
+//		return "listAllUsers";
+//	}
 
 	
 }
