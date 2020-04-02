@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -47,7 +48,8 @@
 									<td>${category.description}</td>
 									<td><img src="${category.categoryImageUrl}" width="325" height="150"/> 
 								
-
+								<c:set var="Admin" value="<%=Role.Admin%>" />
+								<c:if test="${loggedInUser.role == Admin}">
 									<td>
 
 										<form action="updateCategoryPage.do" method="POST">
@@ -57,7 +59,7 @@
 										</form>
 									</td>
 									
-									
+									</c:if>
 								</tr>
 							</c:forEach>
 

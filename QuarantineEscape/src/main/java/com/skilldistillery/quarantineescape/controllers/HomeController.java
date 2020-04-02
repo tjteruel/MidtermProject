@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.quarantineescape.data.EventDAO;
-import com.skilldistillery.quarantineescape.entities.Category;
+import com.skilldistillery.quarantineescape.data.UserDAO;
 import com.skilldistillery.quarantineescape.entities.User;
 import com.skilldistillery.quarantineescape.entities.UserEvent;
 
@@ -20,6 +20,9 @@ public class HomeController {
 	
 	@Autowired
 	private EventDAO eventDao;
+	
+	@Autowired
+	private UserDAO userDao;
 	
 
 
@@ -45,7 +48,8 @@ public class HomeController {
 		}
 		
 		@RequestMapping(path = "createUserPage.do")
-		public String signUpPage() {
+		public String signUpPage(Model model) {
+			model.addAttribute("users",userDao.findAll());
 			return "signUp";
 		}
 		
