@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -29,6 +30,8 @@
 				<div class="table-responsive">
 
 
+					<c:set var="role" value="<%=Role.Admin%>" />
+				
 					<table id="mytable" class="table table-bordred table-striped">
 
 						<thead>
@@ -41,15 +44,21 @@
 
 						</thead>
 						<tbody>
+
 							<c:forEach var="user" items="${users}">
-								<c:if test="${user.active }">
+								<c:if test="${user.active and user.role !=role }">
 									<tr>
 										<td>${user.id}</td>
-										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName} ${user.lastName }</a></td>
-										
+										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName}
+												${user.lastName }</a></td>
+
 										<td>${user.username}</td>
 										<td>${user.userDescription}</td>
 
+									<!-- <td> -->
+
+
+									<c:if test="${loggedInUser.role == role}">
 										<td>
 
 											<form action="updatePage.do" method="POST">
@@ -58,6 +67,8 @@
 													type="submit" value="Update" class="btn btn-primary" />
 											</form>
 										</td>
+										<!-- </td> -->
+										<!-- 	<td> -->
 										<td>
 											<form action="deactivateUser.do" method="POST"
 												class="form-group">
@@ -65,8 +76,13 @@
 													type="submit" value="Deactivate" class="btn btn-danger" />
 											</form>
 										</td>
+									</c:if>
 									</tr>
 								</c:if>
+
+								<!-- </tr> -->
+
+
 							</c:forEach>
 
 						</tbody>
