@@ -95,59 +95,113 @@
 		<div class="bg-circle-3 bg-circle"></div>
 		<div class="bg-circle-4 bg-circle"></div>
 	</header>
-
-	<!-- ======= Portfolio Section ======= -->
-
-
-	<section id="portfolio" class="section-bg">
+	
+	<!-- ======= Personal User Section ======= -->
+		
+			<section id="portfolio" class="section-bg">
 		<div class="container">
 
 			<header class="section-header">
-				<h3 class="section-title">Our Events</h3>
+				<h3 class="section-title" align="center">${user.username} Events</h3>
 			</header>
 
 			<div class="row">
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
-						<li data-filter="*" class="filter-active">All</li>
-						<li data-filter=".filter-app">Animal Cams</li>
-						<li data-filter=".filter-card">Music</li>
-						<li data-filter=".filter-web">Games</li>
-						<li data-filter=".filter-web"><form action="getCategory.do"
-								method="GET">${category.categoryName }</form></li>
-
-						<li data-filter=".filter-web"><a href="categoryForm.do">Add
-								Categories</a></li>
 
 					</ul>
 				</div>
 			</div>
 
+		</div>
 
 		<div class="row portfolio-container">
-			<div class="row-fluid"> 
 
-					<c:forEach var="event" items="${events}">
-								<c:if test="${event.active}">
-							<div class="card" style="width: 20rem;">
-								<img class="card-img-top" src="${event.eventImageUrl}"
-									alt="Card image top" >
-								<div class="card-body">
-									<h3 class="card-title">${event.title}</h3>
-									<p> ${event.active}</p>
-									<h4 class="card-subtitle">Card subtitle</h4>
-									<p class="card-text">This is a simple Card example</p>
+			<c:forEach var="ae" items="${attendingEvents}">
+				
+					<div
+						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+						<div class="portfolio-wrap">
+							<figure>
+
+								<div class="image-fluid">
+								<img src="${ae.event.eventImageUrl}">
 								</div>
+								<a href="${ae.event.eventLink}" data-lightbox="portfolio"
+									data-title="${ae.event.title }" class="link-preview"><i
+									class="ion ion-eye"></i></a>
+							</figure>
+
+							<div class="portfolio-info">
+								<h4>
+									<a href="findEvent.do?id=<c:out value="${ae.event.id }"/>">${ae.event.title }</a>
+								</h4>
+
+								<p></p>
 							</div>
-					</c:if>
-					</c:forEach>
-				</div>
-	</div>
+						</div>
+					</div>
+			</c:forEach>
+		</div>
+
 	</section>
-	<!-- End Portfolio Section -->
+	
+	<!-- ======= End Personal User Section ======= -->
 
+		<!-- ======= Main Section ======= -->
+	<section id="portfolio" class="section-bg">
+		<div class="container">
 
-	<section>
+			<header class="section-header">
+				<h3 class="section-title" align="center">Quarantine Escape Events</h3>
+			</header>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<ul id="portfolio-flters">
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row portfolio-container">
+
+			<c:forEach var="event" items="${events}">
+				<c:if test="${event.active}">
+				
+					<div
+						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+						<div class="portfolio-wrap">
+							<figure>
+
+								<div class="image-fluid">
+								<img src="${event.eventImageUrl}">
+								</div>
+								<a href="${event.eventLink}" data-lightbox="portfolio"
+									data-title="${event.title }" class="link-preview"><i
+									class="ion ion-eye"></i></a>
+							</figure>
+
+							<div class="portfolio-info">
+								<h4>
+									<a href="findEvent.do?id=<c:out value="${event.id }"/>">${event.title }</a>
+								</h4>
+
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
+		</div>
+
+	</section>
+	
+	<!--  -->
+
+<!-- 	<section>
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6 order-lg-2">
@@ -211,7 +265,7 @@
 			</div>
 		</div>
 	</section>
-
+ -->
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="footer-top">

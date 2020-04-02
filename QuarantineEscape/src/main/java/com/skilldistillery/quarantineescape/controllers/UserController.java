@@ -54,6 +54,7 @@ public class UserController {
 		} else {
 			session.setAttribute("loggedInUser", userLoggedIn);
 			model.addAttribute("events", eDao.findAll());
+			model.addAttribute("attendingEvents", eDao.findAllAttendingEvents(userLoggedIn.getId()));
 			return "userLandingPage";
 		}
 	}
