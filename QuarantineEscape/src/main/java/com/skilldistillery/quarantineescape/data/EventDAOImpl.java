@@ -171,22 +171,23 @@ public class EventDAOImpl implements EventDAO {
 
 	}
 
-	@Override
-	public Event deactivate(int id) {
-		Event event = em.find(Event.class, id);
-		event.setActive(false);
-		em.persist(event);
-		em.flush();
-		return event;
-	}
+//	@Override
+//	public Event deactivate(int id) {
+//		Event event = em.find(Event.class, id);
+//		event.setActive(false);
+//		em.persist(event);
+//		em.flush();
+//		return event;
+//	}
+//
+//	@Override
+//	public Event activate(int id) {
+//		Event event = em.find(Event.class, id);
+//		event.setActive(true);
+//		em.flush();
+//		return event;
+//	}
 
-	@Override
-	public Event activate(int id) {
-		Event event = em.find(Event.class, id);
-		event.setActive(true);
-		em.flush();
-		return event;
-	}
 	
 	@Override
 	public boolean alreadyRSVP(int userId, int eventId) {
@@ -199,5 +200,6 @@ public class EventDAOImpl implements EventDAO {
 		}
 		
 	}
+
 
 }
