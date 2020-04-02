@@ -24,6 +24,10 @@
 <link rel="stylesheet" href="css/myStyles.css">
 
 <link rel="stylesheet" href="css/signup.css">
+<<<<<<< HEAD
+
+=======
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -117,7 +121,11 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+<script src="js/signup.js"></script>
+=======
 	<script src="js/signup.js"></script>
 
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 </body>
 </html>
