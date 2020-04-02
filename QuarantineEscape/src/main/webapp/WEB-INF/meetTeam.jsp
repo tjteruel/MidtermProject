@@ -9,6 +9,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
+	
+	
 </head>
 <body>
 <header class="bg-primary text-center py-5 mb-4">
@@ -23,7 +25,7 @@
     <!-- Team Member 1 -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+        <img src="https://source.unsplash.com/TMgQMXoglsM/500x625" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Tim Teruel</h5>
           <div class="card-text text-black-50">Web Developer / Repo Owner</div>
@@ -33,7 +35,7 @@
     <!-- Team Member 2 -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/%22Weird_Al%22_Yankovic.JPG/220px-%22Weird_Al%22_Yankovic.JPG" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Christina Rowland</h5>
           <div class="card-text text-black-50">Web Developer / Scrum Master</div>
@@ -43,7 +45,7 @@
     <!-- Team Member 3 -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+        <img src="https://source.unsplash.com/sNut2MqSmds/500x625" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Ankit Shah</h5>
           <div class="card-text text-black-50">Web Developer / DBA</div>
@@ -53,7 +55,7 @@
     <!-- Team Member 4 -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
+        <img src="https://source.unsplash.com/TJSDFQ5kSrY/500x625" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">David Yoachum</h5>
           <div class="card-text text-black-50">Web Developer</div>
