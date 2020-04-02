@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
+
 <!DOCTYPE html>
 <html>
 <link
@@ -26,7 +28,7 @@
 
 
 			<div class="col-md-12">
-	
+
 				<div class="table-responsive">
 
 
@@ -43,28 +45,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="host" items="${hosts}">
-							<c:if test="${host.active }">
-								<tr>
-									<td>${host.id}</td>
-									<td>${host.hostName}</td>
-									<td>${host.email}</td>
-									<td>${host.phoneNumber}</td>
-									<td><a href="${host.url}">Click Here</a></td>
+							<c:set var="Admin" value="<%=Role.Admin%>" />
 
-									<td>
-										<form action="updateHostPage.do" method="POST">
-											<input type="hidden" value="${host.id}" name="host" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									<td>
-										<form action="deactivateHost.do" method="POST" class="form-group">
-											<input type="hidden" value="${host.id}" name="hostId" /> <input
-												type="submit" value="Deactivate" class="btn btn-danger" />
-										</form>
-									</td>
-								</tr>
+							<c:forEach var="host" items="${hosts}">
+								<c:if test="${host.active }">
+									<tr>
+										<td>${host.id}</td>
+										<td>${host.hostName}</td>
+										<td>${host.email}</td>
+										<td>${host.phoneNumber}</td>
+										<td><a href="${host.url}">Click Here</a></td>
+
+										<c:if test="${loggedInUser.role == Admin}">
+
+											<td>
+												<form action="updateHostPage.do" method="POST">
+													<input type="hidden" value="${host.id}" name="host" /> <input
+														type="submit" value="Update" class="btn btn-primary" />
+												</form>
+											</td>
+											<td>
+												<form action="deactivateHost.do" method="POST"
+													class="form-group">
+													<input type="hidden" value="${host.id}" name="hostId" /> <input
+														type="submit" value="Deactivate" class="btn btn-danger" />
+												</form>
+											</td>
+										</c:if>
+									</tr>
 								</c:if>
 							</c:forEach>
 

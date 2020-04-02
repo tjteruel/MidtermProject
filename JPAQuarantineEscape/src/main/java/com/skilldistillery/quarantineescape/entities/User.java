@@ -45,10 +45,12 @@ public class User {
 	private Boolean enabled;
 
 	@Enumerated(EnumType.STRING)
-	private Role role;
+	private Role role= Role.User;
 	
-	private Boolean active;
-
+	private Boolean active = true;
+	
+	
+	
 	@OneToMany(mappedBy = "user")
 	private List<CategoryComment> categoryComments;
 
