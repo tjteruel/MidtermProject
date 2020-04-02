@@ -229,9 +229,13 @@
 			<div class="copyright">
 				<strong>Quarantine Escape</strong>
 			</div>
-			<div class="credits">Designed by: Ankit Shah, Christina
-				Rowland, David Yoachum, Tim Teruel</div>
-		</div>
+			<div class="credits">
+				Designed by: <a href="https://github.com/Ankitshah89">Ankit
+					Shah, </a> <a href="https://github.com/rowland1318/">Christina
+					Rowland, </a> <a href="https://github.com/dyoachum">David Yoachum,
+				</a> <a href=https://github.com/tjteruel>Tim Teruel</a>
+			</div>
+			</div>
 	</footer>
 	<!-- End Footer -->
 

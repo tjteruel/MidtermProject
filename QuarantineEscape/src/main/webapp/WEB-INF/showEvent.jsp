@@ -62,7 +62,7 @@
 
 						<div class="store-other-info">
 							<div class="store-features">
-								<div class="store-feature-title">${event.title }</div>
+								<div class="store-feature-title"><b>${event.title }</b></div>
 								<a class="store-appointment" href="${event.eventLink}">Visit
 									the Website</a>
 							</div>
