@@ -40,7 +40,7 @@
 			<img id="profile-img" class="profile-img-card"
 				src="https://2.bp.blogspot.com/-A-UiF-5439M/TnS-h_4EaqI/AAAAAAAAAxg/wDWLcMGdMYs/s1600/Free-Scooby-Doo-Picture-Download-Photo.jpg" />
 			<p id="profile-name" class="profile-name-card"></p>
-			<form action="signIn.do">
+			<form action="signIn.do" method="post">
 				<span id="reauth-email" class="reauth-email"></span> <input
 					type="text" id="username" name="username" class="form-control"
 					placeholder="Enter Username" required autofocus> <input

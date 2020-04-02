@@ -44,8 +44,7 @@ public class UserController {
 		return mv;
 	}
 	
-	//Need to fix this to sign in
-	@RequestMapping(path = "signIn.do")
+	@RequestMapping(path = "signIn.do", method = RequestMethod.POST)
 	public String signIn(HttpSession session, User user, Model model) {
 		System.out.println(user.getUsername() + user.getPassword());
 		User userLoggedIn = dao.login(user.getUsername(), user.getPassword());
@@ -101,6 +100,13 @@ public class UserController {
 	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
 	public String deactivateUser(int userId, Model model) {
 		dao.deactivate(userId);
+		model.addAttribute("users", dao.findAll());
+		return "listAllUsers";
+	}
+	
+	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
+	public String activateUser(int userId, Model model) {
+		dao.activate(userId);
 		model.addAttribute("users", dao.findAll());
 		return "listAllUsers";
 	}

@@ -109,4 +109,13 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 
+	@Override
+	public User activate(int id) {
+		User user = em.find(User.class, id);
+		user.setActive(true);
+		em.persist(user);
+		em.flush();
+		return user;
+	}
+
 }
