@@ -15,6 +15,7 @@ $grayDarker:		#222 !default;
 }
 
 
+
 .img_right {
   display: block;
   max-width:230px;
@@ -26,6 +27,8 @@ $grayDarker:		#222 !default;
 body{
   margin-left: 0;
   margin-right: 0;
+  
+  background-color:#e0e0eb;
 }
 
 .store-header{
@@ -230,7 +233,23 @@ body{
   .store-body{
     margin-top: 29px;
   }
-  .store-content, .store-event-panel{
+  .store-content{
+  
+/*    border: 1px solid #ddd; */
+  border-radius: 4px;
+  padding: 5px;
+  width: 700px;
+  height:500px;
+  } 
+  
+  .img{
+   border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  }
+  
+  .store-event-panel{
     width: 76%;
     float: left;
     clear: none;

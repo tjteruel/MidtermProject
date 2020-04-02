@@ -162,49 +162,6 @@
 		crossorigin="anonymous"></script>
 
 
-	<!-- DISPLAY USERS EVENTS -->
-	<div class="col-md-12">
-		<h4 class="text_align">My Events</h4>
-		<div class="table-responsive">
-
-
-			<table id="mytable" class="table table-bordred table-striped">
-
-				<thead>
-
-
-					<th>Event</th>
-					<th>Date</th>
-					<th>Description</th>
-					<th> </th>
-
-				</thead>
-				<tbody>
-				 	<c:forEach var="ae" items="${attendingEvents}">
- 						<tr>
-							<td><a href="findEvent.do?id=${ae.event.id}">${ae.event.title}</a></td>
-							<td>${ae.event.eventDate}</td>
-							<td>${ae.event.description}</td>
-							<td><form action="unattendEvent.do" method="POST" class="form-group">
-											<input type="hidden" value="${ae.event.id}" name="eventId" /> <input
-												type="submit" value="Remove" class="btn btn-danger" />
-										</form>
-							</td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-
-			<!-- Home Button -->
-			<form action="home.do" method="POST">
-				<input type="submit" value="Home" class="btn btn-primary" />
-			</form>
-			<!-- UPDATE USER -->
-			<form action="updatePage.do" method="POST">
-				<input type="hidden" value="${user.id}" name="user" /> <input
-					type="submit" value="Update Profile" class="btn btn-primary" />
-			</form>
 
 </body>
 </html>

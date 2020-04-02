@@ -18,18 +18,18 @@
 
 	<div class="store-page-container">
 		<section class="store-header">
-			<h1 class="store-header-title">${event.title }</h1>
+			<h1 class="store-header-title" align="center">${event.title }</h1>
 			<hr class="hidden-xs break-lines">
 
 			<section class="store-body">
-				<div class="store-content">
+				<!-- <div class="store-content"> -->
 					<!--       <picture> -->
-					<%-- <div class="img_right">
-        <img src="${event.eventImageUrl }" 
+					 <!-- <div class="img_right"> -->
+        <img class="store-content" src="${event.eventImageUrl }" 
            alt="Event Image"/>  
-           </div> --%>
+           <!-- </div>  -->
 					<!--       </picture> -->
-				</div>
+				<!-- </div> -->
 				<div class="store-info">
 					<div class="store-info-container">
 						<address class="store-address">
@@ -73,15 +73,18 @@
 								</div>
 								<p class="text-inline">${event.prereqs }</p>
 							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="break-lines" />
+				<hr class="break-lines" />
+				<hr class="break-lines" />
 							<div class="store-features">
 								<div class="store-feature-title">
 									<strong>Event Details</strong>
 								</div>
 								<p class="store-detail">${event.description }</p>
 							</div>
-						</div>
-					</div>
-				</div>
 			</section>
 
 
