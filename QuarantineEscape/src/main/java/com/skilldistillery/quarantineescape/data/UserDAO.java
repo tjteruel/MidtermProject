@@ -15,5 +15,6 @@ public interface UserDAO {
 	
 	
 	public User deactivate(int id);
+	public User activate(int id);
 
 }

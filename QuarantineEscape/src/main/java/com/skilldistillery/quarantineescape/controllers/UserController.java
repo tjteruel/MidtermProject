@@ -103,6 +103,13 @@ public class UserController {
 		model.addAttribute("users", dao.findAll());
 		return "listAllUsers";
 	}
+	
+	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
+	public String activateUser(int userId, Model model) {
+		dao.activate(userId);
+		model.addAttribute("users", dao.findAll());
+		return "listAllUsers";
+	}
 
 	
 }
