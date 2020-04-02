@@ -118,7 +118,7 @@ public class EventController {
 			model.addAttribute("attending", dao.findUserEvent(eventId, user.getId()));
 			return "show";
 		} catch (Exception e) {
-			return "show";
+			return "index";
 		}
 	}
 
