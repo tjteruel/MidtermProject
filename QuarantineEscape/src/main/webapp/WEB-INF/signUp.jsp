@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="css/myStyles.css">
 
 <link rel="stylesheet" href="css/signup.css">
-<jsp:include page="js/signup.js"></jsp:include>
+
 
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -118,6 +118,6 @@
 			</div>
 		</div>
 	</div>
-
+<script src="js/signup.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/show.css">
-<jsp:include page="js/show.js"></jsp:include>
+
 
 </head>
 <body class="h-100">
@@ -205,4 +205,6 @@
 					type="submit" value="Update Profile" class="btn btn-primary" />
 			</form>
 </body> --%>
+
+<script src ="js/listAllUsers.js"></script>
 </html>
