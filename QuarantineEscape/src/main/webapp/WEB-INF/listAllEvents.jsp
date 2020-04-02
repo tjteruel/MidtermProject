@@ -13,7 +13,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 
+=======
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 <link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Events</title>
 
@@ -130,6 +133,11 @@
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 <script src ="js/listAllUsers.js"></script>
+=======
+	<script src="js/listAllUsers.js"></script>
+
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 </body>
 </html>

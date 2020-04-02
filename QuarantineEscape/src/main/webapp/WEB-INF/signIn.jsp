@@ -11,7 +11,10 @@
 
 
 <link rel="stylesheet" href="css/signIn.css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -54,8 +57,13 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
 
 <script src ="js/signin.js"></script>
+=======
+<script src="js/signin.js"></script>
+
+>>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 
 </body>
 </html>
