@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.quarantineescape.data.EventDAO;
 import com.skilldistillery.quarantineescape.data.UserDAO;
 import com.skilldistillery.quarantineescape.entities.User;
+import com.skilldistillery.quarantineescape.entities.UserEvent;
 
 @Controller
 public class UserController {
@@ -75,9 +78,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "updateUser.do", method = RequestMethod.POST)
-	public String updateUser(@RequestParam("id")int id, User user) {
+	public String updateUser(@RequestParam("id")int id, User user, HttpSession session, Model model) {
 		dao.updateUser(user, id);
-		return "index";
+		User loggedUser = (User) session.getAttribute("loggedInUser"); 
+		loggedUser = dao.findUserById(user.getId());
+		List<UserEvent> attendingEvents = eDao.findAllAttendingEvents(user.getId());
+		model.addAttribute("attendingEvents", attendingEvents);
+		model.addAttribute("user", user);
+		return "show";
 	}
 	
 	@RequestMapping(path = "listUsers.do")
