@@ -169,6 +169,8 @@
 		crossorigin="anonymous"></script>
 
 
+<<<<<<< HEAD
+=======
 	<%-- 
 	<div class="col-md-12">
 		<h4 class="text_align">My Events</h4>
@@ -212,6 +214,7 @@
 				<input type="hidden" value="${user.id}" name="user" /> <input
 					type="submit" value="Update Profile" class="btn btn-primary" />
 			</form> --%>
+>>>>>>> 73bbb773307b8bf84e3b91288fde46a579d64910
 
 </body>
 </html>
