@@ -116,11 +116,18 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<label for="role">Role</label> <select name="role"
+									id="role" class="btn btn-secondary dropdown-toggle" required>
+									<option value="User">User</option>
+									<option value="Admin">Admin</option>
+								</select>
+							</div>
+						<!-- 	<div class="form-group">
 								<label for="role">Role:</label> <input type="text"
 									class="form-control input-lg" id="role"
 									placeholder="Enter User Role" name="role" required>
 
-							</div>
+							</div> -->
 							<div style="text-align: center">
 							<button type="submit" class="btn btn-primary">Sign Up</button>
 							</div>

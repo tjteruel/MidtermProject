@@ -1,5 +1,7 @@
 package com.skilldistillery.quarantineescape.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.quarantineescape.data.EventDAO;
 
 import com.skilldistillery.quarantineescape.entities.Event;
-
+import com.skilldistillery.quarantineescape.entities.Role;
+import com.skilldistillery.quarantineescape.entities.EventComment;
 import com.skilldistillery.quarantineescape.data.UserDAO;
 //import com.skilldistillery.quarantineescape.entities.Event;
 import com.skilldistillery.quarantineescape.entities.User;
@@ -28,6 +31,15 @@ public class EventController {
 	private EventDAO dao;
 	@Autowired
 	private UserDAO userDao;
+	
+//	public boolean checkIfAdmin(HttpSession session) {
+//		User user = (User) session.getAttribute("loggedInUser");
+//		if (user.getRole().equals(Role.Admin)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 
 	@RequestMapping(path = "listEvents.do")
 	public String showEvents(Model model) {
@@ -122,12 +134,18 @@ public class EventController {
 		}
 	}
 
-	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
-	public String deactivateEvent(int eventId, Model model) {
-		dao.deactivate(eventId);
-		model.addAttribute("events", dao.findAll());
-		return "listAllEvents";
-	}
+//	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
+//	public String deactivateEvent(int eventId, Model model) {
+//		dao.deactivate(eventId);
+//		model.addAttribute("events", dao.findAll());
+//		return "listAllEvents";
+//	}
+//	@RequestMapping(path = "activateEvent.do", method = RequestMethod.POST)
+//	public String activateEvent(int eventId, Model model) {
+//		dao.activate(eventId);
+//		model.addAttribute("events", dao.findAll());
+//		return "listAllEvents";
+//	}
 	
 	@RequestMapping(path = "unattendEvent.do", method = RequestMethod.POST)
 	public String unattendEvent(Integer eventId, HttpSession session, Model model) {
@@ -146,6 +164,27 @@ public class EventController {
 		model.addAttribute("notAttending", dao.findUserEvent(eventId, user.getId()));
 		return "show";
 	}
+	
+	@RequestMapping(path = "createEventComment.do", method = RequestMethod.POST)
+	public String createEventComment (Integer eventId, String comment, HttpSession session, Model model) {
+		EventComment eComment = new EventComment();
+		eComment.setContent(comment);
+		eComment.setCreatedAt(LocalDate.now());
+		eComment.setUser((User) session.getAttribute("loggedInUser"));
+		eComment.setEvent(dao.findEventById(eventId));
+		
+		eComment = dao.submitEventComment(eComment);
+	
+		
+		List<EventComment> commentsList = dao.getEventCommentByEventId(eventId);
+		
+		
+		model.addAttribute("event", dao.findEventById(eventId));
+		model.addAttribute("commentList", commentsList);
+		model.addAttribute("notAttending", dao.findUserEvent(eventId, ((User) session.getAttribute("loggedInUser")).getId()));
+		return "showEvent";
+	}
+	
 }
 
 

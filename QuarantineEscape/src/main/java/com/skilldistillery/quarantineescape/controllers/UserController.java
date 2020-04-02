@@ -48,7 +48,7 @@ public class UserController {
 	public String signIn(HttpSession session, User user, Model model) {
 		System.out.println(user.getUsername() + user.getPassword());
 		User userLoggedIn = dao.login(user.getUsername(), user.getPassword());
-		if (userLoggedIn == null) {
+		if (userLoggedIn == null ) {
 			return "index";
 		} else {
 			session.setAttribute("loggedInUser", userLoggedIn);
@@ -88,28 +88,28 @@ public class UserController {
 	
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(Model model, HttpSession session) {
-		if (session.getAttribute("user") != null) {
-			session.removeAttribute("user");
-			model.addAttribute("logout", "Logout successful.");
+			session.removeAttribute("loggedInUser");
+			return "logout";
 		}
 
-		return "index";
-	}
+
+
+
 	
 
-	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
-	public String deactivateUser(int userId, Model model) {
-		dao.deactivate(userId);
-		model.addAttribute("users", dao.findAll());
-		return "listAllUsers";
-	}
-	
-	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
-	public String activateUser(int userId, Model model) {
-		dao.activate(userId);
-		model.addAttribute("users", dao.findAll());
-		return "listAllUsers";
-	}
+//	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
+//	public String deactivateUser(HttpSession session, int userId, Model model) {
+//		dao.deactivate(userId);
+//		model.addAttribute("users", dao.findAll());
+//		return "listAllUsers";
+//	}
+//	
+//	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
+//	public String activateUser(int userId, Model model) {
+//		dao.activate(userId);
+//		model.addAttribute("users", dao.findAll());
+//		return "listAllUsers";
+//	}
 
 	
 }

@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -13,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
- <link rel="stylesheet" href="css/locationForm.css">
+<link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Users</title>
 
 
@@ -41,52 +42,62 @@
 							<th>Description</th>
 							<th>Prereqs</th>
 							<th>Event Link</th>
-							
+
 						</thead>
 						<tbody>
 
-						
-								<c:forEach var="event" items="${events}">
-								
+							<c:set var="Admin" value="<%=Role.Admin%>" />
+							<c:forEach var="event" items="${events}">
+
 								<c:if test="${event.active}">
 									<tr>
-										<td><a href="findEvent.do?id=<c:out value="${event.id}"/>">${event.title}</a></td>
-										    
+										<td><a
+											href="findEvent.do?id=<c:out value="${event.id}"/>">${event.title}</a></td>
+
 										<td>${event.location}</td>
 										<td>${event.eventDate}</td>
 										<td>${event.description}</td>
 										<td>${event.prereqs}</td>
 										<td><a href="${event.eventLink}">Click Here</a></td>
 
-										<td>
+										<!-- <td> -->
+										<c:if test="${loggedInUser.role == Admin}">
+											<td>
+												<form action="updateEventPage.do" method="POST">
 
-											<form action="updateEventPage.do" method="POST">
-
-												<input type="hidden" value="${event.id}" name="event" /> <input
-													type="submit" value="Update" class="btn btn-primary" />
-											</form>
-										</td>
-										<td>
-											<form action="deactivateEvent.do" method="POST"
-												class="form-group">
-												<input type="hidden" value="${event.id}" name="eventId" />
-												<input type="submit" value="Deactivate"
-													class="btn btn-danger" />
-											</form>
-										</td>
+													<input type="hidden" value="${event.id}" name="event" /> <input
+														type="submit" value="Update" class="btn btn-primary" />
+												</form>
+											</td>
+											<!-- </td> -->
+											<td>
+												<form action="deactivateEvent.do" method="POST"
+													class="form-group">
+													<input type="hidden" value="${event.id}" name="eventId" />
+													<input type="submit" value="Deactivate"
+														class="btn btn-danger" />
+												</form>
+											</td>
+										</c:if>
+										<!-- </td> -->
 										<!-- test RSVP & display on user page -->
-										<td>
-											<form action="attendEvent.do" method="POST"
-												class="form-group">
-												<input type="hidden" value="${event.id}" name="eventId" />
-												<input type="hidden" value="${user.id}" name="userId" />
-												<input type="submit" value="RSVP" class="btn btn-primary" />
-											</form>
-										</td>
-									</tr>
-							</c:if>
-								</c:forEach>
-						<div>
+
+
+										<c:if test="${not empty sessionScope.loggedInUser}">
+
+											<td>
+												<form action="attendEvent.do" method="POST"
+													class="form-group">
+													<input type="hidden" value="${event.id}" name="eventId" />
+													<input type="hidden" value="${user.id}" name="userId" /> <input
+														type="submit" value="RSVP" class="btn btn-primary" />
+												</form>
+											</td>
+										</c:if>
+										<!-- </td>
+									</tr> -->
+								</c:if>
+							</c:forEach>
 						<form action="userLandingPage.do" method="POST">
 							<input type="submit" value="Home" class="btn btn-success btn-sm" />
 						</form>

@@ -14,5 +14,5 @@ public interface HostDAO {
 	public Host findHostById (int hostId);
 	public List<Host> findAll();
 	
-	public Host deactivate(int id);
+//	public Host deactivate(int id);
 }

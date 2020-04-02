@@ -39,10 +39,12 @@ public interface EventDAO {
 	
 	public List<Event> findByCategory (String name);
 	
-	public Event deactivate(int id);
-	public Event activate (int id);
+
+//	public Event deactivate(int id);
+//	public Event activate (int id);
 	
 	public boolean alreadyRSVP(int userId, int eventId);
+
 
 
 }

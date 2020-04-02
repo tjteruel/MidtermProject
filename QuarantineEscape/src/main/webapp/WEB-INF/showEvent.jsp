@@ -23,12 +23,12 @@
 
 			<section class="store-body">
 				<!-- <div class="store-content"> -->
-					<!--       <picture> -->
-					 <!-- <div class="img_right"> -->
-        <img class="store-content" src="${event.eventImageUrl }" 
-           alt="Event Image"/>  
-           <!-- </div>  -->
-					<!--       </picture> -->
+				<!--       <picture> -->
+				<!-- <div class="img_right"> -->
+				<img class="store-content" src="${event.eventImageUrl }"
+					alt="Event Image" />
+				<!-- </div>  -->
+				<!--       </picture> -->
 				<!-- </div> -->
 				<div class="store-info">
 					<div class="store-info-container">
@@ -86,17 +86,71 @@
 				<hr class="break-lines" />
 				<hr class="break-lines" />
 				<hr class="break-lines" />
-							<div class="store-features">
-								<div class="store-feature-title">
-									<strong>Event Details</strong>
-								</div>
-								<p class="store-detail">${event.description }</p>
+				<div class="store-features">
+					<div class="store-feature-title">
+						<strong>Event Details</strong>
+					</div>
+					<p class="store-detail">${event.description }</p>
+					<hr class="break-lines" />
+					<hr class="break-lines" />
+
+
+
+					
+
+					<c:if test="${not empty sessionScope.loggedInUser }">
+						<br>
+						<br>
+						<br>
+						<h4 align="center">Comments Below:</h4>
+						<form role="form" action="createEventComment.do" method="POST">
+							<div class="form-group">
+								<textarea class="form-control" rows="3" name="comment" required></textarea>
 							</div>
 							<div>
 						<form action="userLandingPage.do" method="POST">
 							<input type="submit" value="Home" class="btn btn-success btn-sm" />
 						</form>
 					</div>
+							<input type="hidden" value="${event.id}" name="eventId">
+							<button type="submit" class="btn btn-success" >Submit</button>
+						</form>
+						<br>
+						<br>
+
+						<p>
+							<span class="badge">${commentList.size()}</span> Posts:
+						</p>
+						<br>
+
+						<div class="row">
+
+							<c:forEach var="comment" items="${commentList}">
+								<div class="col-sm-2 text-center">
+									<img src="${comment.user.userImageUrl}" class="img-circle"
+										height="65" width="65" alt="Avatar">
+								</div>
+								<div class="col-sm-10">
+									<h4>
+										<a href="findUser.do?id=${comment.user.id}">${comment.user.username}</a>
+										<small>${comment.createdAt}</small>
+									</h4>
+									<p>${comment.content}</p>
+									<br>
+								</div>
+							</c:forEach>
+						</div>
+					</c:if>
+
+
+
+
+
+
+				</div>
+
+
+
 			</section>
 
 

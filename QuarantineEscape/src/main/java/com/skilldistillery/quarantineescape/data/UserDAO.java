@@ -14,7 +14,7 @@ public interface UserDAO {
 	List<User> findAll();
 	
 	
-	public User deactivate(int id);
-	public User activate(int id);
+//	public User deactivate(int id);
+//	public User activate(int id);
 
 }

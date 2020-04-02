@@ -71,6 +71,14 @@
 												type="text" value="${event.eventImageUrl}" name="eventimageUrl"
 												id="eventImageUrl" class="form-control" />
 										</div>
+										<div class="form-group">
+											<label for="active">Active: </label> <select name="active"
+												selected="${event.active}" id="active"
+												class="btn btn-secondary dropdown-toggle" required>
+												<option value="True">True</option>
+												<option value="False">False</option>
+											</select>
+										</div>
 										<%-- <div class="form-group">
 											<label for="location">Location : </label> <input type="text"
 												value="${event.location}" name="location" id="location"

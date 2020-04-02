@@ -67,10 +67,10 @@ public class HostController {
 	}
 	
 	
-	@RequestMapping(path = "deactivateHost.do", method = RequestMethod.POST)
-	public String deactivateHost(int hostId, Model model) {
-		dao.deactivate(hostId);
-		model.addAttribute("hosts", dao.findAll());
-		return "listAllHosts";
-	}
+//	@RequestMapping(path = "deactivateHost.do", method = RequestMethod.POST)
+//	public String deactivateHost(int hostId, Model model) {
+//		adm.deactivate(hostId);
+//		model.addAttribute("hosts", dao.findAll());
+//		return "listAllHosts";
+//	}
 }
