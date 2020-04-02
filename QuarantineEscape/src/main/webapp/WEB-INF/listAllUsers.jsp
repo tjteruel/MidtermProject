@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.skilldistillery.quarantineescape.entities.Role"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -12,14 +13,14 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="js/listAllUsers.js"></jsp:include>
- <link rel="stylesheet" href="css/locationForm.css">
+<link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Users</title>
 
 
 
 </head>
 <body>
-<%-- <jsp:include page="includes/navbar.jsp"/> --%>
+	<%-- <jsp:include page="includes/navbar.jsp"/> --%>
 	<div class="container">
 		<div class="row">
 
@@ -29,6 +30,8 @@
 				<div class="table-responsive">
 
 
+					<c:set var="role" value="<%=Role.Admin%>" />
+				
 					<table id="mytable" class="table table-bordred table-striped">
 
 						<thead>
@@ -38,33 +41,48 @@
 							<th>Name</th>
 							<th>UserName</th>
 							<th>Description</th>
-							
+
 						</thead>
 						<tbody>
+
 							<c:forEach var="user" items="${users}">
-							<c:if test="${user.active }">
-								<tr>
-									<td>${user.id}</td>
-									<td>${user.firstName}</td>
-									<td>${user.username}</td>
-									<td>${user.userDescription}</td>
+								<c:if test="${user.active and user.role !=role }">
+									<tr>
+										<td>${user.id}</td>
+										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName}
+												${user.lastName }</a></td>
 
-									<td>
+										<td>${user.username}</td>
+										<td>${user.userDescription}</td>
 
-										<form action="updatePage.do" method="POST">
+									<!-- <td> -->
 
-											<input type="hidden" value="${user.id}" name="user" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									<td>
-										<form action="deactivateUser.do" method="POST" class="form-group">
-											<input type="hidden" value="${user.id}" name="userId" /> <input
-												type="submit" value="Deactivate" class="btn btn-danger" />
-										</form>
-									</td>
-								</tr>
+
+									<c:if test="${loggedInUser.role == role}">
+										<td>
+
+											<form action="updatePage.do" method="POST">
+
+												<input type="hidden" value="${user.id}" name="user" /> <input
+													type="submit" value="Update" class="btn btn-primary" />
+											</form>
+										</td>
+										<!-- </td> -->
+										<!-- 	<td> -->
+										<td>
+											<form action="deactivateUser.do" method="POST"
+												class="form-group">
+												<input type="hidden" value="${user.id}" name="userId" /> <input
+													type="submit" value="Deactivate" class="btn btn-danger" />
+											</form>
+										</td>
+									</c:if>
+									</tr>
 								</c:if>
+
+								<!-- </tr> -->
+
+
 							</c:forEach>
 
 						</tbody>

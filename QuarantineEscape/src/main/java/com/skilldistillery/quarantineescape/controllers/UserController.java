@@ -89,7 +89,7 @@ public class UserController {
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(Model model, HttpSession session) {
 			session.removeAttribute("loggedInUser");
-			return "index";
+			return "logout";
 		}
 
 
