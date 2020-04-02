@@ -6,51 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>COVID AND CHILL</title>
-<!-- link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous"> -->
+	crossorigin="anonymous">
 <link rel="stylesheet" href="css/show.css">
 <jsp:include page="js/show.js"></jsp:include>
 
 </head>
 <body class="h-100">
-
-<div class="container">    
-                  <div class="row">
-                      <div class="panel panel-default">
-                      <div class="panel-heading">  <h4 >User Profile</h4></div>
-                       <div class="panel-body">
-                      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                       <img alt="User Pic" src="${user.userImageUrl}" class="img-circle img-responsive"> 
-                     
-                 
-                      </div>
-                      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                          <div class="container" >
-                            <h2>${user.firstName }</h2>
-                            <p>an   <b> ${user.role}</b></p>
-                          
-                           
-                          </div>
-                           <hr>
-                          <ul class="container details" >
-                            <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>${user.username}</p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>${user.email}</p></li>
-                          </ul>
-                          <hr>
-                          <div class="col-sm-5 col-xs-6 tital " >Date Of Joining: ${user.createdAt }</div>
-                      </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            
-
-
-
-
-<%-- 
 	<div class="container h-100">
 
 		<div class="wrapper">
@@ -59,17 +23,14 @@
 			</div>
 			<div class="header"></div>
 		</div>
-	<div id="centerpixel"> 
+		<div id="centerpixel">
 			<div id="Portfolio">
-				 <div class="inner">
+				<div class="inner">
 					<div class="Portfolio_title">
 						${user.username} <br />
 
 					</div>
-					
-					
-					<table>
-				<!-- 	<table class="portfolio_content"> -->
+					<table class="portfolio_content">
 						<tr>
 							<td>First Name</td>
 							<td class="one">:</td>
@@ -109,19 +70,19 @@
 
 
 		<!-- DELETE USER -->
-			<div class="btn-group;text-center" role="group" style="text-align:center" >
+		<%-- 	<div class="btn-group;text-center" role="group" style="text-align:center" >
 				<button type="button" class="btn btn-info btn-sm" >
 		<form action="deleteUser.do" method="POST" class="form-group">
 			<input type="hidden" value="${user.id}" name="userId" /> <input
 				type="submit" value="Delete" class="btn btn-info" />
 		</form>
-		</button>
+		</button> --%>
 
-			<!-- Home Button -->
+		<%-- 	<!-- Home Button -->
 		<a href="deleteUser.do" method="POST" value="${user.id }"> <span
 			class="glyphicon glyphicon-trash"></span>
 		</a> <a href="home.do"> <span class="glyphicon glyphicon-home"></span>
-		</a>
+		</a> --%>
 		<!-- <button type="button" class="btn btn-info btn-sm" >
 		<form action="home.do" method="POST" class="form-group">
 			<input type="hidden" name="food" /> <input
@@ -131,7 +92,7 @@
 		</button>
 	</div>
 
-	</div> --%>
+	</div>
 
 
 	<!-- DISPLAY USERS EVENTS -->
