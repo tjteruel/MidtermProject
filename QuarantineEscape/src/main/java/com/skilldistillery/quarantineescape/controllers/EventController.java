@@ -59,10 +59,16 @@ public class EventController {
 
 
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
-	public ModelAndView createEvent(Event event) {
+	public ModelAndView createEvent(Event event, HttpSession session, Model model) {
 		dao.createEvent(event);
+		User user = (User) session.getAttribute("loggedInUser"); 
+		user = userDao.findUserById(user.getId());
+		List<UserEvent> attendingEvents = dao.findAllAttendingEvents(user.getId());
+		model.addAttribute("attendingEvents", attendingEvents);
+		model.addAttribute("user", user);
+		model.addAttribute("events", dao.findAll());
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index");
+		mv.setViewName("userLandingPage");
 		return mv;
 	}
 
@@ -82,7 +88,6 @@ public class EventController {
 		mv.addObject("event", event);
 		mv.setViewName("eventUpdated");
 		return mv;
-
 	}
 
 	@RequestMapping(path = "eventUpdated.do", method = RequestMethod.POST)
