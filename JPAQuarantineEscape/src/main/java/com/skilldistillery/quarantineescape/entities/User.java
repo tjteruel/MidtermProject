@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +44,8 @@ public class User {
 
 	private Boolean enabled;
 
-	private String role;
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	private Boolean active;
 
@@ -174,11 +177,13 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public String getRole() {
+	
+
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
@@ -194,26 +199,10 @@ public class User {
 		super();
 	}
 
-	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
-			LocalDate createdAt, String userDescription, Boolean enabled, String role,
-			List<CategoryComment> categoryComments, List<UserEvent> userEvents) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.password = password;
-		this.userImageUrl = userImageUrl;
-		this.createdAt = createdAt;
-		this.userDescription = userDescription;
-		this.enabled = enabled;
-		this.role = role;
-		this.categoryComments = categoryComments;
-		this.userEvents = userEvents;
-	}
+	
 
 	public User(int id, String username, String firstName, String lastName, String password, String userImageUrl,
-			LocalDate createdAt, String userDescription, Boolean enabled, String role,
+			LocalDate createdAt, String userDescription, Boolean enabled, Role role, Boolean active,
 			List<CategoryComment> categoryComments, List<UserEvent> userEvents, List<EventComment> eventComments,
 			List<Tag> tags, String email) {
 		super();
@@ -227,6 +216,7 @@ public class User {
 		this.userDescription = userDescription;
 		this.enabled = enabled;
 		this.role = role;
+		this.active = active;
 		this.categoryComments = categoryComments;
 		this.userEvents = userEvents;
 		this.eventComments = eventComments;
