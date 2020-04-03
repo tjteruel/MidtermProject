@@ -157,7 +157,7 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-lg-3 col-md-6 footer-info">
+					<div class="col-lg-5 col-md-6 footer-info">
 						<h3>Quarantine Escape</h3>
 						<p>The world is going through an unprecedented health crisis
 							that has forced many of us to be self quarantined at home. This
@@ -188,19 +188,14 @@
 						<h4>Contact Us</h4>
 						<p>
 							7400 E Orchard Rd <br> Greenwood Village, CO 80111<br>
-							United States <br> <strong>Phone:</strong> +1 5589 55488 55<br>
-							<strong>Email:</strong> info@example.com<br>
+							United States <br> <strong>Phone:</strong> +1 303 302 5234<br>
+							 <a class="contact-icon" href="mailto:shahdankit@gmail.com?Subject=Hello!" target="_top">
+       
+							<strong>Email:</strong> rancid@slaughter.com<br>
 						</p>
 
 					</div>
-					<div class="col-lg-3 col-md-6 footer-newsletter">
-						<h4>Our Newsletter</h4>
-						<p>Subscribe for our Newsletter.</p>
-						<form action="subscribe.do" method="post">
-							<input type="email" name="email"><input type="submit"
-								value="Subscribe">
-						</form>
-					</div>
+			
 
 				</div>
 			</div>

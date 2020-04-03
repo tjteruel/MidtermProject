@@ -31,7 +31,7 @@
 
 
 					<c:set var="role" value="<%=Role.Admin%>" />
-				
+
 					<table id="mytable" class="table table-bordred table-striped">
 
 						<thead>
@@ -49,35 +49,37 @@
 								<c:if test="${user.active and user.role !=role }">
 									<tr>
 										<td>${user.id}</td>
-										
+
 										<td><a href="findUser.do?id=<c:out value="${user.id}"/>">${user.firstName}
 												${user.lastName }</a></td>
 
 										<td>${user.username}</td>
 										<td>${user.userDescription}</td>
 
-									<!-- <td> -->
+										<!-- <td> -->
 
 
-									<c:if test="${loggedInUser.role == role}">
-										<td>
+										<c:if test="${loggedInUser.role == role}">
+											<td>
 
-											<form action="updatePage.do" method="POST">
+												<form action="updatePage.do" method="POST">
 
-												<input type="hidden" value="${user.id}" name="user" /> <input
-													type="submit" value="Update" class="btn btn-primary" />
-											</form>
-										</td>
-										<!-- </td> -->
-										<!-- 	<td> -->
-										<td>
-											<form action="deactivateUser.do" method="POST"
-												class="form-group">
-												<input type="hidden" value="${user.id}" name="userId" /> <input
-													type="submit" value="Deactivate" class="btn btn-danger" />
-											</form>
-										</td>
-									</c:if>
+													<input type="hidden" value="${user.id}" name="user" /> <input
+														type="submit" value="Update" class="btn btn-primary" />
+												</form>
+											</td>
+											<!-- </td> -->
+											<!-- 	<td> -->
+											<td>
+												<form action="deactivateUser.do" method="POST"
+													class="form-group">
+													<input type="hidden" value="${user.id}" name="userId" /> <input
+														type="submit" value="Deactivate" class="btn btn-danger" />
+												</form>
+											</td>
+
+
+										</c:if>
 									</tr>
 								</c:if>
 
@@ -88,10 +90,10 @@
 
 						</tbody>
 						<div>
-						<form action="userLandingPage.do" method="POST">
-							<input type="submit" value="Home" class="btn btn-success btn-sm" />
-						</form>
-					</div>
+							<form action="userLandingPage.do" method="POST">
+								<input type="submit" value="Home" class="btn btn-success btn-sm" />
+							</form>
+						</div>
 					</table>
 
 					<div class="clearfix"></div>
@@ -119,7 +121,7 @@
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
-<script src ="js/listAllUsers.js"></script>
+	<script src="js/listAllUsers.js"></script>
 
 
 </body>
