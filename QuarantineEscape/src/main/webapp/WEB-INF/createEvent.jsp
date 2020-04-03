@@ -35,14 +35,6 @@
 												value="${event.title}" name="title" id="title"
 												class="form-control" required />
 										</div>
-										<div class="form-group">
-											<label for="description">Description: </label> <input
-												type="text" value="${event.description}" name="description"
-												id="desription" class="form-control" required />
-										</div>
-
-
-
 
 
 
@@ -61,17 +53,17 @@
 												type="text" value="${event.eventLink}" name="eventLink"
 												id="eventLink" class="form-control" />
 										</div>
-										
-										
+
+
 										<div class="form-group">
 											<label for="description">Event Description: </label> <input
 												type="text" value="${event.description}" name="description"
 												id="description" class="form-control" />
 										</div>
-										
-										
-										
-										
+
+
+
+
 										<div class="form-group">
 											<label for="publicORPrivate">Public or Private: </label> <select
 												id="${event.publicOrPrivate}" name="publicOrPrivate"
@@ -102,11 +94,8 @@
 												class="btn btn-secondary dropdown-toggle" required>
 												<option value="True">True</option>
 												<option value="False">False</option>
-											</select>
-
-
-										<input type="submit" value="Create Event"
-											class="btn btn-primary" />
+											</select> <input type="submit" value="Create Event"
+												class="btn btn-primary" />
 										</div>
 									</fieldset>
 								</div>

@@ -51,7 +51,7 @@
 												class="form-control" required />
 										</div>
 										<div class="form-group">
-											<label for="password">Password: </label> <input type="text"
+											<label for="password">Password: </label> <input type="password"
 												value="${user.password}" name="password" id="password"
 												class="form-control" required />
 										</div>
@@ -65,30 +65,7 @@
 												value="${user.userDescription}" name="userDescription" id="userDescription"
 												class="form-control"/>
 										</div>
-										<div class="form-group">
-											<label for="role">Role: </label> <select name="role"
-												selected="${user.role}" id="role"
-												class="btn btn-secondary dropdown-toggle" required>
-												<option value="User">User</option>
-												<option value="Admin">Admin</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="enabled">Enabled: </label> <select name="enabled"
-												selected="${user.enabled}" id="enabled"
-												class="btn btn-secondary dropdown-toggle" required>
-												<option value="True">True</option>
-												<option value="False">False</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="active">Active: </label> <select name="active"
-												selected="${user.active}" id="active"
-												class="btn btn-secondary dropdown-toggle" required>
-												<option value="True">True</option>
-												<option value="False">False</option>
-											</select>
-										</div>
+										
 										<input type="hidden" name="id" value="${user.id}" /> <input
 											type="submit" value="Update User" class="btn btn-primary" />
 									</fieldset>
