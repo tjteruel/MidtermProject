@@ -80,6 +80,7 @@ public class UserController {
 	@RequestMapping(path = "updateUser.do", method = RequestMethod.POST)
 	public String updateUser(@RequestParam("id")int id, User user, HttpSession session, Model model) {
 		dao.updateUser(user, id);
+		user.setEnabled(true);
 		User loggedUser = (User) session.getAttribute("loggedInUser"); 
 		loggedUser = dao.findUserById(user.getId());
 		List<UserEvent> attendingEvents = eDao.findAllAttendingEvents(user.getId());

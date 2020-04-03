@@ -42,7 +42,7 @@ public class User {
 	@Column(name = "user_description")
 	private String userDescription;
 
-	private Boolean enabled;
+	private Boolean enabled  = true;
 
 	@Enumerated(EnumType.STRING)
 	private Role role= Role.User;
