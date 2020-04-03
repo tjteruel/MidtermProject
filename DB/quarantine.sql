@@ -512,6 +512,8 @@ START TRANSACTION;
 USE `quarantinedb`;
 INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (1, 6, 4, 'Is there any live streams happening leading up to the awards ceremony?', '2020-04-01');
 INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (2, 7, 1, 'How can I donate to the help the cute penguins?', '2020-04-01');
+INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (3, 2, 2, 'I can watch this all day long', '2020-04-02');
+INSERT INTO `event_comment` (`id`, `user_id`, `event_id`, `content`, `create_date`) VALUES (4, 3, 2, 'So in love with Pandas', '2020-04-01');
 
 COMMIT;
 
