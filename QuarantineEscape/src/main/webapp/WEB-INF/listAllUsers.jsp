@@ -121,7 +121,6 @@
 
 <script src ="js/listAllUsers.js"></script>
 
-	<script src="js/listAllUsers.js"></script>
 
 </body>
 </html>

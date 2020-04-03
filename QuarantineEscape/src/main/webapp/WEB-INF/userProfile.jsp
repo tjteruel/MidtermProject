@@ -11,10 +11,6 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/show.css">
-<<<<<<< HEAD
-
-=======
->>>>>>> f20eed324ce564f6ee1adb2f5ef4bc21143b2c4b
 
 </head>
 <body class="h-100">

@@ -11,7 +11,9 @@ war {
   archiveName = "${baseName}.war"     // Our app name, as defined in settings.gradle
 
 
-  destinationDir = file("../")         // Project root directory
+
+ 
+  destinationDir = file("./")         // Project root directory
 
 }
 
@@ -31,6 +33,7 @@ dependencies {
 	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.23'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
