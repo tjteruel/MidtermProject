@@ -31,23 +31,19 @@
 			
 
 			<section class="store-body">
-				<!-- <div class="store-content"> -->
-				<!--       <picture> -->
-				<!-- <div class="img_right"> -->
+				
 				<img class="store-content" src="${event.eventImageUrl }"
 					alt="Event Image" />
-				<!-- </div>  -->
-				<!--       </picture> -->
-				<!-- </div> -->
+			
 				<div class="store-info">
 					<div class="store-info-container">
 						<address class="store-address">
 							<span>${event.location} </span> <span></span> <span
-								class="text-highlight-xs">(847) 272-8920</span> <a
+								class="text-highlight-xs">(847) 272-8920</span> <a 
 								href="https://www.google.com/maps/place/1775+${event.location }"
-								class="text-highlight-xs text-highlight-md map">
+								class="text-highlight-xs text-highlight-md map" target="_blank">
 
-								<hr class="break-lines" /> Map and Directions
+								<hr class="break-lines"  /> Map and Directions
 							</a>
 						</address>
 						<div>
@@ -73,7 +69,8 @@
 								<div class="store-feature-title">
 									<b>${event.title }</b>
 								</div>
-								<a class="store-appointment" href="${event.eventLink}">Visit
+								<a class="store-appointment" target= "_blank" href="${event.eventLink}">Visit
+							
 									the Website</a>
 							</div>
 
