@@ -9,15 +9,10 @@ apply plugin: 'war'
 war {
   enabled = true
   archiveName = "${baseName}.war"     // Our app name, as defined in settings.gradle
-<<<<<<< HEAD
+
 
   destinationDir = file("../")         // Project root directory
 
-  destinationDir = file("./")         // Project root directory
-
-=======
-  destinationDir = file("./")         // Project root directory
->>>>>>> 810250128fb367bb36f5e8ec4768462fa33e1d83
 }
 
 group = 'com.skilldistillery'
