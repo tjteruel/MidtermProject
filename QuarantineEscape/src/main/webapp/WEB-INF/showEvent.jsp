@@ -21,6 +21,14 @@
 		<section class="store-header">
 			<h1 class="store-header-title" align="center">${event.title }</h1>
 			<hr class="hidden-xs break-lines">
+			
+			
+					<div class="profile-userbuttons1">
+						<form action="userLandingPage.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
+			
 
 			<section class="store-body">
 				<!-- <div class="store-content"> -->
@@ -62,19 +70,21 @@
 
 						<div class="store-other-info">
 							<div class="store-features">
-								<div class="store-feature-title"><b>${event.title }</b></div>
+								<div class="store-feature-title">
+									<b>${event.title }</b>
+								</div>
 								<a class="store-appointment" href="${event.eventLink}">Visit
 									the Website</a>
 							</div>
 
 							<div>
-							
-									<c:if test="${not empty loggedInUser}">
-								<form action="attendEvent.do" method="POST" class="form-group">
-									<input type="hidden" value="${event.id}" name="eventId" /> <input
-										type="hidden" value="${user.id}" name="userId" /> <input
-										type="submit" value="RSVP" class="btn btn-primary" />
-								</form>
+
+								<c:if test="${not empty loggedInUser}">
+									<form action="attendEvent.do" method="POST" class="form-group">
+										<input type="hidden" value="${event.id}" name="eventId" /> <input
+											type="hidden" value="${user.id}" name="userId" /> <input
+											type="submit" value="RSVP" class="btn btn-primary" />
+									</form>
 								</c:if>
 							</div>
 
@@ -100,7 +110,7 @@
 
 
 
-					
+
 
 					<c:if test="${not empty sessionScope.loggedInUser }">
 						<br>
@@ -111,13 +121,13 @@
 							<div class="form-group">
 								<textarea class="form-control" rows="3" name="comment" required></textarea>
 							</div>
-						<!-- 	<div>
+							<!-- 	<div>
 						<form action="userLandingPage.do" method="POST">
 							<input type="submit" value="Home" class="btn btn-success btn-sm" />
 						</form>
 					</div> -->
 							<input type="hidden" value="${event.id}" name="eventId">
-							<button type="submit" class="btn btn-success" >Submit</button>
+							<button type="submit" class="btn btn-success">Submit</button>
 						</form>
 						<br>
 						<br>
@@ -156,17 +166,6 @@
 
 
 			</section>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

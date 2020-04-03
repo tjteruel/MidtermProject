@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 
- <link rel="stylesheet" href="css/locationForm.css">
+<link rel="stylesheet" href="css/locationForm.css">
 <title>Quarantine Escape - Categories</title>
 
 
@@ -22,12 +22,19 @@
 </head>
 <body>
 
-	<div class="container">
-		<div class="row">
+
+		<div class="container">
+	<div class="row">
+
 
 
 			<div class="col-md-12">
 				<h4 class="text_align">List Of Categories</h4>
+				<div class="profile-userbuttons1">
+					<form action="userLandingPage.do" method="POST">
+						<input type="submit" value="Home" class="btn btn-success btn-sm" />
+					</form>
+				</div>
 				<div class="table-responsive">
 
 
@@ -38,28 +45,27 @@
 
 							<th>Name</th>
 							<th>Description</th>
-						
-							
+
+
 						</thead>
 						<tbody>
 							<c:forEach var="category" items="${categories}">
 								<tr>
 									<td>${category.categoryName}</td>
 									<td>${category.description}</td>
-									<td><img src="${category.categoryImageUrl}" width="325" height="150"/> 
-								
-								<c:set var="Admin" value="<%=Role.Admin%>" />
-								<c:if test="${loggedInUser.role == Admin}">
-									<td>
+									<td><img src="${category.categoryImageUrl}" width="325"
+										height="150" /> <c:set var="Admin" value="<%=Role.Admin%>" />
+										<c:if test="${loggedInUser.role == Admin}">
+											<td>
 
-										<form action="updateCategoryPage.do" method="POST">
+												<form action="updateCategoryPage.do" method="POST">
 
-											<input type="hidden" value="${category.id}" name="category" /> <input
-												type="submit" value="Update" class="btn btn-primary" />
-										</form>
-									</td>
-									
-									</c:if>
+													<input type="hidden" value="${category.id}" name="category" />
+													<input type="submit" value="Update" class="btn btn-primary" />
+												</form>
+											</td>
+
+										</c:if>
 								</tr>
 							</c:forEach>
 
@@ -92,7 +98,10 @@
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
 
-<script src ="js/listAllUsers.js"></script>
+	<script src="js/listAllUsers.js"></script>
+
+	
+
 
 </body>
 </html>

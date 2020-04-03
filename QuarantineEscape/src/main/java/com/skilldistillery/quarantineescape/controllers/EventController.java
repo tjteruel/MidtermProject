@@ -81,9 +81,9 @@ public class EventController {
 
 	@RequestMapping(path = "updateEventPage.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(@RequestParam("event") int id) {
-		System.err.println(id);
+//		System.err.println(id);
 		Event event = dao.findEventById(id);
-		System.out.println(event.getTitle());
+//		System.out.println(event.getTitle());
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("event", event);
 		mv.setViewName("eventUpdated");
@@ -94,7 +94,7 @@ public class EventController {
 	public String updatedEvent(@RequestParam("id") int id, Event event) {
 
 		dao.updateEvent(event, id);
-		return "index";
+		return "userLandingPage";
 	}
 
 	@RequestMapping(path = "searchByCategory.do")
@@ -142,9 +142,12 @@ public class EventController {
 //	@RequestMapping(path = "deactivateEvent.do", method = RequestMethod.POST)
 //	public String deactivateEvent(int eventId, Model model) {
 //		dao.deactivate(eventId);
-//		model.addAttribute("events", dao.findAll());
+//	model.addAttribute("events", dao.findAll());
 //		return "listAllEvents";
 //	}
+//	
+	
+	
 //	@RequestMapping(path = "activateEvent.do", method = RequestMethod.POST)
 //	public String activateEvent(int eventId, Model model) {
 //		dao.activate(eventId);

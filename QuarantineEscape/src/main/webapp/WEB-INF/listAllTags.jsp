@@ -25,6 +25,13 @@
 <body>
 
 	<div class="container">
+	
+					<div class="profile-userbuttons1">
+						<form action="userLandingPage.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
+	
 		<div class="row">
 
 

@@ -52,6 +52,15 @@
 
 	<div class="container">
 
+
+		<div class="profile-userbuttons1">
+			<form action="home.do" method="POST">
+				<input type="submit" value="Home" class="btn btn-success btn-sm" />
+			</form>
+		</div>
+
+
+
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -103,8 +112,8 @@
 									placeholder="Enter User Description" name="userDescription">
 
 							</div>
-							
-						
+
+
 
 							<div style="text-align: center">
 								<button type="submit" class="btn btn-primary">Sign Up</button>
@@ -121,6 +130,7 @@
 
 
 	<script src="js/signup.js"></script>
+
 
 
 </body>
