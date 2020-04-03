@@ -79,25 +79,7 @@
       <!--Form with header-->
 
     </div>
-    <!--Grid column-->
-   <!--  <div>
-        <img src="https://d1xcdyhu7q1ws8.cloudfront.net/wp-content/uploads/sites/5/2018/02/27170007/world-map.gif" style="float:right;" />
-        <div style="clear:right;">
-            text here
-        </div>
-
-</div>
-<div style="width: 100%">
-    <img style="float:right; ">
-  <img src="https://d1xcdyhu7q1ws8.cloudfront.net/wp-content/uploads/sites/5/2018/02/27170007/world-map.gif"></img>
-  </div>
    
-</div> 
-
-     
- 
-  <!--   </div>< -->
-    <!--Grid column-->
 
  </div> 
 

@@ -27,23 +27,18 @@
 					<div class="profile-userpic">
 						<img src="${user.userImageUrl}" class="img-responsive" alt="">
 					</div>
-					<!-- END SIDEBAR USERPIC -->
-					<!-- SIDEBAR USER TITLE -->
+				
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-name">${user.firstName}
 							${user.lastName }</div>
 						<div class="profile-usertitle-job">${user.username}</div>
 					</div>
-					<!-- END SIDEBAR USER TITLE -->
-					<!-- SIDEBAR BUTTONS -->
+			
 					<div class="profile-userbuttons">
 						<button type="button" class="btn btn-success btn-sm">Follow</button>
 						<button type="button" class="btn btn-danger btn-sm">Message</button>
 					</div>
-					<!-- END SIDEBAR BUTTONS -->
-					<!-- SIDEBAR MENU -->
-
-					<!-- END MENU -->
+			
 
 					<div class="portlet light bordered">
 						<!-- STAT -->
