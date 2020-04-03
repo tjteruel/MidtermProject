@@ -21,29 +21,29 @@
 		<section class="store-header">
 			<h1 class="store-header-title" align="center">${event.title }</h1>
 			<hr class="hidden-xs break-lines">
-			
-			
-					<div class="profile-userbuttons1">
-						<form action="userLandingPage.do" method="POST">
-							<input type="submit" value="Home" class="btn btn-success btn-sm" />
-						</form>
-					</div>
-			
+
+
+			<div class="profile-userbuttons1">
+				<form action="userLandingPage.do" method="POST">
+					<input type="submit" value="Home" class="btn btn-success btn-sm" />
+				</form>
+			</div>
+
 
 			<section class="store-body">
-				
+
 				<img class="store-content" src="${event.eventImageUrl }"
 					alt="Event Image" />
-			
+
 				<div class="store-info">
 					<div class="store-info-container">
 						<address class="store-address">
 							<span>${event.location} </span> <span></span> <span
-								class="text-highlight-xs">(847) 272-8920</span> <a 
+								class="text-highlight-xs">(847) 272-8920</span> <a
 								href="https://www.google.com/maps/place/1775+${event.location }"
 								class="text-highlight-xs text-highlight-md map" target="_blank">
 
-								<hr class="break-lines"  /> Map and Directions
+								<hr class="break-lines" /> Map and Directions
 							</a>
 						</address>
 						<div>
@@ -69,9 +69,8 @@
 								<div class="store-feature-title">
 									<b>${event.title }</b>
 								</div>
-								<a class="store-appointment" target= "_blank" href="${event.eventLink}">Visit
-							
-									the Website</a>
+								<a class="store-appointment" target="_blank"
+									href="${event.eventLink}">Visit the Website</a>
 							</div>
 
 							<div>
@@ -118,7 +117,7 @@
 							<div class="form-group">
 								<textarea class="form-control" rows="3" name="comment" required></textarea>
 							</div>
-						
+
 							<input type="hidden" value="${event.id}" name="eventId">
 							<button type="submit" class="btn btn-success">Submit</button>
 						</form>
