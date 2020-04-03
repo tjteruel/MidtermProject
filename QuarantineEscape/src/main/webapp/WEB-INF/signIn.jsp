@@ -33,9 +33,16 @@
 
 <body>
 
+					<div class="profile-userbuttons1">
+						<form action="home.do" method="POST">
+							<input type="submit" value="Home" class="btn btn-success btn-sm" />
+						</form>
+					</div>
 
 	<div class="container">
+	
 		<div class="card card-container">
+	
 
 			<img id="profile-img" class="profile-img-card"
 				src="https://2.bp.blogspot.com/-A-UiF-5439M/TnS-h_4EaqI/AAAAAAAAAxg/wDWLcMGdMYs/s1600/Free-Scooby-Doo-Picture-Download-Photo.jpg" />

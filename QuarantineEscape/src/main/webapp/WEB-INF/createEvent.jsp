@@ -36,58 +36,78 @@
 												class="form-control" required />
 										</div>
 										<div class="form-group">
-											<label for="description">Description: </label> <input type="text"
-												value="${event.description}" name="description" id="desription"
-												class="form-control" required />
+											<label for="description">Description: </label> <input
+												type="text" value="${event.description}" name="description"
+												id="desription" class="form-control" required />
 										</div>
+
+
+
+
+
+
 										<div class="form-group">
 											<label for="eventDate">Event Date: </label> <input
-												type="text" value="${event.eventDate}" name="eventDate"
-												id="eventDate" class="form-control" />
+												type="date" value="${event.eventDate}" name="eventDate"
+												id="eventDate" class="form-control">
+
+
 										</div>
+
+
+
 										<div class="form-group">
-											<label for="eventLink">Link to Event: </label> <input type="text"
-												value="${event.eventLink}" name="eventLink" id="eventLink" class="form-control" />
+											<label for="eventLink">Link to Event: </label> <input
+												type="text" value="${event.eventLink}" name="eventLink"
+												id="eventLink" class="form-control" />
 										</div>
+										
+										
 										<div class="form-group">
-											<label for="publicORPrivate">Public or Private: </label> 
-											
-												<select id="${event.publicOrPrivate}" name="publicOrPrivate" id="publicOrPrivate" class="btn btn-secondary dropdown-toggle" required>
+											<label for="description">Event Description: </label> <input
+												type="text" value="${event.description}" name="description"
+												id="description" class="form-control" />
+										</div>
+										
+										
+										
+										
+										<div class="form-group">
+											<label for="publicORPrivate">Public or Private: </label> <select
+												id="${event.publicOrPrivate}" name="publicOrPrivate"
+												id="publicOrPrivate"
+												class="btn btn-secondary dropdown-toggle" required>
 												<option value="True">Public</option>
-												<option value="False">Private</option> 
-												</select>
+												<option value="False">Private</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<label for="status">Event Status: </label> 
-											
-												<select id="${event.status}" name="status" id="status" class="btn btn-secondary dropdown-toggle" required>
-												<option value="Scheduled">Scheduled</option> 
+											<label for="status">Event Status: </label> <select
+												id="${event.status}" name="status" id="status"
+												class="btn btn-secondary dropdown-toggle" required>
+												<option value="Scheduled">Scheduled</option>
 												<option value="Cancelled">Cancelled</option>
-												<option value="Delayed">Delayed</option> 
-												</select>
+												<option value="Delayed">Delayed</option>
+											</select>
 										</div>
 										<div class="form-group">
 											<label for="eventImageUrl">Event Image URL: </label> <input
-												type="text" value="${event.eventImageUrl}" name="eventimageUrl"
-												id="eventImageUrl" class="form-control" />
+												type="url" value="${event.eventImageUrl}"
+												name="eventImageUrl" id="eventImageUrl" class="form-control" />
 										</div>
-										
-										<div class="form-group">
-											<label for="status">Event Active: </label> 
-											
-												<select id="${event.active}" name="active" id="active" class="btn btn-secondary dropdown-toggle" required>
-												<option value="True">True</option> 
-												<option value="False">False</option>
-												</select>
-										</div>
-									<%-- 	<div class="form-group">
-											<label for="location">Location : </label> <input type="text"
-												value="${event.location}" name="location" id="location"
-												class="form-control" />
-										</div> --%>
 
-										<input
-											type="submit" value="Create Event" class="btn btn-primary" />
+										<div class="form-group">
+											<label for="status">Event Active: </label> <select
+												id="${event.active}" name="active" id="active"
+												class="btn btn-secondary dropdown-toggle" required>
+												<option value="True">True</option>
+												<option value="False">False</option>
+											</select>
+
+
+										<input type="submit" value="Create Event"
+											class="btn btn-primary" />
+										</div>
 									</fieldset>
 								</div>
 							</div>
